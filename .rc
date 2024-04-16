@@ -1,0 +1,21 @@
+function mix() {
+    ELIXIR_VERSION=${ELIXIR_VERSION:-1.15.6}
+    DOCKER_IMAGE=elixir:${ELIXIR_VERSION}
+    DOCKER_RUN_OPTS="--rm -it --network host -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro -u $(id -u):$(id -g) -v ${PWD}:${PWD} -w ${PWD} -e HEX_HOME=${PWD} -e MIX_HOME=${PWD} ${DOCKER_RUN_EXTRA_OPTS}"
+    if [ -n "$ZSH_VERSION" ]; then
+        docker run ${=DOCKER_RUN_OPTS} ${DOCKER_IMAGE} mix "$@"
+    else
+        docker run ${DOCKER_RUN_OPTS} ${DOCKER_IMAGE} mix "$@"
+    fi
+}
+
+function iex() {
+    ELIXIR_VERSION=${ELIXIR_VERSION:-1.15.6}
+    DOCKER_IMAGE=elixir:${ELIXIR_VERSION}
+    DOCKER_RUN_OPTS="--rm -it --network host -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro -u $(id -u):$(id -g) -v ${PWD}:${PWD} -w ${PWD} -e HEX_HOME=${PWD} -e MIX_HOME=${PWD} ${DOCKER_RUN_EXTRA_OPTS}"
+    if [ -n "$ZSH_VERSION" ]; then
+        docker run ${=DOCKER_RUN_OPTS} ${DOCKER_IMAGE} iex "$@"
+    else
+        docker run ${DOCKER_RUN_OPTS} ${DOCKER_IMAGE} iex "$@"
+    fi
+}

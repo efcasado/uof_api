@@ -1,0 +1,15 @@
+/_build/
+/archives/
+/cover/
+/deps/
+/doc/
+/elixir/
+/packages/
+/tmp/
+/.fetch
+
+cache.ets
+erl_crash.dump
+*.ez
+uof_messages-*.tar
+*~
