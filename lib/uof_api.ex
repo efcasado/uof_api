@@ -1,14 +1,13 @@
 defmodule UOF.API do
+  alias UOF.API.Utils.HTTP
+
   import SweetXml
 
   # https://docs.betradar.com/display/BD/UOF+-+Endpoints
 
   ## descriptions
   def markets(lang \\ "en") do
-    base_url = Application.get_env(:uof_api, :base_url)
-    auth_token = Application.get_env(:uof_api, :auth_token)
-
-    url = Enum.join([base_url, "descriptions", lang, "markets.xml"], "/")
+    endpoint = ["descriptions", lang, "markets.xml"]
 
     schema = [
       markets: [
@@ -29,17 +28,11 @@ defmodule UOF.API do
       ]
     ]
 
-    Req.get!(url,
-      headers: %{"x-access-token" => auth_token}
-    ).body
-    |> SweetXml.xmap(schema)
+    HTTP.get(endpoint, schema)
   end
 
   def match_statuses(lang \\ "en") do
-    base_url = Application.get_env(:uof_api, :base_url)
-    auth_token = Application.get_env(:uof_api, :auth_token)
-
-    url = Enum.join([base_url, "descriptions", lang, "match_status.xml"], "/")
+    endpoint = ["descriptions", lang, "match_status.xml"]
 
     schema = [
       match_statuses: [
@@ -53,17 +46,11 @@ defmodule UOF.API do
       ]
     ]
 
-    Req.get!(url,
-      headers: %{"x-access-token" => auth_token}
-    ).body
-    |> SweetXml.xmap(schema)
+    HTTP.get(endpoint, schema)
   end
 
   def betstop_reasons do
-    base_url = Application.get_env(:uof_api, :base_url)
-    auth_token = Application.get_env(:uof_api, :auth_token)
-
-    url = Enum.join([base_url, "descriptions", "betstop_reasons.xml"], "/")
+    endpoint = ["descriptions", "betstop_reasons.xml"]
 
     schema = [
       betstop_reasons: [
@@ -73,17 +60,11 @@ defmodule UOF.API do
       ]
     ]
 
-    Req.get!(url,
-      headers: %{"x-access-token" => auth_token}
-    ).body
-    |> SweetXml.xmap(schema)
+    HTTP.get(endpoint, schema)
   end
 
   def betting_statuses do
-    base_url = Application.get_env(:uof_api, :base_url)
-    auth_token = Application.get_env(:uof_api, :auth_token)
-
-    url = Enum.join([base_url, "descriptions", "betting_status.xml"], "/")
+    endpoint = ["descriptions", "betting_status.xml"]
 
     schema = [
       betting_statuses: [
@@ -93,17 +74,11 @@ defmodule UOF.API do
       ]
     ]
 
-    Req.get!(url,
-      headers: %{"x-access-token" => auth_token}
-    ).body
-    |> SweetXml.xmap(schema)
+    HTTP.get(endpoint, schema)
   end
 
   def producers do
-    base_url = Application.get_env(:uof_api, :base_url)
-    auth_token = Application.get_env(:uof_api, :auth_token)
-
-    url = Enum.join([base_url, "descriptions", "producers.xml"], "/")
+    endpoint = ["descriptions", "producers.xml"]
 
     schema = [
       producers: [
@@ -118,17 +93,11 @@ defmodule UOF.API do
       ]
     ]
 
-    Req.get!(url,
-      headers: %{"x-access-token" => auth_token}
-    ).body
-    |> SweetXml.xmap(schema)
+    HTTP.get(endpoint, schema)
   end
 
   def void_reasons do
-    base_url = Application.get_env(:uof_api, :base_url)
-    auth_token = Application.get_env(:uof_api, :auth_token)
-
-    url = Enum.join([base_url, "descriptions", "void_reasons.xml"], "/")
+    endpoint = ["descriptions", "void_reasons.xml"]
 
     schema = [
       void_reasons: [
@@ -138,19 +107,16 @@ defmodule UOF.API do
       ]
     ]
 
-    Req.get!(url,
-      headers: %{"x-access-token" => auth_token}
-    ).body
-    |> SweetXml.xmap(schema)
+    HTTP.get(endpoint, schema)
   end
+
+  # TO-DO
+  # def market_desctipion(market, variant, lang \\ "en")
 
   ### probabilities
 
   def probabilities(fixture_id) do
-    base_url = Application.get_env(:uof_api, :base_url)
-    auth_token = Application.get_env(:uof_api, :auth_token)
-
-    url = Enum.join([base_url, "probabilities", fixture_id], "/")
+    endpoint = ["probabilities", fixture_id]
 
     schema = [
       void_reasons: [
@@ -160,11 +126,8 @@ defmodule UOF.API do
       ]
     ]
 
-    Req.get!(url,
-      headers: %{"x-access-token" => auth_token}
-    ).body
-
-    # |> SweetXml.xmap(schema)
+    HTTP.get(endpoint)
+    # HTTP.get(endpoint, schema)
   end
 
   # def probabilities(fixture_id, market_id)
@@ -175,28 +138,40 @@ defmodule UOF.API do
   ### sports
 
   def competitors(id, lang \\ "en") do
-    base_url = Application.get_env(:uof_api, :base_url)
-    auth_token = Application.get_env(:uof_api, :auth_token)
-
-    url = Enum.join([base_url, "sports", lang, "competitors", id, "profile.xml"], "/")
+    endpoint = ["sports", lang, "competitors", id, "profile.xml"]
 
     schema = [
       # TO-DO: fill in
     ]
 
-    Req.get!(url,
-      headers: %{"x-access-token" => auth_token}
-    ).body
+    HTTP.get(endpoint)
+    # HTTP.get(endpoint, schema)
+  end
 
-    # |> SweetXml.xmap(schema)
+  # date = "live | <date> | pre (start, limit)"
+  def schedules(date, lang \\ "en") do
+    endpoint = ["sports", lang, "schedules", date, "schedule.xml"]
+
+    # TO-DO: complete schema
+    schema = [
+      sport_events: [
+        ~x"//sport_event"el,
+        liveodds: ~x"./@liveodds"s,
+        status: ~x"./@status"s,
+        next_live_time: ~x"./@next_live_time"s,
+        id: ~x"./@id"s,
+        scheduled: ~x"./@scheduled",
+        start_time_tbd: ~x"./@start_time_tbd"
+      ]
+    ]
+
+    # HTTP.get(endpoint)
+    HTTP.get(endpoint, schema)
   end
 
   # TO-DO: add support for 'after datetime' and 'sport' filters
   def fixture_changes(lang \\ "en") do
-    base_url = Application.get_env(:uof_api, :base_url)
-    auth_token = Application.get_env(:uof_api, :auth_token)
-
-    url = Enum.join([base_url, "sports", lang, "fixtures", "changes.xml"], "/")
+    endpoint = ["sports", lang, "fixtures", "changes.xml"]
 
     schema = [
       fixture_changes: [
@@ -206,17 +181,27 @@ defmodule UOF.API do
       ]
     ]
 
-    Req.get!(url,
-      headers: %{"x-access-token" => auth_token}
-    ).body
-    |> SweetXml.xmap(schema)
+    # HTTP.get(endpoint)
+    HTTP.get(endpoint, schema)
+  end
+
+  # TO-DO: add support for 'after datetime' and 'sport' filters
+  def results(lang \\ "en") do
+    endpoint = ["sports", lang, "results", "changes.xml"]
+
+    schema = [
+      result_changes: [
+        ~x"//result_change"el,
+        sport_event_id: ~x"./@sport_event_id"s,
+        update_time: ~x"./@update_time"s
+      ]
+    ]
+
+    HTTP.get(endpoint, schema)
   end
 
   def sports(lang \\ "en") do
-    base_url = Application.get_env(:uof_api, :base_url)
-    auth_token = Application.get_env(:uof_api, :auth_token)
-
-    url = Enum.join([base_url, "sports", lang, "sports.xml"], "/")
+    endpoint = ["sports", lang, "sports.xml"]
 
     schema = [
       sports: [
@@ -226,17 +211,11 @@ defmodule UOF.API do
       ]
     ]
 
-    Req.get!(url,
-      headers: %{"x-access-token" => auth_token}
-    ).body
-    |> SweetXml.xmap(schema)
+    HTTP.get(endpoint, schema)
   end
 
   def categories(sport, lang \\ "en") do
-    base_url = Application.get_env(:uof_api, :base_url)
-    auth_token = Application.get_env(:uof_api, :auth_token)
-
-    url = Enum.join([base_url, "sports", lang, "sports", sport, "categories.xml"], "/")
+    endpoint = ["sports", lang, "sports", sport, "categories.xml"]
 
     schema = [
       categories: [
@@ -246,17 +225,11 @@ defmodule UOF.API do
       ]
     ]
 
-    Req.get!(url,
-      headers: %{"x-access-token" => auth_token}
-    ).body
-    |> SweetXml.xmap(schema)
+    HTTP.get(endpoint, schema)
   end
 
   def tournaments(lang \\ "en") do
-    base_url = Application.get_env(:uof_api, :base_url)
-    auth_token = Application.get_env(:uof_api, :auth_token)
-
-    url = Enum.join([base_url, "sports", lang, "tournaments.xml"], "/")
+    endpoint = ["sports", lang, "tournaments.xml"]
 
     # TO-DO: avoid lists in sports, categories, current_season and season_coverage_info
     schema = [
@@ -294,26 +267,31 @@ defmodule UOF.API do
       ]
     ]
 
-    Req.get!(url,
-      headers: %{"x-access-token" => auth_token}
-    ).body
-    |> SweetXml.xmap(schema)
+    HTTP.get(endpoint, schema)
   end
 
   def tournament_info(tournament, lang \\ "en") do
-    base_url = Application.get_env(:uof_api, :base_url)
-    auth_token = Application.get_env(:uof_api, :auth_token)
-
-    url = Enum.join([base_url, "sports", lang, "tournaments", tournament, "info.xml"], "/")
+    endpoint = ["sports", lang, "tournaments", tournament, "info.xml"]
 
     schema = [
       # TO-DO: fill in
     ]
 
-    Req.get!(url,
-      headers: %{"x-access-token" => auth_token}
-    ).body
+    HTTP.get(endpoint)
+    # HTTP.get(endpoint, schema)
+  end
 
-    # |> SweetXml.xmap(schema)
+  def whoami() do
+    endpoint = ["users", "whoami.xml"]
+
+    schema = [
+      # bookmaker_details: [
+      expirete_at: ~x"//bookmaker_details/@expire_at"s,
+      bookmaker_id: ~x"//bookmaker_details/@bookmaker_id"i,
+      virtual_host: ~x"//bookmaker_details/@virtual_host"s
+      # ]
+    ]
+
+    HTTP.get(endpoint, schema)
   end
 end
