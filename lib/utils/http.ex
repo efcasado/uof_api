@@ -1,4 +1,6 @@
 defmodule UOF.API.Utils.HTTP do
+  import Logger
+
   def get(path) do
     base_url = Application.get_env(:uof_api, :base_url)
     auth_token = Application.get_env(:uof_api, :auth_token)
@@ -11,6 +13,8 @@ defmodule UOF.API.Utils.HTTP do
   end
 
   def get(path, schema) do
-    get(path) |> SweetXml.xmap(schema)
+    response = get(path)
+    Logger.debug("response=#{response}")
+    SweetXml.xmap(response, schema)
   end
 end
