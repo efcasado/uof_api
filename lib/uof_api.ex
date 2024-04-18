@@ -515,7 +515,7 @@ defmodule UOF.API do
     # TO-DO: non-group tournaments
     schema = [
       tournament: [~x"//tournament" | @tournament],
-      season: [~x"//season" | @season],
+      season: [~x"//season"o | @season],
       groups: [~x"//groups/group"el | @group]
     ]
 
