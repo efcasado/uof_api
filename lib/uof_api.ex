@@ -73,7 +73,8 @@ defmodule UOF.API do
               name: ~x"./@name"s,
               current_season: [~x"./current_season"o | @season],
               sport: [~x"./sport" | @sport],
-              category: [~x"./category" | @category]
+              category: [~x"./category" | @category],
+              competitors: [~x"./competitors/competitor"el | @competitor]
 
   # https://docs.betradar.com/display/BD/Tournament_round
   @tournament_round betradar_id: ~x"./@betradar_id"i,
@@ -512,7 +513,6 @@ defmodule UOF.API do
     endpoint = ["sports", lang, "tournaments", tournament, "info.xml"]
 
     # TO-DO: coverage-info
-    # TO-DO: non-group tournaments
     schema = [
       tournament: [~x"//tournament" | @tournament],
       season: [~x"//season"o | @season],
