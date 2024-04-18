@@ -67,6 +67,14 @@ defmodule UOF.API do
           year: ~x"./@year"s,
           tournament_id: ~x"./@tournament_id"s
 
+  # https://docs.betradar.com/display/BD/UOF+-+Tournament+we+provide+coverage+for
+  @season_coverage scheduled: ~x"./@scheduled"i,
+                   season_id: ~x"./@season_id"s,
+                   played: ~x"./@played"i,
+                   min_coverage_level: ~x"./@min_coverage_level"s,
+                   max_covered: ~x"./@max_covered"i,
+                   max_coverage_level: ~x"./@max_coverage_level"s
+
   # https://docs.betradar.com/display/BD/Tournament
   # TO-DO: do not re-use @season for @current_seasson (eg. similar but wo/ tournament_id)
   @tournament id: ~x"./@id"s,
@@ -512,11 +520,12 @@ defmodule UOF.API do
     # https://docs.betradar.com/display/BD/UOF+-+Tournament+we+provide+coverage+for
     endpoint = ["sports", lang, "tournaments", tournament, "info.xml"]
 
-    # TO-DO: coverage-info
     schema = [
       tournament: [~x"//tournament" | @tournament],
       season: [~x"//season"o | @season],
-      groups: [~x"//groups/group"el | @group]
+      season_coverage: [~x"//season_coverage_info"o | @season_coverage],
+      groups: [~x"//groups/group"el | @group],
+      coverage_info: [~x"//coverage_info" | @coverage_info]
     ]
 
     HTTP.get(endpoint, schema)
