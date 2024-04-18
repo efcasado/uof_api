@@ -68,10 +68,13 @@ defmodule UOF.API do
           tournament_id: ~x"./@tournament_id"s
 
   # https://docs.betradar.com/display/BD/Tournament
+  # TO-DO: do not re-use @season for @current_seasson (eg. similar but wo/ tournament_id)
   @tournament id: ~x"./@id"s,
               name: ~x"./@name"s,
+              current_season: [~x"./current_season"o | @season],
               sport: [~x"./sport" | @sport],
               category: [~x"./category" | @category]
+
   # https://docs.betradar.com/display/BD/Tournament_round
   @tournament_round betradar_id: ~x"./@betradar_id"i,
                     betradar_name: ~x"./@betradar_name"s,
@@ -89,6 +92,10 @@ defmodule UOF.API do
                     # qualification
                     # ???
                     phase: ~x"./@phase"os
+
+  @group id: ~x"./@id"s,
+         name: ~x"./@name"s,
+         competitors: [~x"./competitor"el | @competitor]
 
   @coverage_info level: ~x"./@level"s,
                  live_coverage: ~x"./@live_coverage"s,
@@ -491,18 +498,31 @@ defmodule UOF.API do
     HTTP.get(endpoint, schema)
   end
 
-  def tournament_info(tournament, lang \\ "en") do
+  @doc """
+  Get details about the given tournament.
+
+  ## Example
+
+      iex> %{tournaments: tournaments} = UOF.API.tournaments
+      ...> %{id: id} = hd(tournaments)
+      ...> UOF.API.tournament(id)
+  """
+  def tournament(tournament, lang \\ "en") do
+    # https://docs.betradar.com/display/BD/UOF+-+Tournament+we+provide+coverage+for
     endpoint = ["sports", lang, "tournaments", tournament, "info.xml"]
 
+    # TO-DO: coverage-info
+    # TO-DO: non-group tournaments
     schema = [
-      # TO-DO: fill in
+      tournament: [~x"//tournament" | @tournament],
+      season: [~x"//season" | @season],
+      groups: [~x"//groups/group"el | @group]
     ]
 
-    HTTP.get(endpoint)
-    # HTTP.get(endpoint, schema)
+    HTTP.get(endpoint, schema)
   end
 
-  ## Betting Description
+  ## Entity Description
   ## =========================================================================
   @doc """
   Get the details of the given player.
@@ -633,10 +653,23 @@ defmodule UOF.API do
 
   ## Probability API
   ## =========================================================================
-  # TO-DO
-  # def probabilities(fixture)
-  # def probabilities(fixture_id, market_id)
-  # def probabilities(fixture_id, market_id, specifiers)
+  def probabilities(fixture) do
+    endpoint = ["probabilities", fixture]
+    # TO-DO: parse response
+    HTTP.get(endpoint)
+  end
+
+  def probabilities(fixture, market) do
+    endpoint = ["probabilities", fixture, market]
+    # TO-DO: parse response
+    HTTP.get(endpoint)
+  end
+
+  def probabilities(fixture, market, specifiers) do
+    endpoint = ["probabilities", fixture, market, specifiers]
+    # TO-DO: parse response
+    HTTP.get(endpoint)
+  end
 
   ## Custom Bet API
   ## =========================================================================
