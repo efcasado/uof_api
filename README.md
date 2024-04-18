@@ -4,6 +4,9 @@
 
 Elixir client for Betradar's Unified Odds Feed (UOF) HTTP API.
 
+The list of all available endpoints can be found
+[here](https://docs.betradar.com/display/BD/UOF+-+List+of+End+Points).
+
 
 ### Get Started
 
