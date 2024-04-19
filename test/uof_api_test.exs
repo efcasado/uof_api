@@ -10,6 +10,20 @@ defmodule UofApiTest do
     Enum.each(tournaments, &UOF.API.tournament(&1.id))
   end
 
+  test "should parse all available pre-match fixtures" do
+    %{sport_events: fixtures} = UOF.API.schedules("pre")
+    # sample 10% of all available tournaments
+    fixtures = sample(fixtures, 10)
+    Enum.each(fixtures, &UOF.API.fixture(&1.id))
+  end
+
+  test "should parse all available live fixtures" do
+    %{sport_events: fixtures} = UOF.API.schedules("live")
+    # sample 10% of all available tournaments
+    fixtures = sample(fixtures, 10)
+    Enum.each(fixtures, &UOF.API.fixture(&1.id))
+  end
+
   def sample(xs, percent) do
     n = div(Enum.count(xs), percent)
 

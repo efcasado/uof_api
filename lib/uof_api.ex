@@ -292,6 +292,25 @@ defmodule UOF.API do
       iex> UOF.API.fixture("sr:match:49430515")
   """
   def fixture(fixture, lang \\ "en") do
+    # TO-DO: handle codds fixture
+    #     <fixtures_fixture generated_at="2024-04-19T06:58:23.170+00:00" xsi:schemaLocation="http://schemas.sportradar.com/sportsapi/v1/unified http://schemas.sportradar.com/bsa-staging/unified/v1/xml/endpoints/unified/fixtures_fixture.xsd" xmlns="http://schemas.sportradar.com/sportsapi/v1/unified" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    #     <fixture id="codds:competition_group:77739" type="child" stage_type="competition_group" scheduled="2024-04-18T14:50:00+00:00">
+    #         <parent id="sr:stage:1189639" name="Round 1" type="parent" stage_type="round"/>
+    #         <tournament id="sr:stage:1117573" name="PGA Tour 2024" scheduled="2024-01-04T10:00:00+00:00" scheduled_end="2024-12-16T05:00:00+00:00">
+    #             <sport id="sr:sport:9" name="Golf"/>
+    #             <category id="sr:category:28" name="Men"/>
+    #         </tournament>
+    #         <competitors>
+    #             <competitor id="sr:competitor:44267" name="FLEETWOOD, TOMMY" abbreviation="FLE"/>
+    #             <competitor id="sr:competitor:127560" name="HOMA, MAX" abbreviation="HOM"/>
+    #         </competitors>
+    #         <extra_info>
+    #             <info key="course" value="sr:venue:20693"/>
+    #             <info key="play_type" value="stroke_play"/>
+    #             <info key="play_format" value="singles"/>
+    #         </extra_info>
+    #     </fixture>
+    # </fixtures_fixture>
     endpoint = ["sports", lang, "sport_events", fixture, "fixture.xml"]
 
     schema = [
@@ -441,7 +460,8 @@ defmodule UOF.API do
 
     schema = [sports: [~x"//sport"el | @sport]]
 
-    HTTP.get(endpoint, schema)
+    %{sports: sports} = HTTP.get(endpoint, schema)
+    sports
   end
 
   @doc """
@@ -520,6 +540,8 @@ defmodule UOF.API do
     # https://docs.betradar.com/display/BD/UOF+-+Tournament+we+provide+coverage+for
     endpoint = ["sports", lang, "tournaments", tournament, "info.xml"]
 
+    # TO-DO: staged tournaments
+    # https://docs.betradar.com/display/BD/UOF+-+Formula+1
     schema = [
       tournament: [~x"//tournament" | @tournament],
       season: [~x"//season"o | @season],
