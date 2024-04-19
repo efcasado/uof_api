@@ -1,114 +1,14 @@
 defmodule UOF.API do
   # https://docs.betradar.com/display/BD/UOF+-+Endpoints
+  alias UOF.API.Market
+  alias UOF.API.MatchStatus
+  alias UOF.API.VoidReason
   alias UOF.API.Utils.HTTP
   import SweetXml
-
-  # https://docs.betradar.com/display/BD/Competitor
-  @competitor id: ~x"./@id"s,
-              name: ~x"./@name"s,
-              state: ~x"./@state"s,
-              country: ~x"./@country"s,
-              abbreviation: ~x"./@abbreviation"s,
-              qualifier: ~x"./@qualifier"s,
-              virtual: ~x"./@virtual"s,
-              gender: ~x"./@gender"s,
-              references: [
-                ~x"./reference_ids/reference_id"el,
-                name: ~x"./@name"s,
-                value: ~x"./@value"s
-              ]
-
-  # https://docs.betradar.com/display/BD/Sport
-  @sport id: ~x"./@id"s,
-         name: ~x"./@name"s
-
-  # https://docs.betradar.com/display/BD/Category
-  @category id: ~x"./@id"s,
-            name: ~x"./@name"s,
-            country_code: ~x"./@country_code"s
-
-  # https://docs.betradar.com/display/BD/Venue
-  @venue id: ~x"./@id"s,
-         name: ~x"./@name"s,
-         capacity: ~x"./@capacity"oi,
-         city_name: ~x"./@city_name"s,
-         country_name: ~x"./@country_name"s,
-         map_coordinates: ~x"./@map_coordinates"s,
-         country_code: ~x"./@country_code"s
-
-  # https://docs.betradar.com/display/BD/UOF+-+Competitors+profile
-  @jersey type: ~x"./@type"s,
-          base: ~x"./@base"s,
-          sleeve: ~x"./@sleeve"s,
-          number: ~x"./@number"s,
-          stripes: ~x"./@stripes"s,
-          horizontal_stripes: ~x"./@horizontal_stripes"s,
-          squares: ~x"./@squares"s,
-          split: ~x"./@split"s,
-          shirt_type: ~x"./@shirt_type"s
-
-  # https://docs.betradar.com/display/BD/Player
-  @player type: ~x"./@type"s,
-          date_of_birth: ~x"./@date_of_birth"s,
-          nationality: ~x"./@nationality"s,
-          country_code: ~x"./@country_code"s,
-          height: ~x"./@height"oi,
-          weight: ~x"./@weight"oi,
-          full_name: ~x"./@full_name"s,
-          gender: ~x"./@gender"s,
-          id: ~x"./@id"s,
-          name: ~x"./@name"s
-
-  # https://docs.betradar.com/display/BD/Season
-  @season id: ~x"./@id"s,
-          name: ~x"./@name"s,
-          start_date: ~x"./@start_date"s,
-          end_date: ~x"./@end_date"s,
-          year: ~x"./@year"s,
-          tournament_id: ~x"./@tournament_id"s
-
-  # https://docs.betradar.com/display/BD/UOF+-+Tournament+we+provide+coverage+for
-  @season_coverage scheduled: ~x"./@scheduled"i,
-                   season_id: ~x"./@season_id"s,
-                   played: ~x"./@played"i,
-                   min_coverage_level: ~x"./@min_coverage_level"s,
-                   max_covered: ~x"./@max_covered"i,
-                   max_coverage_level: ~x"./@max_coverage_level"s
-
-  # https://docs.betradar.com/display/BD/Tournament
-  # TO-DO: do not re-use @season for @current_seasson (eg. similar but wo/ tournament_id)
-  @tournament id: ~x"./@id"s,
-              name: ~x"./@name"s,
-              current_season: [~x"./current_season"o | @season],
-              sport: [~x"./sport" | @sport],
-              category: [~x"./category" | @category],
-              competitors: [~x"./competitors/competitor"el | @competitor]
-
-  # https://docs.betradar.com/display/BD/Tournament_round
-  @tournament_round betradar_id: ~x"./@betradar_id"i,
-                    betradar_name: ~x"./@betradar_name"s,
-                    type: ~x"./@type"s,
-                    # cup
-                    name: ~x"./@name"os,
-                    cup_round_matches: ~x"./@cup_round_matches"oi,
-                    cup_round_match_number: ~x"./@cup_round_match_number"oi,
-                    other_match_id: ~x"./@other_match_id"os,
-                    # group
-                    number: ~x"./@number"os,
-                    group: ~x"./@group"os,
-                    group_id: ~x"./@group_id"os,
-                    group_long_name: ~x"./@group_long_name"os,
-                    # qualification
-                    # ???
-                    phase: ~x"./@phase"os
 
   @group id: ~x"./@id"s,
          name: ~x"./@name"s,
          competitors: [~x"./competitor"el | @competitor]
-
-  @coverage_info level: ~x"./@level"s,
-                 live_coverage: ~x"./@live_coverage"s,
-                 includes: ~x"./coverage/@includes"s
 
   ## Betting Descriptions
   ## =========================================================================
@@ -118,7 +18,7 @@ defmodule UOF.API do
 
   ## Example
 
-      iex> %{markets: markets} = UOF.API.markets("en")
+      iex> markets = UOF.API.markets("en")
       ...> [m| _] = Enum.sort(markets, fn(%{id: id1}, %{id: id2}) -> id1 < id2 end)
       ...> %{id: 1, name: "1x2"} = m
   """
@@ -126,26 +26,10 @@ defmodule UOF.API do
     # TO-DO: Optional mappings
     endpoint = ["descriptions", lang, "markets.xml"]
 
-    schema = [
-      markets: [
-        ~x"//market"el,
-        id: ~x"./@id"i,
-        name: ~x"./@name"s,
-        groups: ~x"./@groups"s,
-        outcomes: [
-          ~x"//outcome"el,
-          id: ~x"./@id"i,
-          name: ~x"./@name"s
-        ],
-        specifiers: [
-          ~x"//specifier"el,
-          name: ~x"./@name"s,
-          type: ~x"./@type"s
-        ]
-      ]
-    ]
+    schema = [markets: [~x"//market"el| Market.schema]]
 
-    HTTP.get(endpoint, schema)
+    %{markets: markets} = HTTP.get(endpoint, schema)
+    markets
   end
 
   @doc """
@@ -154,7 +38,7 @@ defmodule UOF.API do
 
   ## Example
 
-      iex> %{match_statuses: statuses} = UOF.API.match_statuses("en")
+      iex> statuses = UOF.API.match_statuses("en")
       ...> 185 = Enum.count(statuses)
       ...> %{id: 0, description: "Not started"} = hd(statuses)
       ...> %{id: 548, description: "Break top EI bottom 7"} = hd(Enum.reverse(statuses))
@@ -162,19 +46,10 @@ defmodule UOF.API do
   def match_statuses(lang \\ "en") do
     endpoint = ["descriptions", lang, "match_status.xml"]
 
-    schema = [
-      match_statuses: [
-        ~x"//match_status"el,
-        id: ~x"./@id"i,
-        description: ~x"./@description"s,
-        sports: [
-          ~x"//match_status/sports/sport"el,
-          id: ~x"./@id"s
-        ]
-      ]
-    ]
+    schema = [match_statuses: [~x"//match_status"el| MatchStatus.schema]]
 
-    HTTP.get(endpoint, schema)
+    %{match_statuses: statuses} = HTTP.get(endpoint, schema)
+    statuses
   end
 
   @doc """
@@ -268,12 +143,7 @@ defmodule UOF.API do
     endpoint = ["descriptions", "void_reasons.xml"]
 
     schema = [
-      void_reasons: [
-        ~x"//void_reason"el,
-        id: ~x"./@id"i,
-        description: ~x"./@description"s
-      ]
-    ]
+      void_reasons: [ ~x"//void_reason"el| VoidReason.schema] ]
 
     HTTP.get(endpoint, schema)
   end
