@@ -1,5 +1,7 @@
 ![UOF API](https://github.com/efcasado/uof_api/raw/main/assets/readme_logo.png)
 
+[![Build Status](https://github.com/efcasado/uof_api/workflows/Elixir%20CI/badge.svg)](https://github.com/efcasado/uof_api/actions)
+
 # UOF API
 
 Elixir client for Betradar's Unified Odds Feed (UOF) HTTP API.
