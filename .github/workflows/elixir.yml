@@ -1,0 +1,29 @@
+name: Elixir CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    env:
+      UOF_BASE_URL: ${{ vars.UOF_BASE_URL }}
+      UOF_AUTH_TOKEN: ${{ secrets.UOF_AUTH_TOKEN }}
+    steps:
+    - uses: actions/checkout@v3
+    - name: Restore dependencies from cache
+      uses: actions/cache@v3
+      with:
+        path: deps
+        key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+        restore-keys: ${{ runner.os }}-mix-
+    - name: Build
+      shell: 'script -q -e -c "bash --noprofile --norc -eo pipefail {0}"'
+      run: make
