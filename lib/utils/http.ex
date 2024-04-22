@@ -14,7 +14,7 @@ defmodule UOF.API.Utils.HTTP do
 
   def get(path, schema) do
     response = get(path)
-    Logger.debug("response=#{response}")
-    SweetXml.xmap(response, schema)
+    debug("response=#{response}")
+    Saxaboom.parse(response, schema)
   end
 end

@@ -19,7 +19,8 @@ defmodule UofApi.MixProject do
 
   defp deps do
     [
-      {:sweet_xml, "~> 0.7.4"},
+      {:saxaboom, "0.2.1"},
+      {:saxy, "~> 1.5"},
       {:req, "~> 0.4.14"},
       # dev
       {:ex_doc, "~> 0.31", only: :dev, runtime: false}
