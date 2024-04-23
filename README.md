@@ -1,6 +1,6 @@
 ![UOF API](https://github.com/efcasado/uof_api/raw/main/assets/readme_logo.png)
 
-[![Build Status](https://github.com/efcasado/uof_api/workflows/Elixir%20CI/badge.svg)](https://github.com/efcasado/uof_api/actions)
+[![Build Status](https://github.com/efcasado/uof_api/workflows/Elixir%20CI/badge.svg?branch=main)](https://github.com/efcasado/uof_api/actions)
 
 # UOF API
 
