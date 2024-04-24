@@ -12,6 +12,8 @@ defmodule UOF.API.Mappings.MatchStatus do
   document do
     attribute(:id, cast: :integer)
     attribute(:description)
-    elements(:sport, as: :sport, into: %UOF.API.Mappings.MatchStatus.Sport{})
+    attribute(:period_number, cast: :integer)
+    attribute(:all, as: :all_sports, cast: :boolean, default: false)
+    elements(:sport, as: :sports, into: %UOF.API.Mappings.MatchStatus.Sport{})
   end
 end
