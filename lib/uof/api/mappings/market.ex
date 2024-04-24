@@ -4,7 +4,7 @@ defmodule UOF.API.Mappings.Market do
   alias UOF.API.Mappings.{Outcome, Specifier}
 
   document do
-    attribute(:id)
+    attribute(:id, cast: :integer)
     attribute(:name)
     attribute(:groups)
     # attribute :outcome_type, as: :market.outcome_type
