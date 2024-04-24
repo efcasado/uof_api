@@ -15,14 +15,18 @@ Elixir client for Betradar's Unified Odds Feed (UOF) HTTP API.
 ### Get Started
 
 ```elixir
-UOF.API.sports
+config :uof_api, base_url: "<betradar-uof-base-url>"
+config :uof_api, auth_token: "<your-auth-token>"
+```
 
-# %{
-#  sports: [
-#    %{id: "sr:sport:143", name: "7BallRun"},
-#    %{id: "sr:sport:192", name: "Air Racing"},
-#    %{id: "sr:sport:43", name: "Alpine Skiing"},
-#    ...
-#    ]
-# }
+```elixir
+# Get all available sports
+{:ok, %UOF.API.Mappings.Sports{sports: sports}} = UOF.API.sports
+# ...
+football = Enum.find(sports, &(&1.name == "Soccer"))
+
+# Get all available tournaments
+{:ok, %UOF.API.Mappings.Tournaments{tournaments: tournaments}} = UOF.API.tournaments
+# Get all football tournaments
+football_tournaments = Enum.filter(tournaments, &(&1.sport == football))
 ```
