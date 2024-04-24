@@ -195,23 +195,9 @@ defmodule UOF.API do
 
   ## Probability API
   ## =========================================================================
-  def probabilities(fixture) do
-    endpoint = ["probabilities", fixture]
-    # TO-DO: parse response
-    HTTP.get(endpoint)
-  end
-
-  def probabilities(fixture, market) do
-    endpoint = ["probabilities", fixture, market]
-    # TO-DO: parse response
-    HTTP.get(endpoint)
-  end
-
-  def probabilities(fixture, market, specifiers) do
-    endpoint = ["probabilities", fixture, market, specifiers]
-    # TO-DO: parse response
-    HTTP.get(endpoint)
-  end
+  # def probabilities(fixture) do
+  # def probabilities(fixture, market) do
+  # def probabilities(fixture, market, specifiers) do
 
   ## Custom Bet API
   ## =========================================================================
