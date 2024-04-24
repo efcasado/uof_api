@@ -3,30 +3,18 @@ defmodule UofApiTest do
 
   doctest UOF.API
 
-  test "should parse all available tournaments" do
-    {:ok, %UOF.API.Mappings.Tournaments{tournaments: tournaments}} = UOF.API.tournaments()
-    # sample 10% of all available tournaments
-    tournaments = sample(tournaments, 10)
-    Enum.each(tournaments, &UOF.API.tournament(&1.id))
-  end
+  test "can parse 'descriptions/:lang/markets.xml'" do
+    data = File.read!("test/data/markets.xml")
 
-  test "should parse all available pre-match fixtures" do
-    {:ok, %UOF.API.Mappings.Schedule{events: fixtures}} = UOF.API.schedule("pre")
-    # sample 10% of all available fixtures
-    fixtures = sample(fixtures, 10)
-    Enum.each(fixtures, &UOF.API.fixture(&1.id))
-  end
+    {:ok, %UOF.API.Mappings.MarketDescriptions{markets: markets}} =
+      Saxaboom.parse(data, %UOF.API.Mappings.MarketDescriptions{})
 
-  test "should parse all available live fixtures" do
-    {:ok, %UOF.API.Mappings.Schedule{events: fixtures}} = UOF.API.schedule("live")
-    # sample 10% of all available fixtures
-    fixtures = sample(fixtures, 10)
-    Enum.each(fixtures, &UOF.API.fixture(&1.id))
-  end
+    market = hd(markets)
 
-  def sample(xs, percent) do
-    n = div(Enum.count(xs), percent)
-
-    Enum.take(Enum.shuffle(xs), n)
+    assert Enum.count(markets) == 1172
+    assert market.id == 282
+    assert market.name == "Innings 1 to 5th top - {$competitor1} total"
+    assert market.groups == "all|score|4.5_innings"
+    assert Enum.map(market.outcomes, & &1.id) == [13, 12]
   end
 end
