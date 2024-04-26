@@ -206,4 +206,30 @@ defmodule UOF.API.Test do
     assert reference.name == "BetradarCtrl"
     assert reference.value == "11428313"
   end
+
+  test "can parse 'sports/:lang/fixtures/changes.xml' response" do
+    data = File.read!("test/data/fixture_changes.xml")
+
+    {:ok, %UOF.API.Mappings.FixtureChanges{changes: changes}} =
+      Saxaboom.parse(data, %UOF.API.Mappings.FixtureChanges{})
+
+    change = hd(changes)
+
+    assert Enum.count(changes) == 9543
+    assert change.sport_event_id == "sr:match:49540297"
+    assert change.update_time == "2024-04-26T19:12:43+00:00"
+  end
+
+  test "can parse 'sports/:lang/results/changes.xml' response" do
+    data = File.read!("test/data/result_changes.xml")
+
+    {:ok, %UOF.API.Mappings.ResultChanges{changes: changes}} =
+      Saxaboom.parse(data, %UOF.API.Mappings.ResultChanges{})
+
+    change = hd(changes)
+
+    assert Enum.count(changes) == 4236
+    assert change.sport_event_id == "sr:match:49689671"
+    assert change.update_time == "2024-04-26T19:12:56+00:00"
+  end
 end
