@@ -3,7 +3,6 @@
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 generated_at="2024-04-17T20:40:33+00:00"
 xsi:schemaLocation="http://schemas.sportradar.com/sportsapi/v1/unified http://schemas.sportradar.com/ufsportsapi/v1/endpoints/unified/ufsportsapi.xsd">
-
   <sport id="sr:sport:143" name="7BallRun" />
   <sport id="sr:sport:192" name="Air Racing" />
   <sport id="sr:sport:43" name="Alpine Skiing" />

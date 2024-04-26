@@ -1,4 +1,4 @@
-defmodule UofApiTest do
+defmodule UOF.API.Test do
   use ExUnit.Case
 
   doctest UOF.API
@@ -55,6 +55,63 @@ defmodule UofApiTest do
                "sr:sport:157",
                "sr:sport:195"
              ]
+  end
+
+  test "can parse 'descriptions/betstop_reasons.xml' response" do
+    data = File.read!("test/data/betstop_reasons.xml")
+
+    {:ok, %UOF.API.Mappings.BetStopReasonDescriptions{reasons: reasons}} =
+      Saxaboom.parse(data, %UOF.API.Mappings.BetStopReasonDescriptions{})
+
+    reason = hd(reasons)
+
+    assert Enum.count(reasons) == 90
+    assert reason.id == 0
+    assert reason.description == "UNKNOWN"
+  end
+
+  test "can parse 'descriptions/betting_status.xml' response" do
+    data = File.read!("test/data/betting_status.xml")
+
+    {:ok, %UOF.API.Mappings.BettingStatusDescriptions{statuses: statuses}} =
+      Saxaboom.parse(data, %UOF.API.Mappings.BettingStatusDescriptions{})
+
+    status = hd(statuses)
+
+    assert Enum.count(statuses) == 7
+    assert status.id == 0
+    assert status.description == "UNKNOWN"
+  end
+
+  test "can parse 'descriptions/void_reasons.xml' response" do
+    data = File.read!("test/data/void_reasons.xml")
+
+    {:ok, %UOF.API.Mappings.VoidReasonDescriptions{reasons: reasons}} =
+      Saxaboom.parse(data, %UOF.API.Mappings.VoidReasonDescriptions{})
+
+    reason = hd(reasons)
+
+    assert Enum.count(reasons) == 17
+    assert reason.id == 0
+    assert reason.description == "OTHER"
+  end
+
+  test "can parse 'descriptions/producers.xml' response" do
+    data = File.read!("test/data/producers.xml")
+
+    {:ok, %UOF.API.Mappings.Producers{producers: producers}} =
+      Saxaboom.parse(data, %UOF.API.Mappings.Producers{})
+
+    producer = hd(producers)
+
+    assert Enum.count(producers) == 15
+    assert producer.id == 1
+    assert producer.name == "LO"
+    assert producer.description == "Live Odds"
+    assert producer.api_url == "https://stgapi.betradar.com/v1/liveodds/"
+    assert producer.active == true
+    assert producer.scope == "live"
+    assert producer.stateful_recovery_window_in_minutes == 600
   end
 
   test "can parse 'sports/:lang/sports.xml' response" do
