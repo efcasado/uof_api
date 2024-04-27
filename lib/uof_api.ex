@@ -123,6 +123,17 @@ defmodule UOF.API do
   end
 
   @doc """
+  Get detailed information (including event timeline) for the given sport event.
+  # Prematch, Live or Post-match. Prematch details are very brief. Post-match
+  # details include results.
+  """
+  def timeline(fixture, lang \\ "en") do
+    endpoint = ["sports", lang, "sport_events", fixture, "timeline.xml"]
+
+    HTTP.get(endpoint, %UOF.API.Mappings.Timeline{})
+  end
+
+  @doc """
   List all the available sports.
   """
   def sports(lang \\ "en") do

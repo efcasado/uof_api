@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<match_timeline xmlns="http://schemas.sportradar.com/sportsapi/v1/unified"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+generated_at="2024-04-27T11:43:23+00:00"
+xsi:schemaLocation="http://schemas.sportradar.com/sportsapi/v1/unified http://schemas.sportradar.com/ufsportsapi/v1/endpoints/unified/ufsportsapi.xsd">
+
+  <sport_event id="sr:match:42308595"
+  scheduled="2024-04-26T17:30:00+00:00" start_time_tbd="false">
+    <tournament_round type="group" number="30"
+    group_long_name="2nd Bundesliga" betradar_id="16956"
+    betradar_name="2nd Bundesliga" />
+    <season start_date="2023-09-01" end_date="2024-06-01"
+    year="23/24" tournament_id="sr:tournament:921"
+    id="sr:season:107905" name="2. HBL 23/24" />
+    <tournament id="sr:tournament:921" name="2. HBL">
+      <sport id="sr:sport:6" name="Handball" />
+      <category id="sr:category:53" name="Germany"
+      country_code="DEU" />
+    </tournament>
+    <competitors>
+      <competitor qualifier="home" id="sr:competitor:6325"
+      name="VfL Eintracht Hagen" abbreviation="HAG"
+      short_name="Eintracht Hagen" country="Germany"
+      country_code="DEU" gender="male">
+        <reference_ids>
+          <reference_id name="betradar" value="8042520" />
+        </reference_ids>
+      </competitor>
+      <competitor qualifier="away" id="sr:competitor:7808"
+      name="HC Elbflorenz 2006" abbreviation="ELB"
+      short_name="Elbflorenz 2006" country="Germany"
+      country_code="DEU" gender="male">
+        <reference_ids>
+          <reference_id name="betradar" value="9919108" />
+        </reference_ids>
+      </competitor>
+    </competitors>
+    <venue id="sr:venue:7072" name="Ischelandhalle" capacity="1200"
+    city_name="Hagen" country_name="Germany" country_code="DEU"
+    map_coordinates="51.370987,7.477113" />
+  </sport_event>
+  <sport_event_conditions attendance="1054">
+    <venue id="sr:venue:7072" name="Ischelandhalle" capacity="1200"
+    city_name="Hagen" country_name="Germany" country_code="DEU"
+    map_coordinates="51.370987,7.477113" />
+  </sport_event_conditions>
+  <sport_event_status home_score="30" away_score="31"
+  status_code="4" match_status_code="100" status="closed"
+  match_status="ended" winner_id="sr:competitor:7808">
+    <period_scores>
+      <period_score home_score="13" away_score="16"
+      match_status_code="6" type="regular_period" number="1" />
+      <period_score home_score="17" away_score="15"
+      match_status_code="7" type="regular_period" number="2" />
+    </period_scores>
+    <results>
+      <result home_score="30" away_score="31"
+      match_status_code="100" />
+    </results>
+  </sport_event_status>
+  <coverage_info level="silver" live_coverage="true"
+  covered_from="venue">
+    <coverage includes="basic_score" />
+    <coverage includes="key_events" />
+  </coverage_info>
+  <timeline>
+    <event id="1731284211" type="match_started"
+    time="2024-04-26T17:33:59+00:00" />
+    <event id="1731284217" type="period_start"
+    time="2024-04-26T17:33:59+00:00" period_name="1st half"
+    period="1" match_status_code="6" />
+    <event id="1731285639" type="score_change"
+    time="2024-04-26T17:35:12+00:00" match_time="2"
+    match_clock="1:12" team="away" x="20" y="73" home_score="0"
+    away_score="1">
+      <goal_scorer id="sr:player:1341258" name="Pehlivan, Doruk" />
+      <assist type="primary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731286869" type="score_change"
+    time="2024-04-26T17:36:09+00:00" match_time="3"
+    match_clock="2:12" team="home" x="83" y="75" home_score="1"
+    away_score="1">
+      <goal_scorer id="sr:player:1260198" name="Voss-Fels, Kim" />
+      <assist type="primary" id="sr:player:869366"
+      name="Mallwitz, Marino" />
+    </event>
+    <event id="1731287469" type="score_change"
+    time="2024-04-26T17:36:40+00:00" match_time="3"
+    match_clock="2:41" team="home" x="81" y="57" home_score="2"
+    away_score="1">
+      <goal_scorer id="sr:player:1494739" name="Busch, Pierre" />
+      <assist type="primary" id="sr:player:876062"
+      name="Prohl, Tilman" />
+      <assist type="secondary" id="sr:player:869366"
+      name="Mallwitz, Marino" />
+    </event>
+    <event id="1731287891" type="score_change"
+    time="2024-04-26T17:37:03+00:00" match_time="4"
+    match_clock="3:05" team="home" x="83" y="53" home_score="3"
+    away_score="1">
+      <goal_scorer id="sr:player:1260198" name="Voss-Fels, Kim" />
+      <assist type="primary" id="sr:player:1494739"
+      name="Busch, Pierre" />
+      <assist type="secondary" id="sr:player:869366"
+      name="Mallwitz, Marino" />
+    </event>
+    <event id="1731291561" type="score_change"
+    time="2024-04-26T17:39:55+00:00" match_time="6"
+    match_clock="5:32" team="away" home_score="3" away_score="2">
+      <goal_scorer id="sr:player:870826" name="Dierberg, Julius" />
+      <assist type="primary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731293685" type="score_change"
+    time="2024-04-26T17:41:43+00:00" match_time="8"
+    match_clock="7:01" team="away" x="5" y="11" home_score="3"
+    away_score="3">
+      <goal_scorer id="sr:player:2175766"
+      name="Klepp, Vincent Emilio" />
+      <assist type="primary" id="sr:player:1299236"
+      name="Stavast, Ivar" />
+      <assist type="secondary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731294755" type="score_change"
+    time="2024-04-26T17:42:47+00:00" match_time="9"
+    match_clock="8:07" team="home" home_score="4" away_score="3">
+      <goal_scorer id="sr:player:1494739" name="Busch, Pierre" />
+      <assist type="primary" id="sr:player:869366"
+      name="Mallwitz, Marino" />
+    </event>
+    <event id="1731295639" type="score_change"
+    time="2024-04-26T17:43:31+00:00" match_time="9"
+    match_clock="8:49" team="away" x="16" y="75" home_score="4"
+    away_score="4">
+      <goal_scorer id="sr:player:1341258" name="Pehlivan, Doruk" />
+      <assist type="primary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731296747" type="score_change"
+    time="2024-04-26T17:44:24+00:00" match_time="10"
+    match_clock="9:43" team="away" x="20" y="53" home_score="4"
+    away_score="5">
+      <goal_scorer id="sr:player:1299236" name="Stavast, Ivar" />
+      <assist type="primary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731297253" type="score_change"
+    time="2024-04-26T17:44:50+00:00" match_time="11"
+    match_clock="10:11" team="home" x="81" y="58" home_score="5"
+    away_score="5">
+      <goal_scorer id="sr:player:1260198" name="Voss-Fels, Kim" />
+      <assist type="primary" id="sr:player:869366"
+      name="Mallwitz, Marino" />
+    </event>
+    <event id="1731298853" type="score_change"
+    time="2024-04-26T17:45:55+00:00" match_time="12"
+    match_clock="11:15" team="away" x="19" y="51" home_score="5"
+    away_score="6">
+      <goal_scorer id="sr:player:1299236" name="Stavast, Ivar" />
+      <assist type="primary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731299611" type="score_change"
+    time="2024-04-26T17:46:31+00:00" match_time="12"
+    match_clock="11:53" team="away" x="20" y="57" home_score="5"
+    away_score="7">
+      <goal_scorer id="sr:player:1299236" name="Stavast, Ivar" />
+      <assist type="primary" id="sr:player:868734"
+      name="Gress, Sebastian" />
+      <assist type="secondary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731301575" type="score_change"
+    time="2024-04-26T17:48:18+00:00" match_time="14"
+    match_clock="13:37" team="away" x="20" y="54" home_score="5"
+    away_score="8">
+      <goal_scorer id="sr:player:868734" name="Gress, Sebastian" />
+      <assist type="primary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731305345" type="score_change"
+    time="2024-04-26T17:52:02+00:00" match_time="16"
+    match_clock="15:28" team="home" x="94" y="89" home_score="6"
+    away_score="8">
+      <goal_scorer id="sr:player:1494739" name="Busch, Pierre" />
+      <assist type="primary" id="sr:player:1260198"
+      name="Voss-Fels, Kim" />
+      <assist type="secondary" id="sr:player:869366"
+      name="Mallwitz, Marino" />
+    </event>
+    <event id="1731306759" type="score_change"
+    time="2024-04-26T17:53:31+00:00" match_time="17"
+    match_clock="16:59" team="home" x="81" y="28" home_score="7"
+    away_score="8">
+      <goal_scorer id="sr:player:257857"
+      name="Pieczkowski, Niclas" />
+      <assist type="primary" id="sr:player:869366"
+      name="Mallwitz, Marino" />
+    </event>
+    <event id="1731306889" type="score_change"
+    time="2024-04-26T17:53:39+00:00" match_time="18"
+    match_clock="17:06" team="away" x="16" y="25" home_score="7"
+    away_score="9">
+      <goal_scorer id="sr:player:257901"
+      name="Kretschmer, Nils Holger" />
+      <assist type="primary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731307127" type="yellow_card"
+    time="2024-04-26T17:53:54+00:00" match_time="18"
+    match_clock="17:22" team="away">
+      <player id="sr:player:211672" name="Thummler, Jonas" />
+    </event>
+    <event id="1731307681" type="score_change"
+    time="2024-04-26T17:54:37+00:00" match_time="19"
+    match_clock="18:06" team="away" x="13" y="81" home_score="7"
+    away_score="10">
+      <goal_scorer id="sr:player:870826" name="Dierberg, Julius" />
+      <assist type="primary" id="sr:player:1299236"
+      name="Stavast, Ivar" />
+      <assist type="secondary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731308337" type="yellow_card"
+    time="2024-04-26T17:55:17+00:00" match_time="19"
+    match_clock="18:41" team="away">
+      <player id="sr:player:257901"
+      name="Kretschmer, Nils Holger" />
+    </event>
+    <event id="1731308585" type="score_change"
+    time="2024-04-26T17:55:33+00:00" match_time="20"
+    match_clock="19:02" team="home" x="81" y="55" home_score="8"
+    away_score="10">
+      <goal_scorer id="sr:player:873906" name="Stuber, Frederic" />
+      <assist type="primary" id="sr:player:257857"
+      name="Pieczkowski, Niclas" />
+      <assist type="secondary" id="sr:player:869366"
+      name="Mallwitz, Marino" />
+    </event>
+    <event id="1731309139" type="score_change"
+    time="2024-04-26T17:56:13+00:00" match_time="20"
+    match_clock="19:40" team="home" x="82" y="53" home_score="9"
+    away_score="10">
+      <goal_scorer id="sr:player:1260198" name="Voss-Fels, Kim" />
+      <assist type="primary" id="sr:player:873906"
+      name="Stuber, Frederic" />
+      <assist type="secondary" id="sr:player:869366"
+      name="Mallwitz, Marino" />
+    </event>
+    <event id="1731311287" type="score_change"
+    time="2024-04-26T17:58:42+00:00" match_time="21"
+    match_clock="20:52" team="away" x="20" y="59" home_score="9"
+    away_score="11">
+      <goal_scorer id="sr:player:870826" name="Dierberg, Julius" />
+      <assist type="primary" id="sr:player:1299236"
+      name="Stavast, Ivar" />
+      <assist type="secondary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731312769" type="score_change"
+    time="2024-04-26T18:00:10+00:00" match_time="22"
+    match_clock="21:04" team="home" home_score="10"
+    away_score="11">
+      <goal_scorer id="sr:player:1494739" name="Busch, Pierre" />
+      <assist type="primary" id="sr:player:869366"
+      name="Mallwitz, Marino" />
+    </event>
+    <event id="1731315087" type="score_change"
+    time="2024-04-26T18:01:54+00:00" match_time="23"
+    match_clock="22:10" team="away" home_score="10"
+    away_score="12">
+      <goal_scorer id="sr:player:257901"
+      name="Kretschmer, Nils Holger" />
+      <assist type="primary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731315563" type="score_change"
+    time="2024-04-26T18:02:17+00:00" match_time="23"
+    match_clock="22:35" team="home" x="80" y="29" home_score="11"
+    away_score="12">
+      <goal_scorer id="sr:player:1336870" name="Weck, Alexander" />
+      <assist type="primary" id="sr:player:869366"
+      name="Mallwitz, Marino" />
+    </event>
+    <event id="1731317311" type="score_change"
+    time="2024-04-26T18:03:43+00:00" match_time="24"
+    match_clock="23:32" team="away" home_score="11"
+    away_score="13">
+      <goal_scorer id="sr:player:257901"
+      name="Kretschmer, Nils Holger" />
+      <assist type="primary" id="sr:player:873358"
+      name="Mahncke, Tobias" />
+    </event>
+    <event id="1731318171" type="score_change"
+    time="2024-04-26T18:04:26+00:00" match_time="25"
+    match_clock="24:15" team="away" x="19" y="58" home_score="11"
+    away_score="14">
+      <goal_scorer id="sr:player:1341258" name="Pehlivan, Doruk" />
+      <assist type="primary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731318719" type="score_change"
+    time="2024-04-26T18:04:53+00:00" match_time="25"
+    match_clock="24:47" team="home" x="83" y="56" home_score="12"
+    away_score="14">
+      <goal_scorer id="sr:player:873906" name="Stuber, Frederic" />
+      <assist type="primary" id="sr:player:1136103"
+      name="Vorlicek, Philipp" />
+      <assist type="secondary" id="sr:player:869366"
+      name="Mallwitz, Marino" />
+    </event>
+    <event id="1731320203" type="score_change"
+    time="2024-04-26T18:06:13+00:00" match_time="26"
+    match_clock="25:35" team="away" x="20" y="53" home_score="12"
+    away_score="15">
+      <goal_scorer id="sr:player:868734" name="Gress, Sebastian" />
+      <assist type="primary" id="sr:player:1341258"
+      name="Pehlivan, Doruk" />
+      <assist type="secondary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731323903" type="score_change"
+    time="2024-04-26T18:08:51+00:00" match_time="27"
+    match_clock="26:57" team="away" home_score="12"
+    away_score="16">
+      <goal_scorer id="sr:player:257901"
+      name="Kretschmer, Nils Holger" />
+      <assist type="primary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731324717" type="score_change"
+    time="2024-04-26T18:09:37+00:00" match_time="28"
+    match_clock="27:48" team="home" x="85" y="28" home_score="13"
+    away_score="16">
+      <goal_scorer id="sr:player:125142"
+      name="Gaubatz, Jan-Lars" />
+      <assist type="primary" id="sr:player:869366"
+      name="Mallwitz, Marino" />
+    </event>
+    <event id="1731328685" type="period_score"
+    time="2024-04-26T18:13:03+00:00" match_clock="30:00"
+    home_score="13" away_score="16" period="1"
+    match_status_code="6" />
+    <event id="1731328687" type="break_start"
+    time="2024-04-26T18:13:03+00:00" period_name="Pause"
+    match_status_code="31" />
+    <event id="1731345603" type="period_start"
+    time="2024-04-26T18:28:39+00:00" period_name="2nd half"
+    period="2" match_status_code="7" />
+    <event id="1731346571" type="score_change"
+    time="2024-04-26T18:29:39+00:00" match_time="32"
+    match_clock="31:02" team="away" x="20" y="49" home_score="13"
+    away_score="17">
+      <goal_scorer id="sr:player:1299236" name="Stavast, Ivar" />
+      <assist type="primary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731347173" type="score_change"
+    time="2024-04-26T18:30:10+00:00" match_time="32"
+    match_clock="31:29" team="home" x="80" y="29" home_score="14"
+    away_score="17">
+      <goal_scorer id="sr:player:1260198" name="Voss-Fels, Kim" />
+      <assist type="primary" id="sr:player:1336728"
+      name="Mohs, Max" />
+    </event>
+    <event id="1731348131" type="score_change"
+    time="2024-04-26T18:30:47+00:00" match_time="33"
+    match_clock="32:08" team="home" x="81" y="40" home_score="15"
+    away_score="17">
+      <goal_scorer id="sr:player:2428803" name="Jukic, Josip" />
+      <assist type="primary" id="sr:player:1280070"
+      name="Alves, Andre" />
+      <assist type="secondary" id="sr:player:1336728"
+      name="Mohs, Max" />
+    </event>
+    <event id="1731348497" type="score_change"
+    time="2024-04-26T18:31:08+00:00" match_time="33"
+    match_clock="32:28" team="home" x="80" y="42" home_score="16"
+    away_score="17">
+      <goal_scorer id="sr:player:876062" name="Prohl, Tilman" />
+      <assist type="primary" id="sr:player:1260198"
+      name="Voss-Fels, Kim" />
+      <assist type="secondary" id="sr:player:1336728"
+      name="Mohs, Max" />
+    </event>
+    <event id="1731350751" type="yellow_card"
+    time="2024-04-26T18:33:01+00:00" match_time="35"
+    match_clock="34:03" team="home" />
+    <event id="1731351273" type="score_change"
+    time="2024-04-26T18:33:24+00:00" match_time="35"
+    match_clock="34:16" team="away" x="19" y="43" home_score="16"
+    away_score="18">
+      <goal_scorer id="sr:player:1515663" name="Seidler, Oliver" />
+      <assist type="primary" id="sr:player:1299236"
+      name="Stavast, Ivar" />
+      <assist type="secondary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731351921" type="score_change"
+    time="2024-04-26T18:33:55+00:00" match_time="35"
+    match_clock="34:47" team="home" x="79" y="45" home_score="17"
+    away_score="18">
+      <goal_scorer id="sr:player:1136103"
+      name="Vorlicek, Philipp" />
+      <assist type="primary" id="sr:player:1336728"
+      name="Mohs, Max" />
+    </event>
+    <event id="1731352565" type="score_change"
+    time="2024-04-26T18:34:27+00:00" match_time="36"
+    match_clock="35:17" team="home" x="82" y="42" home_score="18"
+    away_score="18">
+      <goal_scorer id="sr:player:2428803" name="Jukic, Josip" />
+      <assist type="primary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+      <assist type="secondary" id="sr:player:1336728"
+      name="Mohs, Max" />
+    </event>
+    <event id="1731354751" type="score_change"
+    time="2024-04-26T18:36:10+00:00" match_time="36"
+    match_clock="35:47" team="away" x="19" y="47" home_score="18"
+    away_score="19">
+      <goal_scorer id="sr:player:1515663" name="Seidler, Oliver" />
+      <assist type="primary" id="sr:player:868734"
+      name="Gress, Sebastian" />
+      <assist type="secondary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731356783" type="score_change"
+    time="2024-04-26T18:37:44+00:00" match_time="38"
+    match_clock="37:19" team="home" x="83" y="73" home_score="19"
+    away_score="19">
+      <goal_scorer id="sr:player:1260198" name="Voss-Fels, Kim" />
+      <assist type="primary" id="sr:player:1336728"
+      name="Mohs, Max" />
+    </event>
+    <event id="1731357925" type="score_change"
+    time="2024-04-26T18:38:41+00:00" match_time="39"
+    match_clock="38:15" team="away" x="18" y="51" home_score="19"
+    away_score="20">
+      <goal_scorer id="sr:player:257901"
+      name="Kretschmer, Nils Holger" />
+      <assist type="primary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731358095" type="score_change"
+    time="2024-04-26T18:38:50+00:00" match_time="39"
+    match_clock="38:25" team="home" x="78" y="45" home_score="20"
+    away_score="20">
+      <goal_scorer id="sr:player:125142"
+      name="Gaubatz, Jan-Lars" />
+      <assist type="primary" id="sr:player:1336728"
+      name="Mohs, Max" />
+    </event>
+    <event id="1731360335" type="score_change"
+    time="2024-04-26T18:40:44+00:00" match_time="40"
+    match_clock="39:40" team="away" home_score="20"
+    away_score="21">
+      <goal_scorer id="sr:player:257901"
+      name="Kretschmer, Nils Holger" />
+      <assist type="primary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731360903" type="score_change"
+    time="2024-04-26T18:41:13+00:00" match_time="41"
+    match_clock="40:11" team="home" x="81" y="28" home_score="21"
+    away_score="21">
+      <goal_scorer id="sr:player:1336870" name="Weck, Alexander" />
+      <assist type="primary" id="sr:player:1336728"
+      name="Mohs, Max" />
+    </event>
+    <event id="1731361565" type="score_change"
+    time="2024-04-26T18:41:48+00:00" match_time="41"
+    match_clock="40:45" team="home" x="81" y="28" home_score="22"
+    away_score="21">
+      <goal_scorer id="sr:player:1336870" name="Weck, Alexander" />
+      <assist type="primary" id="sr:player:1336728"
+      name="Mohs, Max" />
+    </event>
+    <event id="1731362303" type="score_change"
+    time="2024-04-26T18:42:28+00:00" match_time="42"
+    match_clock="41:28" team="away" x="18" y="43" home_score="22"
+    away_score="22">
+      <goal_scorer id="sr:player:211672" name="Thummler, Jonas" />
+      <assist type="primary" id="sr:player:1341258"
+      name="Pehlivan, Doruk" />
+      <assist type="secondary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731363239" type="score_change"
+    time="2024-04-26T18:43:20+00:00" match_time="43"
+    match_clock="42:19" team="away" x="7" y="10" home_score="22"
+    away_score="23">
+      <goal_scorer id="sr:player:2175766"
+      name="Klepp, Vincent Emilio" />
+      <assist type="primary" id="sr:player:1299236"
+      name="Stavast, Ivar" />
+      <assist type="secondary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731363761" type="score_change"
+    time="2024-04-26T18:43:49+00:00" match_time="43"
+    match_clock="42:48" team="home" x="93" y="87" home_score="23"
+    away_score="23">
+      <goal_scorer id="sr:player:1280070" name="Alves, Andre" />
+      <assist type="primary" id="sr:player:125142"
+      name="Gaubatz, Jan-Lars" />
+      <assist type="secondary" id="sr:player:869366"
+      name="Mallwitz, Marino" />
+    </event>
+    <event id="1731365065" type="score_change"
+    time="2024-04-26T18:44:56+00:00" match_time="44"
+    match_clock="43:20" team="away" x="18" y="26" home_score="23"
+    away_score="24">
+      <goal_scorer id="sr:player:868734" name="Gress, Sebastian" />
+      <assist type="primary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731368041" type="score_change"
+    time="2024-04-26T18:47:19+00:00" match_time="46"
+    match_clock="45:14" team="away" x="18" y="42" home_score="23"
+    away_score="25">
+      <goal_scorer id="sr:player:2175766"
+      name="Klepp, Vincent Emilio" />
+      <assist type="primary" id="sr:player:1341258"
+      name="Pehlivan, Doruk" />
+      <assist type="secondary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731373499" type="score_change"
+    time="2024-04-26T18:52:18+00:00" match_time="49"
+    match_clock="48:50" team="home" x="84" y="21" home_score="24"
+    away_score="25">
+      <goal_scorer id="sr:player:257857"
+      name="Pieczkowski, Niclas" />
+      <assist type="primary" id="sr:player:869366"
+      name="Mallwitz, Marino" />
+    </event>
+    <event id="1731373903" type="score_change"
+    time="2024-04-26T18:52:42+00:00" match_time="50"
+    match_clock="49:18" team="away" x="16" y="69" home_score="24"
+    away_score="26">
+      <goal_scorer id="sr:player:868734" name="Gress, Sebastian" />
+      <assist type="primary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731374993" type="score_change"
+    time="2024-04-26T18:53:49+00:00" match_time="51"
+    match_clock="50:10" team="home" x="93" y="88" home_score="25"
+    away_score="26">
+      <goal_scorer id="sr:player:1280070" name="Alves, Andre" />
+      <assist type="primary" id="sr:player:1260198"
+      name="Voss-Fels, Kim" />
+      <assist type="secondary" id="sr:player:869366"
+      name="Mallwitz, Marino" />
+    </event>
+    <event id="1731376023" type="score_change"
+    time="2024-04-26T18:54:59+00:00" match_time="52"
+    match_clock="51:23" team="home" x="82" y="61" home_score="26"
+    away_score="26">
+      <goal_scorer id="sr:player:125142"
+      name="Gaubatz, Jan-Lars" />
+      <assist type="primary" id="sr:player:869366"
+      name="Mallwitz, Marino" />
+    </event>
+    <event id="1731378791" type="score_change"
+    time="2024-04-26T18:58:00+00:00" match_time="54"
+    match_clock="53:10" team="home" x="81" y="43" home_score="27"
+    away_score="26">
+      <goal_scorer id="sr:player:1260198" name="Voss-Fels, Kim" />
+      <assist type="primary" id="sr:player:869366"
+      name="Mallwitz, Marino" />
+    </event>
+    <event id="1731379103" type="score_change"
+    time="2024-04-26T18:58:18+00:00" match_time="54"
+    match_clock="53:29" team="away" x="17" y="45" home_score="27"
+    away_score="27">
+      <goal_scorer id="sr:player:868734" name="Gress, Sebastian" />
+      <assist type="primary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731379949" type="score_change"
+    time="2024-04-26T18:59:20+00:00" match_time="55"
+    match_clock="54:08" team="away" x="73" y="47" home_score="27"
+    away_score="28">
+      <goal_scorer id="sr:player:1341258" name="Pehlivan, Doruk" />
+    </event>
+    <event id="1731382729" type="score_change"
+    time="2024-04-26T19:01:53+00:00" match_time="56"
+    match_clock="55:12" team="home" x="81" y="47" home_score="28"
+    away_score="28">
+      <goal_scorer id="sr:player:257857"
+      name="Pieczkowski, Niclas" />
+      <assist type="primary" id="sr:player:876062"
+      name="Prohl, Tilman" />
+      <assist type="secondary" id="sr:player:869366"
+      name="Mallwitz, Marino" />
+    </event>
+    <event id="1731383637" type="score_change"
+    time="2024-04-26T19:02:37+00:00" match_time="56"
+    match_clock="55:56" team="home" x="84" y="30" home_score="29"
+    away_score="28">
+      <goal_scorer id="sr:player:876062" name="Prohl, Tilman" />
+      <assist type="primary" id="sr:player:1336870"
+      name="Weck, Alexander" />
+      <assist type="secondary" id="sr:player:869366"
+      name="Mallwitz, Marino" />
+    </event>
+    <event id="1731384285" type="score_change"
+    time="2024-04-26T19:03:08+00:00" match_time="57"
+    match_clock="56:28" team="away" x="21" y="48" home_score="29"
+    away_score="29">
+      <goal_scorer id="sr:player:868734" name="Gress, Sebastian" />
+      <assist type="primary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731386015" type="score_change"
+    time="2024-04-26T19:04:30+00:00" match_time="58"
+    match_clock="57:51" team="away" x="16" y="29" home_score="29"
+    away_score="30">
+      <goal_scorer id="sr:player:1299236" name="Stavast, Ivar" />
+      <assist type="primary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731386265" type="score_change"
+    time="2024-04-26T19:04:41+00:00" match_time="58"
+    match_clock="58:00" team="home" x="82" y="46" home_score="30"
+    away_score="30">
+      <goal_scorer id="sr:player:876062" name="Prohl, Tilman" />
+      <assist type="primary" id="sr:player:257857"
+      name="Pieczkowski, Niclas" />
+      <assist type="secondary" id="sr:player:869366"
+      name="Mallwitz, Marino" />
+    </event>
+    <event id="1731389315" type="score_change"
+    time="2024-04-26T19:06:55+00:00" match_time="59"
+    match_clock="58:48" team="away" x="19" y="42" home_score="30"
+    away_score="31">
+      <goal_scorer id="sr:player:1515663" name="Seidler, Oliver" />
+      <assist type="primary" id="sr:player:1299236"
+      name="Stavast, Ivar" />
+      <assist type="secondary" id="sr:player:1554873"
+      name="Grzesinski, Mats" />
+    </event>
+    <event id="1731393345" type="match_ended"
+    time="2024-04-26T19:10:23+00:00" match_clock="60:00" />
+  </timeline>
+</match_timeline>
