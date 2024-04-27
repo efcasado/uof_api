@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<competitor_profile xmlns="http://schemas.sportradar.com/sportsapi/v1/unified"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+generated_at="2024-04-27T07:52:24+00:00"
+xsi:schemaLocation="http://schemas.sportradar.com/sportsapi/v1/unified http://schemas.sportradar.com/ufsportsapi/v1/endpoints/unified/ufsportsapi.xsd">
+
+  <competitor id="sr:competitor:2672" name="Bayern Munich"
+  abbreviation="BMU" country="Germany" country_code="DEU"
+  gender="male">
+    <sport id="sr:sport:1" name="Soccer" />
+    <category id="sr:category:30" name="Germany"
+    country_code="DEU" />
+  </competitor>
+  <venue id="sr:venue:574" name="Allianz Arena" capacity="75000"
+  city_name="Munich" country_name="Germany" country_code="DEU"
+  map_coordinates="48.218777,11.624748" />
+  <jerseys>
+    <jersey type="home" base="fdfcfc" sleeve="ff0000"
+    number="f90606" stripes="false" horizontal_stripes="false"
+    squares="false" split="false" shirt_type="short_sleeves"
+    sleeve_detail="ffffff" />
+    <jersey type="away" base="090606" sleeve="030202"
+    number="8d287e" stripes="false" horizontal_stripes="false"
+    squares="false" split="false" shirt_type="short_sleeves"
+    sleeve_detail="0b0c09" />
+    <jersey type="goalkeeper" base="f92b91" sleeve="f92b91"
+    number="cff149" stripes="false" horizontal_stripes="false"
+    squares="false" split="false" shirt_type="short_sleeves" />
+    <jersey type="third" base="f3f3e7" sleeve="f9f8ec"
+    number="8b4659" stripes="false" horizontal_stripes="false"
+    squares="false" split="false" shirt_type="short_sleeves" />
+  </jerseys>
+  <manager id="sr:player:72771" name="Tuchel, Thomas"
+  nationality="Germany" country_code="DEU" />
+  <players>
+    <player type="goalkeeper" date_of_birth="1986-03-27"
+    nationality="Germany" country_code="DEU" height="193"
+    weight="93" jersey_number="1" full_name="Manuel Peter Neuer"
+    gender="male" id="sr:player:8959" name="Neuer, Manuel" />
+    <player type="defender" date_of_birth="1998-10-27"
+    nationality="France" country_code="FRA" height="186"
+    weight="90" jersey_number="2"
+    full_name="Dayotchanculle Oswald Upamecano" gender="male"
+    id="sr:player:769139" name="Upamecano, Dayot" />
+    <player type="defender" date_of_birth="1996-11-15"
+    nationality="Republic Of Korea" country_code="KOR" height="190"
+    weight="86" jersey_number="3" full_name="Min-jae Kim"
+    gender="male" id="sr:player:1272814" name="Min-jae, Kim" />
+    <player type="defender" date_of_birth="1999-08-12"
+    nationality="Netherlands" country_code="NLD" height="189"
+    weight="89" jersey_number="4" full_name="Matthijs de Ligt"
+    gender="male" id="sr:player:815732" name="De Ligt, Matthijs" />
+    <player type="midfielder" date_of_birth="1995-02-08"
+    nationality="Germany" country_code="DEU" height="177"
+    weight="75" jersey_number="6" full_name="Joshua Walter Kimmich"
+    gender="male" id="sr:player:259117" name="Kimmich, Joshua" />
+    <player type="forward" date_of_birth="1995-07-14"
+    nationality="Germany" country_code="DEU" height="176"
+    weight="77" jersey_number="7" full_name="Serge David Gnabry"
+    gender="male" id="sr:player:187433" name="Gnabry, Serge" />
+    <player type="midfielder" date_of_birth="1995-02-06"
+    nationality="Germany" country_code="DEU" height="189"
+    weight="82" jersey_number="8"
+    full_name="Leon Christoph Goretzka" gender="male"
+    id="sr:player:184661" name="Goretzka, Leon" />
+    <player type="forward" date_of_birth="1993-07-28"
+    nationality="England" country_code="ENG" height="188"
+    weight="85" jersey_number="9" full_name="Harry Edward Kane"
+    gender="male" id="sr:player:108579" name="Kane, Harry" />
+    <player type="forward" date_of_birth="1996-01-11"
+    nationality="Germany" country_code="DEU" height="183"
+    weight="80" jersey_number="10" full_name="Leroy Aziz Sane"
+    gender="male" id="sr:player:293519" name="Sane, Leroy" />
+    <player type="forward" date_of_birth="1996-06-13"
+    nationality="France" country_code="FRA" height="181"
+    weight="76" jersey_number="11"
+    full_name="Kingsley Junior Coman" gender="male"
+    id="sr:player:280441" name="Coman, Kingsley" />
+    <player type="forward" date_of_birth="1989-03-23"
+    nationality="Cameroon" country_code="CMR" height="191"
+    weight="90" jersey_number="13"
+    full_name="Eric Maxim Choupo-Moting" gender="male"
+    id="sr:player:21626" name="Choupo-Moting, Eric Maxim" />
+    <player type="defender" date_of_birth="1994-01-15"
+    nationality="England" country_code="ENG" height="188"
+    weight="90" jersey_number="15"
+    full_name="Eric Jeremy Edgar Dier" gender="male"
+    id="sr:player:146101" name="Dier, Eric" />
+    <player type="midfielder" date_of_birth="2001-09-09"
+    nationality="Spain" country_code="ESP" height="164"
+    jersey_number="17" full_name="Bryan Zaragoza Martinez"
+    nickname="Bryan" gender="male" id="sr:player:2112576"
+    name="Zaragoza, Bryan" />
+    <player type="goalkeeper" date_of_birth="2000-07-10"
+    nationality="Israel" country_code="ISR" height="187"
+    weight="75" jersey_number="18" full_name="Daniel Peretz"
+    gender="male" id="sr:player:1091596" name="Peretz, Daniel" />
+    <player type="defender" date_of_birth="2000-11-02"
+    nationality="Canada" country_code="CAN" height="185"
+    weight="77" jersey_number="19"
+    full_name="Alphonso Boyle Davies" gender="male"
+    id="sr:player:1008301" name="Davies, Alphonso" />
+    <player type="defender" date_of_birth="1992-01-31"
+    nationality="Senegal" country_code="SEN" height="178"
+    weight="71" jersey_number="20" full_name="Bouna Sarr"
+    gender="male" id="sr:player:158233" name="Sarr, Bouna" />
+    <player type="defender" date_of_birth="1993-12-22"
+    nationality="Portugal" country_code="PRT" height="170"
+    weight="71" jersey_number="22"
+    full_name="Raphael Adelino Jose Guerreiro" gender="male"
+    id="sr:player:246999" name="Guerreiro, Raphael" />
+    <player type="defender" date_of_birth="2000-09-13"
+    nationality="France" country_code="FRA" height="178"
+    weight="76" jersey_number="23" full_name="Sacha Boey"
+    gender="male" id="sr:player:1725458" name="Boey, Sacha" />
+    <player type="forward" date_of_birth="1989-09-13"
+    nationality="Germany" country_code="DEU" height="185"
+    weight="76" jersey_number="25" full_name="Thomas Muller"
+    gender="male" id="sr:player:35166" name="Muller, Thomas" />
+    <player type="goalkeeper" date_of_birth="1988-08-03"
+    nationality="Germany" country_code="DEU" height="192"
+    weight="87" jersey_number="26" full_name="Sven Ulreich"
+    gender="male" id="sr:player:26768" name="Ulreich, Sven" />
+    <player type="midfielder" date_of_birth="1997-05-27"
+    nationality="Austria" country_code="AUT" height="180"
+    weight="72" jersey_number="27" full_name="Konrad Laimer"
+    gender="male" id="sr:player:355492" name="Laimer, Konrad" />
+    <player type="defender" date_of_birth="2005-02-28"
+    nationality="Germany" country_code="DEU" height="188"
+    weight="79" jersey_number="28" full_name="Tarek Buchmann"
+    gender="male" id="sr:player:2264567" name="Buchmann, Tarek" />
+    <player type="midfielder" date_of_birth="2005-05-08"
+    nationality="Croatia" country_code="HRV" height="180"
+    weight="70" jersey_number="34" full_name="Lovro Zvonarek"
+    gender="male" id="sr:player:2157718" name="Zvonarek Lovro" />
+    <player type="midfielder" date_of_birth="2005-11-22"
+    nationality="Germany" country_code="DEU" jersey_number="36"
+    full_name="Noel Aseko Nkili" gender="male"
+    id="sr:player:2444725" name="Aseko Nkili, Noel" />
+    <player type="defender" date_of_birth="2003-03-02"
+    nationality="Germany" country_code="DEU" height="182"
+    weight="75" jersey_number="37" full_name="Luca Denk"
+    gender="male" id="sr:player:1939874" name="Denk, Luca" />
+    <player type="forward" date_of_birth="2005-04-27"
+    nationality="France" country_code="FRA" height="183"
+    weight="77" jersey_number="39" full_name="Mathys Henri Tel"
+    gender="male" id="sr:player:2059277" name="Tel, Mathys" />
+    <player type="defender" date_of_birth="1997-11-14"
+    nationality="Morocco" country_code="MAR" height="183"
+    weight="65" jersey_number="40" full_name="Noussair Mazraoui"
+    gender="male" id="sr:player:943506"
+    name="Mazraoui, Noussair" />
+    <player type="midfielder" date_of_birth="2003-02-26"
+    nationality="Germany" country_code="DEU" height="184"
+    weight="72" jersey_number="42" full_name="Jamal Musiala"
+    gender="male" id="sr:player:1939888" name="Musiala, Jamal" />
+    <player type="goalkeeper" date_of_birth="2004-04-11"
+    nationality="Germany" country_code="DEU" height="200"
+    weight="89" jersey_number="43" full_name="Tom Ritzy Hulsmann"
+    gender="male" id="sr:player:2247243" name="Hulsmann, Tom" />
+    <player type="defender" date_of_birth="2006-06-02"
+    nationality="Morocco" country_code="MAR" jersey_number="44"
+    full_name="Adam Aznou Ben Cheikh" gender="male"
+    id="sr:player:2691724" name="Aznou, Adam" />
+    <player type="midfielder" date_of_birth="2004-05-03"
+    nationality="Germany" country_code="DEU" height="186"
+    weight="80" jersey_number="45" full_name="Aleksandar Pavlovic"
+    gender="male" id="sr:player:2272579"
+    name="Pavlovic, Aleksandar" />
+    <player type="goalkeeper" date_of_birth="2006-01-18"
+    nationality="Germany" country_code="DEU" height="189"
+    weight="78" jersey_number="48" full_name="Max Joseph Schmitt"
+    gender="male" id="sr:player:2610721" name="Schmitt, Max" />
+  </players>
+</competitor_profile>

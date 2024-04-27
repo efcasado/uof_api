@@ -522,4 +522,27 @@ defmodule UOF.API.Test do
     assert player.name == "Neuer, Manuel"
   end
 
+  test "can parse 'sports/:lang/venue/:venue/venue.xml' response" do
+    data = File.read!("test/data/venue_profile.xml")
+
+    {:ok, profile} = Saxaboom.parse(data, %UOF.API.Mappings.VenueProfile{})
+
+    # venue
+    assert profile.venue.id == "sr:venue:574"
+    assert profile.venue.name == "Allianz Arena"
+    assert profile.venue.capacity == 75000
+    assert profile.venue.city_name == "Munich"
+    assert profile.venue.country_name == "Germany"
+    assert profile.venue.country_code == "DEU"
+    assert profile.venue.map_coordinates == "48.218777,11.624748"
+    # home teams
+    home_team = hd(profile.home_teams)
+    assert Enum.count(profile.home_teams) == 1
+    assert home_team.id == "sr:competitor:2672"
+    assert home_team.name == "Bayern Munich"
+    assert home_team.abbreviation == "BMU"
+    assert home_team.country == "Germany"
+    assert home_team.country_code == "DEU"
+    assert home_team.gender == "male"
+  end
 end

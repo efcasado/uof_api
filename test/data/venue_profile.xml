@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<venue_summary xmlns="http://schemas.sportradar.com/sportsapi/v1/unified"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+generated_at="2024-04-27T08:28:37+00:00"
+xsi:schemaLocation="http://schemas.sportradar.com/sportsapi/v1/unified http://schemas.sportradar.com/ufsportsapi/v1/endpoints/unified/ufsportsapi.xsd">
+
+  <venue id="sr:venue:574" name="Allianz Arena" capacity="75000"
+  city_name="Munich" country_name="Germany" country_code="DEU"
+  map_coordinates="48.218777,11.624748" />
+  <home_teams>
+    <competitor id="sr:competitor:2672" name="Bayern Munich"
+    abbreviation="BMU" country="Germany" country_code="DEU"
+    gender="male">
+      <sport id="sr:sport:1" name="Soccer" />
+      <category id="sr:category:30" name="Germany"
+      country_code="DEU" />
+    </competitor>
+  </home_teams>
+</venue_summary>
