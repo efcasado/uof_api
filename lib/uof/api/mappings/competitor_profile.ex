@@ -1,7 +1,7 @@
 defmodule UOF.API.Mappings.CompetitorProfile do
   use Saxaboom.Mapper
 
-  alias UOF.API.Mappings.{Competitor, Jersey, Player, Venue}
+  alias UOF.API.Mappings.{Competitor, Jersey, Manager, Player, Venue}
 
   @type t :: %__MODULE__{
           competitor: Competitor.t(),
@@ -12,6 +12,7 @@ defmodule UOF.API.Mappings.CompetitorProfile do
   document do
     element(:competitor, into: %Competitor{})
     element(:venue, into: %Venue{})
+    element(:manager, into: %Manager{})
     elements(:jersey, as: :jerseys, into: %Jersey{})
     elements(:player, as: :players, into: %Player{})
   end
