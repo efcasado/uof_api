@@ -3,10 +3,10 @@ defmodule UOF.API.Mappings.SeasonCoverage do
 
   document do
     attribute(:season_id)
-    attribute(:scheduled)
-    attribute(:played)
+    attribute(:scheduled, cast: :integer)
+    attribute(:played, cast: :integer)
     attribute(:max_coverage_level)
-    attribute(:max_covered)
+    attribute(:max_covered, cast: :integer)
     attribute(:min_coverage_level)
   end
 end
