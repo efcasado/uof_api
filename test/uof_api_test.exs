@@ -338,4 +338,26 @@ defmodule UOF.API.Test do
     assert summary.coverage_info.covered_from == "venue"
     assert summary.coverage_info.includes == ["basic_score", "key_events"]
   end
+
+  test "can parse 'sports/:lang/sport_events/:fixture/timeline.xml' response" do
+    # TO-DO
+  end
+
+  test "can parse 'sports/:lang/sports/:sport/categories.xml' response" do
+    data = File.read!("test/data/categories.xml")
+
+    {:ok, sport_categories} = Saxaboom.parse(data, %UOF.API.Mappings.SportCategories{})
+
+    # sport
+    sport = sport_categories.sport
+    assert sport.id == "sr:sport:1"
+    assert sport.name == "Soccer"
+    # categories
+    categories = sport_categories.categories
+    category = hd(categories)
+    assert Enum.count(categories) == 224
+    assert category.id == "sr:category:1"
+    assert category.name == "England"
+    assert category.country_code == "ENG"
+  end
 end
