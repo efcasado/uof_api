@@ -15,18 +15,31 @@ Elixir client for Betradar's Unified Odds Feed (UOF) HTTP API.
 ### Get Started
 
 ```elixir
-config :uof_api, base_url: "<betradar-uof-base-url>"
-config :uof_api, auth_token: "<your-auth-token>"
+config :uof_api,
+    base_url: "<betradar-uof-base-url>",
+    auth_token: "<your-auth-token>",
+    parse: true | false
 ```
 
 ```elixir
 # Get all available sports
-{:ok, %UOF.API.Mappings.Sports{sports: sports}} = UOF.API.sports
+{:ok, %UOF.API.Mappings.Sports{sports: sports}} = UOF.API.Sports.sports
 # ...
 football = Enum.find(sports, &(&1.name == "Soccer"))
 
 # Get all available tournaments
-{:ok, %UOF.API.Mappings.Tournaments{tournaments: tournaments}} = UOF.API.tournaments
+{:ok, %UOF.API.Mappings.Tournaments{tournaments: tournaments}} = UOF.API.Sports.tournaments
 # Get all football tournaments
 football_tournaments = Enum.filter(tournaments, &(&1.sport == football))
+```
+
+```elixir
+# Get today's schedule
+{:ok, schedule} = UOF.API.Sports.live_schedule
+# Distinct statuses of today's fixtures
+Enum.map(schedule.events, &(&1.status)) |> Enum.uniq
+# => ["not_started", "ended", "live", "closed"]
+# Id of a live fixture
+Enum.find(fixtures, &(&1.status == "live")).id
+# => "sr:match:49495489"
 ```

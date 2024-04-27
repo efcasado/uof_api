@@ -1,8 +1,6 @@
 defmodule UOF.API.Test do
   use ExUnit.Case
 
-  doctest UOF.API
-
   ## Betting descriptions
   ## =========================================================================
 
