@@ -149,6 +149,7 @@ defmodule UOF.API.Test do
     assert fixture.tournament_round.number == "25"
     assert fixture.tournament_round.group_long_name == "Ettan, Sodra"
     assert fixture.tournament_round.betradar_name == "Ettan, Sodra"
+    assert fixture.tournament_round.betradar_id == 4301
     # season
     assert fixture.season.start_date == "2016-04-16"
     assert fixture.season.end_date == "2016-11-05"
@@ -231,5 +232,110 @@ defmodule UOF.API.Test do
     assert Enum.count(changes) == 4236
     assert change.sport_event_id == "sr:match:49689671"
     assert change.update_time == "2024-04-26T19:12:56+00:00"
+  end
+
+  ## Sport event information
+  ##=========================================================================
+  test "can parse 'sports/:lang/sport_events/:fixture/summary.xml' response" do
+    data = File.read!("test/data/summary.xml")
+
+    {:ok, summary} = Saxaboom.parse(data, %UOF.API.Mappings.Summary{})
+
+    # sport event
+    assert summary.sport_event.id == "sr:match:42308595"
+    assert summary.sport_event.scheduled == "2024-04-26T17:30:00+00:00"
+    assert summary.sport_event.start_time_tbd == false
+    # sport event -> tournament round
+    assert summary.sport_event.tournament_round.type == "group"
+    assert summary.sport_event.tournament_round.number == "30"
+    assert summary.sport_event.tournament_round.group_long_name == "2nd Bundesliga"
+    assert summary.sport_event.tournament_round.betradar_name == "2nd Bundesliga"
+    assert summary.sport_event.tournament_round.betradar_id == 16956
+    # sport event -> season
+    assert summary.sport_event.season.start_date == "2023-09-01"
+    assert summary.sport_event.season.end_date == "2024-06-01"
+    assert summary.sport_event.season.year == "23/24"
+    assert summary.sport_event.season.tournament_id == "sr:tournament:921"
+    assert summary.sport_event.season.id == "sr:season:107905"
+    assert summary.sport_event.season.name == "2. HBL 23/24"
+    # sport event -> tournament
+    assert summary.sport_event.tournament.id == "sr:tournament:921"
+    assert summary.sport_event.tournament.name == "2. HBL"
+    assert summary.sport_event.tournament.sport.id == "sr:sport:6"
+    assert summary.sport_event.tournament.sport.name == "Handball"
+    assert summary.sport_event.tournament.category.id == "sr:category:53"
+    assert summary.sport_event.tournament.category.name == "Germany"
+    # sport event -> competitors
+    [competitor1, competitor2] = summary.sport_event.competitors
+    assert competitor1.qualifier == "home"
+    assert competitor1.id == "sr:competitor:6325"
+    assert competitor1.name == "VfL Eintracht Hagen"
+    assert competitor1.abbreviation == "HAG"
+    assert competitor1.short_name == "Eintracht Hagen"
+    assert competitor1.country == "Germany"
+    assert competitor1.country_code == "DEU"
+    assert competitor1.gender == "male"
+    [c1_ref] = competitor1.references
+    assert c1_ref.name == "betradar"
+    assert c1_ref.value == "8042520"
+    assert competitor2.qualifier == "away"
+    assert competitor2.id == "sr:competitor:7808"
+    assert competitor2.name == "HC Elbflorenz 2006"
+    assert competitor2.abbreviation == "ELB"
+    assert competitor2.short_name == "Elbflorenz 2006"
+    assert competitor2.country == "Germany"
+    assert competitor2.country_code == "DEU"
+    assert competitor2.gender == "male"
+    [c2_ref] = competitor2.references
+    assert c2_ref.name == "betradar"
+    assert c2_ref.value == "9919108"
+    # sport event -> venue
+    assert summary.sport_event.venue.id == "sr:venue:7072"
+    assert summary.sport_event.venue.name == "Ischelandhalle"
+    assert summary.sport_event.venue.capacity == 1200
+    assert summary.sport_event.venue.city_name == "Hagen"
+    assert summary.sport_event.venue.country_name == "Germany"
+    assert summary.sport_event.venue.country_code == "DEU"
+    assert summary.sport_event.venue.map_coordinates == "51.370987,7.477113"
+    # event conditions
+    assert summary.event_conditions.attendance == 1054
+    # event conditions -> venue
+    assert summary.event_conditions.venue.id == "sr:venue:7072"
+    assert summary.event_conditions.venue.name == "Ischelandhalle"
+    assert summary.event_conditions.venue.capacity == 1200
+    assert summary.event_conditions.venue.city_name == "Hagen"
+    assert summary.event_conditions.venue.country_name == "Germany"
+    assert summary.event_conditions.venue.country_code == "DEU"
+    assert summary.event_conditions.venue.map_coordinates == "51.370987,7.477113"
+    # event status
+    assert summary.event_status.home_score == 30
+    assert summary.event_status.away_score == 31
+    assert summary.event_status.status_code == 4
+    assert summary.event_status.match_status_code == 100
+    assert summary.event_status.status == "closed"
+    assert summary.event_status.match_status == "ended"
+    assert summary.event_status.winner_id == "sr:competitor:7808"
+    # event status -> period scores
+    [period1, period2] = summary.event_status.period_scores
+    assert period1.home_score == 13
+    assert period1.away_score == 16
+    assert period1.match_status_code == 6
+    assert period1.type == "regular_period"
+    assert period1.number == 1
+    assert period2.home_score == 17
+    assert period2.away_score == 15
+    assert period2.match_status_code == 7
+    assert period2.type == "regular_period"
+    assert period2.number == 2
+    # event status -> results
+    [result] = summary.event_status.results
+    assert result.home_score == 30
+    assert result.away_score == 31
+    assert result.match_status_code == 100
+    # coverage info
+    assert summary.coverage_info.level == "silver"
+    assert summary.coverage_info.live_coverage == true
+    assert summary.coverage_info.covered_from == "venue"
+    assert summary.coverage_info.includes == ["basic_score", "key_events"]
   end
 end
