@@ -36,9 +36,11 @@ football_tournaments = Enum.filter(tournaments, &(&1.sport == football))
 ```elixir
 # Get today's schedule
 {:ok, schedule} = UOF.API.Sports.live_schedule
+
 # Distinct statuses of today's fixtures
 Enum.map(schedule.events, &(&1.status)) |> Enum.uniq
 # => ["not_started", "ended", "live", "closed"]
+
 # Id of a live fixture
 Enum.find(fixtures, &(&1.status == "live")).id
 # => "sr:match:49495489"
