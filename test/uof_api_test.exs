@@ -115,7 +115,7 @@ defmodule UOF.API.Test do
   end
 
   ## Static sport event information
-  ##=========================================================================
+  ## =========================================================================
 
   test "can parse 'sports/:lang/sport_events/:fixture/fixture.xml' response" do
     data = File.read!("test/data/fixture.xml")
@@ -222,7 +222,7 @@ defmodule UOF.API.Test do
   end
 
   ## Sport event information
-  ##=========================================================================
+  ## =========================================================================
   test "can parse 'sports/:lang/sport_events/:fixture/summary.xml' response" do
     data = File.read!("test/data/summary.xml")
 
@@ -457,7 +457,7 @@ defmodule UOF.API.Test do
   end
 
   ## Entity descriptions
-  ##=========================================================================
+  ## =========================================================================
   test "can parse 'sports/:lang/player/:player/profile.xml' response" do
     data = File.read!("test/data/player_profile.xml")
 
