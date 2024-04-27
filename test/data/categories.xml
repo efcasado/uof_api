@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sport_categories xmlns="http://schemas.sportradar.com/sportsapi/v1/unified"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+generated_at="2024-04-16T18:14:41+00:00"
+xsi:schemaLocation="http://schemas.sportradar.com/sportsapi/v1/unified http://schemas.sportradar.com/ufsportsapi/v1/endpoints/unified/ufsportsapi.xsd">
+
+  <sport id="sr:sport:1" name="Soccer" />
+  <categories>
+    <category id="sr:category:1" name="England"
+    country_code="ENG" />
+    <category id="sr:category:4" name="International" />
+    <category id="sr:category:5" name="Norway"
+    country_code="NOR" />
+    <category id="sr:category:7" name="France"
+    country_code="FRA" />
+    <category id="sr:category:8" name="Denmark"
+    country_code="DNK" />
+    <category id="sr:category:9" name="Sweden"
+    country_code="SWE" />
+    <category id="sr:category:10" name="Iceland"
+    country_code="ISL" />
+    <category id="sr:category:11" name="Hungary"
+    country_code="HUN" />
+    <category id="sr:category:12" name="Mexico"
+    country_code="MEX" />
+    <category id="sr:category:13" name="Brazil"
+    country_code="BRA" />
+    <category id="sr:category:14" name="Croatia"
+    country_code="HRV" />
+    <category id="sr:category:17" name="Austria"
+    country_code="AUT" />
+    <category id="sr:category:18" name="Czech Republic"
+    country_code="CZE" />
+    <category id="sr:category:19" name="Finland"
+    country_code="FIN" />
+    <category id="sr:category:20" name="Peru" country_code="PER" />
+    <category id="sr:category:21" name="Russia"
+    country_code="RUS" />
+    <category id="sr:category:22" name="Scotland"
+    country_code="SCO" />
+    <category id="sr:category:23" name="Slovakia"
+    country_code="SVK" />
+    <category id="sr:category:24" name="Slovenia"
+    country_code="SVN" />
+    <category id="sr:category:25" name="Switzerland"
+    country_code="CHE" />
+    <category id="sr:category:26" name="USA" country_code="USA" />
+    <category id="sr:category:30" name="Germany"
+    country_code="DEU" />
+    <category id="sr:category:31" name="Italy"
+    country_code="ITA" />
+    <category id="sr:category:32" name="Spain"
+    country_code="ESP" />
+    <category id="sr:category:33" name="Belgium"
+    country_code="BEL" />
+    <category id="sr:category:34" name="Australia"
+    country_code="AUS" />
+    <category id="sr:category:35" name="Netherlands"
+    country_code="NLD" />
+    <category id="sr:category:44" name="Portugal"
+    country_code="PRT" />
+    <category id="sr:category:45" name="Singapore"
+    country_code="SGP" />
+    <category id="sr:category:46" name="Turkiye"
+    country_code="TUR" />
+    <category id="sr:category:47" name="Poland"
+    country_code="POL" />
+    <category id="sr:category:48" name="Argentina"
+    country_code="ARG" />
+    <category id="sr:category:49" name="Chile"
+    country_code="CHL" />
+    <category id="sr:category:51" name="Ireland"
+    country_code="IRL" />
+    <category id="sr:category:52" name="Japan"
+    country_code="JPN" />
+    <category id="sr:category:57" name="Uruguay"
+    country_code="URY" />
+    <category id="sr:category:66" name="Israel"
+    country_code="ISR" />
+    <category id="sr:category:67" name="Greece"
+    country_code="GRC" />
+    <category id="sr:category:77" name="Romania"
+    country_code="ROU" />
+    <category id="sr:category:78" name="Bulgaria"
+    country_code="BGR" />
+    <category id="sr:category:85" name="Malaysia"
+    country_code="MYS" />
+    <category id="sr:category:86" name="Ukraine"
+    country_code="UKR" />
+    <category id="sr:category:91" name="Belarus"
+    country_code="BLR" />
+    <category id="sr:category:92" name="Estonia"
+    country_code="EST" />
+    <category id="sr:category:94" name="Norway Amateur"
+    country_code="NOR" />
+    <category id="sr:category:95" name="Denmark Amateur"
+    country_code="DNK" />
+    <category id="sr:category:97" name="Austria Amateur"
+    country_code="AUT" />
+    <category id="sr:category:99" name="China"
+    country_code="CHN" />
+    <category id="sr:category:100" name="Yugoslavia_NOT_IN_USE" />
+    <category id="sr:category:102" name="Cyprus"
+    country_code="CYP" />
+    <category id="sr:category:122" name="Germany Amateur"
+    country_code="DEU" />
+    <category id="sr:category:130" name="Northern Ireland"
+    country_code="NIR" />
+    <category id="sr:category:131" name="Wales"
+    country_code="WAL" />
+    <category id="sr:category:134" name="Malta"
+    country_code="MLT" />
+    <category id="sr:category:148" name="New Zealand"
+    country_code="NZL" />
+    <category id="sr:category:152" name="Serbia"
+    country_code="SRB" />
+    <category id="sr:category:155" name="Sweden Amateur"
+    country_code="SWE" />
+    <category id="sr:category:158" name="Bosnia &amp; Herzegovina"
+    country_code="BIH" />
+    <category id="sr:category:159" name="North Macedonia"
+    country_code="MKD" />
+    <category id="sr:category:160" name="Lithuania"
+    country_code="LTU" />
+    <category id="sr:category:163" name="Latvia"
+    country_code="LVA" />
+    <category id="sr:category:165" name="Ecuador"
+    country_code="ECU" />
+    <category id="sr:category:197" name="Luxembourg"
+    country_code="LUX" />
+    <category id="sr:category:201" name="Faroe Islands"
+    country_code="FRO" />
+    <category id="sr:category:207" name="Finland Amateur"
+    country_code="FIN" />
+    <category id="sr:category:252" name="England Amateur"
+    country_code="ENG" />
+    <category id="sr:category:254" name="Turkiye Amateur"
+    country_code="TUR" />
+    <category id="sr:category:257" name="Albania"
+    country_code="ALB" />
+    <category id="sr:category:270" name="Georgia"
+    country_code="GEO" />
+    <category id="sr:category:274" name="Colombia"
+    country_code="COL" />
+    <category id="sr:category:278" name="Kazakhstan"
+    country_code="KAZ" />
+    <category id="sr:category:279" name="Moldova"
+    country_code="MDA" />
+    <category id="sr:category:280" name="Paraguay"
+    country_code="PRY" />
+    <category id="sr:category:281" name="Venezuela"
+    country_code="VEN" />
+    <category id="sr:category:289" name="Costa Rica"
+    country_code="CRI" />
+    <category id="sr:category:291" name="Republic of Korea"
+    country_code="KOR" />
+    <category id="sr:category:296" name="Armenia"
+    country_code="ARM" />
+    <category id="sr:category:297" name="Azerbaijan"
+    country_code="AZE" />
+    <category id="sr:category:299" name="United Arab Emirates"
+    country_code="ARE" />
+    <category id="sr:category:301" name="Iran"
+    country_code="IRN" />
+    <category id="sr:category:303" name="Morocco"
+    country_code="MAR" />
+    <category id="sr:category:304" name="Algeria"
+    country_code="DZA" />
+    <category id="sr:category:305" name="Egypt"
+    country_code="EGY" />
+    <category id="sr:category:310" name="Saudi Arabia"
+    country_code="SAU" />
+    <category id="sr:category:322" name="South Africa"
+    country_code="ZAF" />
+    <category id="sr:category:329" name="Jordan"
+    country_code="JOR" />
+    <category id="sr:category:331" name="Kuwait"
+    country_code="KWT" />
+    <category id="sr:category:339" name="Hong Kong"
+    country_code="HKG" />
+    <category id="sr:category:351" name="Bahrain"
+    country_code="BHR" />
+    <category id="sr:category:352" name="India"
+    country_code="IND" />
+    <category id="sr:category:353" name="Qatar"
+    country_code="QAT" />
+    <category id="sr:category:365" name="Guatemala"
+    country_code="GTM" />
+    <category id="sr:category:366" name="Vietnam"
+    country_code="VNM" />
+    <category id="sr:category:367" name="El Salvador"
+    country_code="SLV" />
+    <category id="sr:category:368" name="Indonesia"
+    country_code="IDN" />
+    <category id="sr:category:376" name="Andorra"
+    country_code="AND" />
+    <category id="sr:category:378" name="Tunisia"
+    country_code="TUN" />
+    <category id="sr:category:379" name="Bolivia"
+    country_code="BOL" />
+    <category id="sr:category:380" name="Syria"
+    country_code="SYR" />
+    <category id="sr:category:385" name="Uzbekistan"
+    country_code="UZB" />
+    <category id="sr:category:386" name="Montenegro"
+    country_code="MNE" />
+    <category id="sr:category:387" name="San Marino"
+    country_code="SMR" />
+    <category id="sr:category:388" name="Canada"
+    country_code="CAN" />
+    <category id="sr:category:389" name="Nicaragua"
+    country_code="NIC" />
+    <category id="sr:category:390" name="Ivory Coast"
+    country_code="CIV" />
+    <category id="sr:category:391" name="Cameroon"
+    country_code="CMR" />
+    <category id="sr:category:392" name="International Youth" />
+    <category id="sr:category:393" name="International Clubs" />
+    <category id="sr:category:415" name="Oman"
+    country_code="OMN" />
+    <category id="sr:category:417" name="Libya"
+    country_code="LBY" />
+    <category id="sr:category:421" name="Spain Amateur"
+    country_code="ESP" />
+    <category id="sr:category:428" name="Lebanon"
+    country_code="LBN" />
+    <category id="sr:category:437" name="Honduras"
+    country_code="HND" />
+    <category id="sr:category:440" name="Yemen"
+    country_code="YEM" />
+    <category id="sr:category:469" name="Bangladesh"
+    country_code="BGD" />
+    <category id="sr:category:476" name="Sudan"
+    country_code="SDN" />
+    <category id="sr:category:485" name="Thailand"
+    country_code="THA" />
+    <category id="sr:category:490" name="Iraq"
+    country_code="IRQ" />
+    <category id="sr:category:500" name="Angola"
+    country_code="AGO" />
+    <category id="sr:category:502" name="Jamaica"
+    country_code="JAM" />
+    <category id="sr:category:512" name="Liechtenstein"
+    country_code="LIE" />
+    <category id="sr:category:525" name="Belize"
+    country_code="BLZ" />
+    <category id="sr:category:526" name="Panama"
+    country_code="PAN" />
+    <category id="sr:category:527" name="Trinidad and Tobago"
+    country_code="TTO" />
+    <category id="sr:category:532" name="Nigeria"
+    country_code="NGA" />
+    <category id="sr:category:540" name="Palestine"
+    country_code="PSE" />
+    <category id="sr:category:542" name="Ghana"
+    country_code="GHA" />
+    <category id="sr:category:564" name="Namibia"
+    country_code="NAM" />
+    <category id="sr:category:565" name="Kosovo"
+    country_code="KOS" />
+    <category id="sr:category:567" name="Mauritania"
+    country_code="MRT" />
+    <category id="sr:category:570" name="Puerto Rico"
+    country_code="PRI" />
+    <category id="sr:category:582" name="DR Congo"
+    country_code="COD" />
+    <category id="sr:category:600" name="Maldives"
+    country_code="MDV" />
+    <category id="sr:category:608" name="Aruba"
+    country_code="ABW" />
+    <category id="sr:category:711" name="Korea DPR"
+    country_code="PRK" />
+    <category id="sr:category:746" name="Papua New Guinea"
+    country_code="PNG" />
+    <category id="sr:category:755" name="Pakistan"
+    country_code="PAK" />
+    <category id="sr:category:773" name="Macao"
+    country_code="MAC" />
+    <category id="sr:category:787" name="Kyrgyzstan"
+    country_code="KGZ" />
+    <category id="sr:category:790" name="Myanmar"
+    country_code="MMR" />
+    <category id="sr:category:791" name="Burkina Faso"
+    country_code="BFA" />
+    <category id="sr:category:792" name="Barbados"
+    country_code="BRB" />
+    <category id="sr:category:793" name="Chinese Taipei"
+    country_code="TPE" />
+    <category id="sr:category:794" name="Guyana"
+    country_code="GUY" />
+    <category id="sr:category:795" name="Haiti"
+    country_code="HTI" />
+    <category id="sr:category:800" name="Virtual Leagues" />
+    <category id="sr:category:803" name="Tanzania"
+    country_code="TZA" />
+    <category id="sr:category:804" name="Botswana"
+    country_code="BWA" />
+    <category id="sr:category:805" name="Kenya"
+    country_code="KEN" />
+    <category id="sr:category:806" name="Mozambique"
+    country_code="MOZ" />
+    <category id="sr:category:807" name="Fiji"
+    country_code="FJI" />
+    <category id="sr:category:812" name="Zambia"
+    country_code="ZMB" />
+    <category id="sr:category:815" name="Zimbabwe"
+    country_code="ZWE" />
+    <category id="sr:category:824" name="Uganda"
+    country_code="UGA" />
+    <category id="sr:category:825" name="Tajikistan"
+    country_code="TJK" />
+    <category id="sr:category:827" name="Curacao"
+    country_code="CUW" />
+    <category id="sr:category:829" name="Malawi"
+    country_code="MWI" />
+    <category id="sr:category:832" name="Mali"
+    country_code="MLI" />
+    <category id="sr:category:840" name="Tahiti"
+    country_code="PYF" />
+    <category id="sr:category:847" name="Philippines"
+    country_code="PHL" />
+    <category id="sr:category:849" name="Laos"
+    country_code="LAO" />
+    <category id="sr:category:852" name="Cambodia"
+    country_code="KHM" />
+    <category id="sr:category:866" name="Togo"
+    country_code="TGO" />
+    <category id="sr:category:867" name="Turkmenistan"
+    country_code="TKM" />
+    <category id="sr:category:869" name="Afghanistan"
+    country_code="AFG" />
+    <category id="sr:category:882" name="New Caledonia"
+    country_code="NCL" />
+    <category id="sr:category:883" name="Vanuatu"
+    country_code="VUT" />
+    <category id="sr:category:884" name="Solomon Islands"
+    country_code="SLB" />
+    <category id="sr:category:886" name="Senegal"
+    country_code="SEN" />
+    <category id="sr:category:898" name="Congo"
+    country_code="COG" />
+    <category id="sr:category:904" name="Suriname"
+    country_code="SUR" />
+    <category id="sr:category:905" name="Nepal"
+    country_code="NPL" />
+    <category id="sr:category:906" name="Djibouti"
+    country_code="DJI" />
+    <category id="sr:category:907" name="Gabon"
+    country_code="GAB" />
+    <category id="sr:category:908" name="Guam"
+    country_code="GUM" />
+    <category id="sr:category:909" name="Bahamas"
+    country_code="BHS" />
+    <category id="sr:category:910" name="Cayman Islands"
+    country_code="CYM" />
+    <category id="sr:category:911" name="Bermuda"
+    country_code="BMU" />
+    <category id="sr:category:912" name="Mauritius"
+    country_code="MUS" />
+    <category id="sr:category:914" name="Ethiopia"
+    country_code="ETH" />
+    <category id="sr:category:915" name="Eswatini"
+    country_code="SWZ" />
+    <category id="sr:category:938" name="Gibraltar"
+    country_code="GIB" />
+    <category id="sr:category:943" name="Somalia"
+    country_code="SOM" />
+    <category id="sr:category:944" name="Antigua and Barbuda"
+    country_code="ATG" />
+    <category id="sr:category:951" name="Rwanda"
+    country_code="RWA" />
+    <category id="sr:category:952" name="Chad"
+    country_code="TCD" />
+    <category id="sr:category:953" name="Liberia"
+    country_code="LBR" />
+    <category id="sr:category:954" name="South Sudan"
+    country_code="SSD" />
+    <category id="sr:category:955" name="Zanzibar" />
+    <category id="sr:category:956" name="Burundi"
+    country_code="BDI" />
+    <category id="sr:category:957" name="Gambia"
+    country_code="GMB" />
+    <category id="sr:category:958" name="Guinea"
+    country_code="GIN" />
+    <category id="sr:category:959" name="Seychelles"
+    country_code="SYC" />
+    <category id="sr:category:960" name="Equatorial Guinea"
+    country_code="GNQ" />
+    <category id="sr:category:961" name="Madagascar"
+    country_code="MDG" />
+    <category id="sr:category:962" name="Lesotho"
+    country_code="LSO" />
+    <category id="sr:category:963" name="Sierra Leone"
+    country_code="SLE" />
+    <category id="sr:category:964" name="Guinea-bissau"
+    country_code="GNB" />
+    <category id="sr:category:965" name="Comoros"
+    country_code="COM" />
+    <category id="sr:category:970" name="Sao Tome and Principe"
+    country_code="STP" />
+    <category id="sr:category:971" name="Niger"
+    country_code="NER" />
+    <category id="sr:category:978" name="Samoa"
+    country_code="WSM" />
+    <category id="sr:category:1009" name="Sri Lanka"
+    country_code="LKA" />
+    <category id="sr:category:1020" name="Republika Srpska" />
+    <category id="sr:category:1031" name="Dominican Republic"
+    country_code="DOM" />
+    <category id="sr:category:1033" name="Electronic Leagues" />
+    <category id="sr:category:1042" name="Mongolia"
+    country_code="MNG" />
+    <category id="sr:category:1043" name="Bhutan"
+    country_code="BTN" />
+    <category id="sr:category:1057" name="Crimea" />
+    <category id="sr:category:1111" name="Virtual Football" />
+    <category id="sr:category:1360" name="Brunei Darussalam"
+    country_code="BRN" />
+    <category id="sr:category:1380" name="Cuba"
+    country_code="CUB" />
+    <category id="sr:category:1435" name="Grenada"
+    country_code="GRD" />
+    <category id="sr:category:1519" name="Benin"
+    country_code="BEN" />
+    <category id="sr:category:1533" name="Dominica"
+    country_code="DMA" />
+    <category id="sr:category:1539" name="Guadeloupe"
+    country_code="GLP" />
+    <category id="sr:category:1674" name="Saint Kitts and Nevis"
+    country_code="KNA" />
+    <category id="sr:category:1677" name="Northern Cyprus" />
+    <category id="sr:category:1748" name="Timor-Leste"
+    country_code="TLS" />
+    <category id="sr:category:2123"
+    name="Simulated Reality League" />
+    <category id="sr:category:2134" name="Indoor Soccer" />
+    <category id="sr:category:2246"
+    name="Simulated Reality Women" />
+    <category id="sr:category:2350" name="Martinique" />
+    <category id="sr:category:2354" name="Saint Lucia"
+    country_code="LCA" />
+  </categories>
+</sport_categories>
