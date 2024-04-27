@@ -1,0 +1,1043 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<cashout product="1" event_id="sr:match:41878167"
+timestamp="1714239727097">
+  <sport_event_status status="1" match_status="7" />
+  <odds>
+    <market status="-3" cashout_status="-2" id="66"
+    specifiers="hcp=0.5" />
+    <market status="1" cashout_status="1" id="547"
+    specifiers="total=4.5">
+      <outcome id="1729" probabilities="3.5817409505844186E-4"
+      active="1" />
+      <outcome id="1728" probabilities="9.368351933723319E-4"
+      active="1" />
+      <outcome id="1727" probabilities="6.164350417336619E-4"
+      active="1" />
+      <outcome id="1726" probabilities="0.9683142939544909"
+      active="1" />
+      <outcome id="1725" probabilities="0.8370157271885894"
+      active="1" />
+      <outcome id="1724" probabilities="0.19275853452675537"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="18"
+    specifiers="total=4.25">
+      <outcome id="12" probabilities="9.594345763436207E-4"
+      active="1" />
+      <outcome id="13" probabilities="0.9990405654236564"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="16"
+    specifiers="hcp=2.5">
+      <outcome id="1715" probabilities="0.006109277689368087"
+      active="1" />
+      <outcome id="1714" probabilities="0.9938907223106319"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="16"
+    specifiers="hcp=0.25">
+      <outcome id="1715" probabilities="0.8777430353111357"
+      active="1" />
+      <outcome id="1714" probabilities="0.12225696468886427"
+      active="1" />
+    </market>
+    <market status="-3" cashout_status="-2" id="71"
+    specifiers="variant=sr:exact_goals:3+" />
+    <market status="1" cashout_status="1" id="7"
+    specifiers="score=0:1">
+      <outcome id="1" probabilities="0.193374969568489"
+      active="1" />
+      <outcome id="2" probabilities="0.7097339067622874"
+      active="1" />
+      <outcome id="3" probabilities="0.09689112366922376"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="16"
+    specifiers="hcp=-0.75">
+      <outcome id="1715" probabilities="0.9825606740781112"
+      active="1" />
+      <outcome id="1714" probabilities="0.017439325921888793"
+      active="1" />
+    </market>
+    <market status="0" cashout_status="-1" id="7"
+    specifiers="score=0:0" />
+    <market status="1" cashout_status="1" id="37"
+    specifiers="total=2.5">
+      <outcome id="796" probabilities="0.03132753195045072"
+      active="1" />
+      <outcome id="798" probabilities="0.1590314520331842"
+      active="1" />
+      <outcome id="800" probabilities="0.003015985584854119"
+      active="1" />
+      <outcome id="802" probabilities="0.77268277981132"
+      active="1" />
+      <outcome id="804" probabilities="0.033942250620190975"
+      active="1" />
+    </market>
+    <market status="-3" cashout_status="-2" id="75" />
+    <market status="-3" cashout_status="-2" id="65"
+    specifiers="hcp=1:0" />
+    <market status="1" cashout_status="1" id="14"
+    specifiers="hcp=2:0">
+      <outcome id="1712" probabilities="0.09078184597985571"
+      active="1" />
+      <outcome id="1711" probabilities="0.9031088763307762"
+      active="1" />
+      <outcome id="1713" probabilities="0.0061092776893681006"
+      active="1" />
+    </market>
+    <market status="-3" cashout_status="-2" id="68"
+    specifiers="total=1.75" />
+    <market status="-3" cashout_status="-2" id="18"
+    specifiers="total=0.5" />
+    <market status="1" cashout_status="1" id="10">
+      <outcome id="11" probabilities="0.9686724680495495"
+      active="1" />
+      <outcome id="9" probabilities="0.19337496956848907"
+      active="1" />
+      <outcome id="10" probabilities="0.8379525623819619"
+      active="1" />
+    </market>
+    <market status="0" cashout_status="-1" id="544"
+    specifiers="total=1.5" />
+    <market status="1" cashout_status="1" id="19"
+    specifiers="total=1.5">
+      <outcome id="12" probabilities="0.03459951367348202"
+      active="1" />
+      <outcome id="13" probabilities="0.965400486326518"
+      active="1" />
+    </market>
+    <market status="-3" cashout_status="-2" id="70"
+    specifiers="total=0.5" />
+    <market status="1" cashout_status="1" id="18"
+    specifiers="total=5.75">
+      <outcome id="12" probabilities="4.0683163198051986E-5"
+      active="1" />
+      <outcome id="13" probabilities="0.999959316836802"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="16"
+    specifiers="hcp=1.75">
+      <outcome id="1715" probabilities="0.053948995373686914"
+      active="1" />
+      <outcome id="1714" probabilities="0.9460510046263131"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="20"
+    specifiers="total=2.5">
+      <outcome id="12" probabilities="0.008064598580287186"
+      active="1" />
+      <outcome id="13" probabilities="0.9919354014197128"
+      active="1" />
+    </market>
+    <market status="0" cashout_status="1" id="97">
+      <outcome id="74" probabilities="0.7787167214776077"
+      active="0" />
+      <outcome id="76" probabilities="0.22128325016385403"
+      active="0" />
+    </market>
+    <market status="-3" cashout_status="-2" id="66"
+    specifiers="hcp=0" />
+    <market status="1" cashout_status="1" id="45">
+      <outcome id="290" probabilities="0.00281297736530359"
+      active="1" />
+      <outcome id="292" probabilities="2.044267164197529E-4"
+      active="1" />
+      <outcome id="294" probabilities="0.08909223741296766"
+      active="1" />
+      <outcome id="296" probabilities="0.02589830089280709"
+      active="1" />
+      <outcome id="298" probabilities="0.0029970986131442334"
+      active="1" />
+      <outcome id="310" probabilities="1.882772240348351E-5"
+      active="1" />
+      <outcome id="312" probabilities="1.6525462173775136E-6"
+      active="1" />
+      <outcome id="314" probabilities="2.496443895791568E-4"
+      active="1" />
+      <outcome id="316" probabilities="7.256934728839913E-5"
+      active="1" />
+      <outcome id="318" probabilities="1.0547623711356125E-5"
+      active="1" />
+      <outcome id="284" probabilities="0.6835905423983524"
+      active="1" />
+      <outcome id="286" probabilities="0.1590314520331842"
+      active="1" />
+      <outcome id="320" probabilities="1.0220326727778685E-6"
+      active="1" />
+      <outcome id="288" probabilities="0.02791700651512336"
+      active="1" />
+      <outcome id="300" probabilities="3.507483181886805E-4"
+      active="1" />
+      <outcome id="322" probabilities="5.91377156140269E-8"
+      active="1" />
+      <outcome id="302" probabilities="2.6506613794227084E-5"
+      active="1" />
+      <outcome id="324" probabilities="2.532307949598689E-5"
+      active="1" />
+      <outcome id="304" probabilities="0.0057759904637908095"
+      active="1" />
+      <outcome id="306" probabilities="0.001679027750665354"
+      active="1" />
+      <outcome id="308" probabilities="2.4403902717440982E-4"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="18"
+    specifiers="total=2.75">
+      <outcome id="12" probabilities="0.039672177492729666"
+      active="1" />
+      <outcome id="13" probabilities="0.9603278225072703"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="32">
+      <outcome id="74" probabilities="0.7787167215629949"
+      active="1" />
+      <outcome id="76" probabilities="0.2212832784370054"
+      active="1" />
+    </market>
+    <market status="0" cashout_status="1" id="92"
+    specifiers="total=0.5">
+      <outcome id="12" probabilities="0.12643113416518803"
+      active="0" />
+      <outcome id="13" probabilities="0.873568865834812"
+      active="0" />
+    </market>
+    <market status="-3" cashout_status="-2" id="66"
+    specifiers="hcp=0.75" />
+    <market status="0" cashout_status="1" id="16"
+    specifiers="hcp=-2.25">
+      <outcome id="1715" probabilities="0.9997811529678834"
+      active="0" />
+      <outcome id="1714" probabilities="2.1884703211660916E-4"
+      active="0" />
+    </market>
+    <market status="-3" cashout_status="-2" id="68"
+    specifiers="total=2.5" />
+    <market status="1" cashout_status="1" id="18"
+    specifiers="total=4.5">
+      <outcome id="12" probabilities="9.557221650822179E-4"
+      active="1" />
+      <outcome id="13" probabilities="0.9990442778349178"
+      active="1" />
+    </market>
+    <market status="0" cashout_status="-1" id="18"
+    specifiers="total=1.25" />
+    <market status="1" cashout_status="1" id="21"
+    specifiers="variant=sr:exact_goals:6+">
+      <outcome id="sr:exact_goals:6+:69"
+      probabilities="0.6835905423983524" active="1" />
+      <outcome id="sr:exact_goals:6+:73"
+      probabilities="8.798758291036649E-4" active="1" />
+      <outcome id="sr:exact_goals:6+:74"
+      probabilities="7.58463359784578E-5" active="1" />
+      <outcome id="sr:exact_goals:6+:70"
+      probabilities="0.24812368944615187" active="1" />
+      <outcome id="sr:exact_goals:6+:71"
+      probabilities="0.05959129787172125" active="1" />
+      <outcome id="sr:exact_goals:6+:72"
+      probabilities="0.007738748118692334" active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="23"
+    specifiers="variant=sr:exact_goals:3+">
+      <outcome id="sr:exact_goals:3+:88"
+      probabilities="0.7787167215629949" active="1" />
+      <outcome id="sr:exact_goals:3+:89"
+      probabilities="0.18668376476352314" active="1" />
+      <outcome id="sr:exact_goals:3+:91"
+      probabilities="0.003430470922942418" active="1" />
+      <outcome id="sr:exact_goals:3+:90"
+      probabilities="0.031169042750539798" active="1" />
+    </market>
+    <market status="0" cashout_status="-1" id="90"
+    specifiers="total=2.5" />
+    <market status="-3" cashout_status="-2" id="68"
+    specifiers="total=3.75" />
+    <market status="-3" cashout_status="-2" id="8"
+    specifiers="goalnr=1" />
+    <market status="1" cashout_status="1" id="8"
+    specifiers="goalnr=2">
+      <outcome id="6" probabilities="0.20823112188583442"
+      active="1" />
+      <outcome id="7" probabilities="0.6835905423983524"
+      active="1" />
+      <outcome id="8" probabilities="0.10817833571581321"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="547"
+    specifiers="total=3.5">
+      <outcome id="1729" probabilities="0.0052839448484469816"
+      active="1" />
+      <outcome id="1728" probabilities="0.005678484698920228"
+      active="1" />
+      <outcome id="1727" probabilities="0.006426511020181484"
+      active="1" />
+      <outcome id="1726" probabilities="0.9633885232011021"
+      active="1" />
+      <outcome id="1725" probabilities="0.8322740776830414"
+      active="1" />
+      <outcome id="1724" probabilities="0.18694845854830755"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="16"
+    specifiers="hcp=1.5">
+      <outcome id="1715" probabilities="0.09689112366922381"
+      active="1" />
+      <outcome id="1714" probabilities="0.9031088763307762"
+      active="1" />
+    </market>
+    <market status="-3" cashout_status="-2" id="76" />
+    <market status="-3" cashout_status="-2" id="63" />
+    <market status="0" cashout_status="1" id="16"
+    specifiers="hcp=-1.25">
+      <outcome id="1715" probabilities="0.9968980342144289"
+      active="0" />
+      <outcome id="1714" probabilities="0.0031019657855710925"
+      active="0" />
+    </market>
+    <market status="-3" cashout_status="-2" id="72"
+    specifiers="variant=sr:exact_goals:3+" />
+    <market status="-3" cashout_status="-2" id="68"
+    specifiers="total=2.25" />
+    <market status="0" cashout_status="1" id="14"
+    specifiers="hcp=1:0">
+      <outcome id="1712" probabilities="0.7097339067622874"
+      active="0" />
+      <outcome id="1711" probabilities="0.19337496956848876"
+      active="0" />
+      <outcome id="1713" probabilities="0.09689112366922376"
+      active="0" />
+    </market>
+    <market status="1" cashout_status="1" id="11">
+      <outcome id="4" probabilities="0.037385806019136894"
+      active="1" />
+      <outcome id="5" probabilities="0.9626141939808631"
+      active="1" />
+    </market>
+    <market status="-3" cashout_status="-2" id="65"
+    specifiers="hcp=0:1" />
+    <market status="-3" cashout_status="-2" id="70"
+    specifiers="total=3.5" />
+    <market status="-3" cashout_status="-2" id="68"
+    specifiers="total=1" />
+    <market status="1" cashout_status="1" id="19"
+    specifiers="total=4.5">
+      <outcome id="12" probabilities="1.4213990708111801E-5"
+      active="1" />
+      <outcome id="13" probabilities="0.9999857860092919"
+      active="1" />
+    </market>
+    <market status="-3" cashout_status="-2" id="68"
+    specifiers="total=3" />
+    <market status="-3" cashout_status="-2" id="68"
+    specifiers="total=2" />
+    <market status="1" cashout_status="1" id="19"
+    specifiers="total=0.5">
+      <outcome id="12" probabilities="0.22128327843700513"
+      active="1" />
+      <outcome id="13" probabilities="0.7787167215629949"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="20"
+    specifiers="total=5.5">
+      <outcome id="12" probabilities="2.8683272101925894E-7"
+      active="1" />
+      <outcome id="13" probabilities="0.999999713167279"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="20"
+    specifiers="total=1.5">
+      <outcome id="12" probabilities="0.1264311093556012"
+      active="1" />
+      <outcome id="13" probabilities="0.8735688906443988"
+      active="1" />
+    </market>
+    <market status="0" cashout_status="-1" id="85" />
+    <market status="1" cashout_status="1" id="18"
+    specifiers="total=3.25">
+      <outcome id="12" probabilities="0.00896148350008763"
+      active="1" />
+      <outcome id="13" probabilities="0.9910385164999124"
+      active="1" />
+    </market>
+    <market status="-3" cashout_status="-2" id="66"
+    specifiers="hcp=-1" />
+    <market status="1" cashout_status="1" id="16"
+    specifiers="hcp=1.25">
+      <outcome id="1715" probabilities="0.15018781657059788"
+      active="1" />
+      <outcome id="1714" probabilities="0.8498121834294021"
+      active="1" />
+    </market>
+    <market status="-3" cashout_status="-2" id="71"
+    specifiers="variant=sr:exact_goals:4+" />
+    <market status="1" cashout_status="1" id="18"
+    specifiers="total=4.75">
+      <outcome id="12" probabilities="5.160112634496894E-4"
+      active="1" />
+      <outcome id="13" probabilities="0.9994839887365503"
+      active="1" />
+    </market>
+    <market status="-3" cashout_status="-2" id="68"
+    specifiers="total=1.5" />
+    <market status="1" cashout_status="1" id="18"
+    specifiers="total=3.5">
+      <outcome id="12" probabilities="0.008694470283774569"
+      active="1" />
+      <outcome id="13" probabilities="0.9913055297162254"
+      active="1" />
+    </market>
+    <market status="-3" cashout_status="-2" id="69"
+    specifiers="total=2.5" />
+    <market status="-3" cashout_status="-2" id="68"
+    specifiers="total=4" />
+    <market status="-3" cashout_status="-2" id="68"
+    specifiers="total=0.75" />
+    <market status="0" cashout_status="1" id="16"
+    specifiers="hcp=-2.5">
+      <outcome id="1715" probabilities="0.9997814636851594"
+      active="0" />
+      <outcome id="1714" probabilities="2.1853631484058944E-4"
+      active="0" />
+    </market>
+    <market status="1" cashout_status="1" id="21"
+    specifiers="variant=sr:exact_goals:9+">
+      <outcome id="sr:exact_goals:9+:83"
+      probabilities="3.010182743770156E-7" active="1" />
+      <outcome id="sr:exact_goals:9+:84"
+      probabilities="1.7227427262511696E-8" active="1" />
+      <outcome id="sr:exact_goals:9+:81"
+      probabilities="7.032920677561895E-5" active="1" />
+      <outcome id="sr:exact_goals:9+:82"
+      probabilities="5.198883501310951E-6" active="1" />
+      <outcome id="sr:exact_goals:9+:80"
+      probabilities="8.798758291036649E-4" active="1" />
+      <outcome id="sr:exact_goals:9+:78"
+      probabilities="0.05959129787172125" active="1" />
+      <outcome id="sr:exact_goals:9+:79"
+      probabilities="0.007738748118692334" active="1" />
+      <outcome id="sr:exact_goals:9+:76"
+      probabilities="0.6835905423983524" active="1" />
+      <outcome id="sr:exact_goals:9+:77"
+      probabilities="0.24812368944615187" active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="41"
+    specifiers="score=0:1">
+      <outcome id="150" probabilities="7.256934728839913E-5"
+      active="1" />
+      <outcome id="130" probabilities="0.0029970986131442334"
+      active="1" />
+      <outcome id="152" probabilities="1.0547623711356125E-5"
+      active="1" />
+      <outcome id="110" probabilities="0.6835905423983524"
+      active="1" />
+      <outcome id="132" probabilities="3.507483181886805E-4"
+      active="1" />
+      <outcome id="154" probabilities="1.0220326727778685E-6"
+      active="1" />
+      <outcome id="134" probabilities="2.6506613794227084E-5"
+      active="1" />
+      <outcome id="156" probabilities="8.092420032422543E-6"
+      active="1" />
+      <outcome id="114" probabilities="0.1590314520331842"
+      active="1" />
+      <outcome id="136" probabilities="1.5410461778175192E-6"
+      active="1" />
+      <outcome id="158" probabilities="2.3523927003785593E-6"
+      active="1" />
+      <outcome id="116" probabilities="0.02791700651512336"
+      active="1" />
+      <outcome id="138" probabilities="0.0057759904637908095"
+      active="1" />
+      <outcome id="118" probabilities="0.00281297736530359"
+      active="1" />
+      <outcome id="160" probabilities="3.41909552063732E-7"
+      active="1" />
+      <outcome id="140" probabilities="0.001679027750665354"
+      active="1" />
+      <outcome id="162" probabilities="2.0985774874909094E-7"
+      active="1" />
+      <outcome id="120" probabilities="2.044267164197529E-4"
+      active="1" />
+      <outcome id="142" probabilities="2.4403902717440982E-4"
+      active="1" />
+      <outcome id="164" probabilities="6.100373365412856E-8"
+      active="1" />
+      <outcome id="122" probabilities="1.188499641742459E-5"
+      active="1" />
+      <outcome id="144" probabilities="1.882772240348351E-5"
+      active="1" />
+      <outcome id="166" probabilities="4.5351364335995705E-9"
+      active="1" />
+      <outcome id="124" probabilities="5.758100111865898E-7"
+      active="1" />
+      <outcome id="146" probabilities="1.6525462173775136E-6"
+      active="1" />
+      <outcome id="126" probabilities="0.08909223741296766"
+      active="1" />
+      <outcome id="148" probabilities="2.496443895791568E-4"
+      active="1" />
+      <outcome id="128" probabilities="0.02589830089280709"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="29">
+      <outcome id="74" probabilities="0.2212832784370054"
+      active="1" />
+      <outcome id="76" probabilities="0.7787167215629949"
+      active="1" />
+    </market>
+    <market status="-3" cashout_status="-2" id="66"
+    specifiers="hcp=-0.25" />
+    <market status="0" cashout_status="-1" id="90"
+    specifiers="total=1.5" />
+    <market status="0" cashout_status="-1" id="87"
+    specifiers="hcp=1:0" />
+    <market status="1" cashout_status="1" id="24"
+    specifiers="variant=sr:exact_goals:3+">
+      <outcome id="sr:exact_goals:3+:89"
+      probabilities="0.8735688906443988" active="1" />
+      <outcome id="sr:exact_goals:3+:91"
+      probabilities="0.008064598580287411" active="1" />
+      <outcome id="sr:exact_goals:3+:90"
+      probabilities="0.11836651077531403" active="1" />
+    </market>
+    <market status="0" cashout_status="1" id="41"
+    specifiers="score=0:0">
+      <outcome id="150" probabilities="0.001679027750665354"
+      active="0" />
+      <outcome id="130" probabilities="0.02791700651512336"
+      active="0" />
+      <outcome id="152" probabilities="2.4403902717440982E-4"
+      active="0" />
+      <outcome id="132" probabilities="0.00281297736530359"
+      active="0" />
+      <outcome id="154" probabilities="1.882772240348351E-5"
+      active="0" />
+      <outcome id="134" probabilities="2.044267164197529E-4"
+      active="0" />
+      <outcome id="156" probabilities="2.496443895791568E-4"
+      active="0" />
+      <outcome id="136" probabilities="1.188499641742459E-5"
+      active="0" />
+      <outcome id="158" probabilities="7.256934728839913E-5"
+      active="0" />
+      <outcome id="138" probabilities="0.08909223741296766"
+      active="0" />
+      <outcome id="160" probabilities="1.0547623711356125E-5"
+      active="0" />
+      <outcome id="140" probabilities="0.02589830089280709"
+      active="0" />
+      <outcome id="162" probabilities="8.092420032422543E-6"
+      active="0" />
+      <outcome id="142" probabilities="0.0029970986131442334"
+      active="0" />
+      <outcome id="164" probabilities="2.3523927003785593E-6"
+      active="0" />
+      <outcome id="144" probabilities="3.507483181886805E-4"
+      active="0" />
+      <outcome id="166" probabilities="2.0985774874909094E-7"
+      active="0" />
+      <outcome id="146" probabilities="2.6506613794227084E-5"
+      active="0" />
+      <outcome id="126" probabilities="0.6835905423983524"
+      active="0" />
+      <outcome id="148" probabilities="0.0057759904637908095"
+      active="0" />
+      <outcome id="128" probabilities="0.1590314520331842"
+      active="0" />
+    </market>
+    <market status="0" cashout_status="1" id="91"
+    specifiers="total=2.5">
+      <outcome id="12" probabilities="0.003430471036758309"
+      active="0" />
+      <outcome id="13" probabilities="0.9965695289632417"
+      active="0" />
+    </market>
+    <market status="1" cashout_status="1" id="16"
+    specifiers="hcp=2.75">
+      <outcome id="1715" probabilities="0.003194167586323071"
+      active="1" />
+      <outcome id="1714" probabilities="0.9968058324136769"
+      active="1" />
+    </market>
+    <market status="-3" cashout_status="-2" id="80"
+    specifiers="score=0:0" />
+    <market status="-3" cashout_status="-2" id="80"
+    specifiers="score=0:1" />
+    <market status="-3" cashout_status="-2" id="77" />
+    <market status="-3" cashout_status="-2" id="64" />
+    <market status="1" cashout_status="1" id="18"
+    specifiers="total=1.75">
+      <outcome id="12" probabilities="0.2195904034089734"
+      active="1" />
+      <outcome id="13" probabilities="0.7804095965910266"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="547"
+    specifiers="total=2.5">
+      <outcome id="1729" probabilities="0.0369582362050451"
+      active="1" />
+      <outcome id="1728" probabilities="0.0652697825706417"
+      active="1" />
+      <outcome id="1727" probabilities="0.03434351753530483"
+      active="1" />
+      <outcome id="1726" probabilities="0.9317142318445042"
+      active="1" />
+      <outcome id="1725" probabilities="0.77268277981132"
+      active="1" />
+      <outcome id="1724" probabilities="0.1590314520331842"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="16"
+    specifiers="hcp=0.5">
+      <outcome id="1715" probabilities="0.8066250304315112"
+      active="1" />
+      <outcome id="1714" probabilities="0.19337496956848876"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="12">
+      <outcome id="776" probabilities="0.16728816288577458"
+      active="1" />
+      <outcome id="778" probabilities="0.8327118371142255"
+      active="1" />
+    </market>
+    <market status="0" cashout_status="1" id="14"
+    specifiers="hcp=0:3">
+      <outcome id="1712" probabilities="2.0597261170851588E-4"
+      active="0" />
+      <outcome id="1711" probabilities="1.2563703132073556E-5"
+      active="0" />
+      <outcome id="1713" probabilities="0.9997814636851594"
+      active="0" />
+    </market>
+    <market status="-3" cashout_status="-2" id="66"
+    specifiers="hcp=0.25" />
+    <market status="-3" cashout_status="-2" id="73"
+    specifiers="variant=sr:exact_goals:3+" />
+    <market status="1" cashout_status="1" id="14"
+    specifiers="hcp=0:1">
+      <outcome id="1712" probabilities="0.02826941153856477"
+      active="1" />
+      <outcome id="1711" probabilities="0.0030581204118856897"
+      active="1" />
+      <outcome id="1713" probabilities="0.9686724680495495"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="14"
+    specifiers="hcp=0:2">
+      <outcome id="1712" probabilities="0.0028395840970451003"
+      active="1" />
+      <outcome id="1711" probabilities="2.1853631484058944E-4"
+      active="1" />
+      <outcome id="1713" probabilities="0.9969418795881143"
+      active="1" />
+    </market>
+    <market status="-3" cashout_status="-2" id="66"
+    specifiers="hcp=-0.5" />
+    <market status="-3" cashout_status="-2" id="69"
+    specifiers="total=1.5" />
+    <market status="-3" cashout_status="-2" id="66"
+    specifiers="hcp=-0.75" />
+    <market status="1" cashout_status="1" id="18"
+    specifiers="total=2.5">
+      <outcome id="12" probabilities="0.06828576815549581"
+      active="1" />
+      <outcome id="13" probabilities="0.9317142318445042"
+      active="1" />
+    </market>
+    <market status="0" cashout_status="-1" id="86" />
+    <market status="1" cashout_status="1" id="19"
+    specifiers="total=3.5">
+      <outcome id="12" probabilities="2.4686147631336475E-4"
+      active="1" />
+      <outcome id="13" probabilities="0.9997531385236866"
+      active="1" />
+    </market>
+    <market status="-3" cashout_status="-2" id="70"
+    specifiers="total=2.5" />
+    <market status="-3" cashout_status="-2" id="60" />
+    <market status="-3" cashout_status="-2" id="61"
+    specifiers="score=0:0" />
+    <market status="1" cashout_status="1" id="16"
+    specifiers="hcp=0">
+      <outcome id="1715" probabilities="0.9626141939808635"
+      active="1" />
+      <outcome id="1714" probabilities="0.03738580601913655"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="546">
+      <outcome id="1723" probabilities="0.7787167215629949"
+      active="1" />
+      <outcome id="1722" probabilities="0.18995574648655464"
+      active="1" />
+      <outcome id="1721" probabilities="0.7787167215629949"
+      active="1" />
+      <outcome id="1720" probabilities="0.05923584081896703"
+      active="1" />
+      <outcome id="1718" probabilities="0.19337496956848904"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="16"
+    specifiers="hcp=1">
+      <outcome id="1715" probabilities="0.33380103955123364"
+      active="1" />
+      <outcome id="1714" probabilities="0.6661989604487664"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="20"
+    specifiers="total=4.5">
+      <outcome id="12" probabilities="1.1109210913295975E-5"
+      active="1" />
+      <outcome id="13" probabilities="0.9999888907890867"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="16"
+    specifiers="hcp=2">
+      <outcome id="1715" probabilities="0.00671926496667008"
+      active="1" />
+      <outcome id="1714" probabilities="0.9932807350333299"
+      active="1" />
+    </market>
+    <market status="-3" cashout_status="-2" id="61"
+    specifiers="score=0:1" />
+    <market status="-3" cashout_status="-2" id="20"
+    specifiers="total=0.5" />
+    <market status="0" cashout_status="1" id="92"
+    specifiers="total=2.5">
+      <outcome id="12" probabilities="3.449843476414083E-4"
+      active="0" />
+      <outcome id="13" probabilities="0.9996550156523586"
+      active="0" />
+    </market>
+    <market status="-3" cashout_status="-2" id="68"
+    specifiers="total=1.25" />
+    <market status="0" cashout_status="-1" id="95" />
+    <market status="1" cashout_status="1" id="18"
+    specifiers="total=5.25">
+      <outcome id="12" probabilities="7.587971834366325E-5"
+      active="1" />
+      <outcome id="13" probabilities="0.9999241202816563"
+      active="1" />
+    </market>
+    <market status="0" cashout_status="1" id="16"
+    specifiers="hcp=-1.5">
+      <outcome id="1715" probabilities="0.9969418795881143"
+      active="0" />
+      <outcome id="1714" probabilities="0.0030581204118856897"
+      active="0" />
+    </market>
+    <market status="-3" cashout_status="-2" id="68"
+    specifiers="total=2.75" />
+    <market status="-3" cashout_status="-2" id="68"
+    specifiers="total=0.5" />
+    <market status="1" cashout_status="1" id="16"
+    specifiers="hcp=0.75">
+      <outcome id="1715" probabilities="0.7002556750394862"
+      active="1" />
+      <outcome id="1714" probabilities="0.29974432496051384"
+      active="1" />
+    </market>
+    <market status="0" cashout_status="-1" id="90"
+    specifiers="total=0.5" />
+    <market status="0" cashout_status="-1" id="87"
+    specifiers="hcp=0:1" />
+    <market status="0" cashout_status="1" id="91"
+    specifiers="total=1.5">
+      <outcome id="12" probabilities="0.034599513783690417"
+      active="0" />
+      <outcome id="13" probabilities="0.9654004862163096"
+      active="0" />
+    </market>
+    <market status="-3" cashout_status="-2" id="78" />
+    <market status="0" cashout_status="-1" id="52" />
+    <market status="1" cashout_status="1" id="18"
+    specifiers="total=2.25">
+      <outcome id="12" probabilities="0.07795729383875005"
+      active="1" />
+      <outcome id="13" probabilities="0.92204270616125"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="26">
+      <outcome id="70" probabilities="0.744066931461535"
+      active="1" />
+      <outcome id="72" probabilities="0.255933068538465"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="13">
+      <outcome id="782" probabilities="0.8379959308055367"
+      active="1" />
+      <outcome id="780" probabilities="0.1620040691944633"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="16"
+    specifiers="hcp=2.25">
+      <outcome id="1715" probabilities="0.0063997691164878745"
+      active="1" />
+      <outcome id="1714" probabilities="0.9936002308835121"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="547"
+    specifiers="total=1.5">
+      <outcome id="1729" probabilities="0.2850819256511969"
+      active="1" />
+      <outcome id="1728" probabilities="0.15436201998360927"
+      active="1" />
+      <outcome id="1727" probabilities="0.19337496956848904"
+      active="1" />
+      <outcome id="1726" probabilities="0.6835905423983524"
+      active="1" />
+      <outcome id="1725" probabilities="0.6835905423983524"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="18"
+    specifiers="total=3.75">
+      <outcome id="12" probabilities="0.004843838848817672"
+      active="1" />
+      <outcome id="13" probabilities="0.9951561611511823"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="14"
+    specifiers="hcp=3:0">
+      <outcome id="1712" probabilities="0.005848902581130006"
+      active="1" />
+      <outcome id="1711" probabilities="0.9938907223106319"
+      active="1" />
+      <outcome id="1713" probabilities="2.60375108238081E-4"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="21"
+    specifiers="variant=sr:exact_goals:5+">
+      <outcome id="sr:exact_goals:5+:1340"
+      probabilities="0.007738748118692334" active="1" />
+      <outcome id="sr:exact_goals:5+:1341"
+      probabilities="9.557221650822179E-4" active="1" />
+      <outcome id="sr:exact_goals:5+:1337"
+      probabilities="0.6835905423983524" active="1" />
+      <outcome id="sr:exact_goals:5+:1338"
+      probabilities="0.24812368944615187" active="1" />
+      <outcome id="sr:exact_goals:5+:1339"
+      probabilities="0.05959129787172125" active="1" />
+    </market>
+    <market status="-3" cashout_status="-2" id="66"
+    specifiers="hcp=-1.25" />
+    <market status="1" cashout_status="1" id="18"
+    specifiers="total=6">
+      <outcome id="12" probabilities="5.51751724553462E-6"
+      active="1" />
+      <outcome id="13" probabilities="0.9999944824827545"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="18"
+    specifiers="total=1.5">
+      <outcome id="12" probabilities="0.3164094576016476"
+      active="1" />
+      <outcome id="13" probabilities="0.6835905423983524"
+      active="1" />
+    </market>
+    <market status="-3" cashout_status="-2" id="69"
+    specifiers="total=0.5" />
+    <market status="1" cashout_status="1" id="18"
+    specifiers="total=3">
+      <outcome id="12" probabilities="0.009245416662029715"
+      active="1" />
+      <outcome id="13" probabilities="0.9907545833379703"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="18"
+    specifiers="total=2">
+      <outcome id="12" probabilities="0.0908204809713915"
+      active="1" />
+      <outcome id="13" probabilities="0.9091795190286085"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="35">
+      <outcome id="88" probabilities="0.7787167215629949"
+      active="1" />
+      <outcome id="78" probabilities="0.03132753195045072"
+      active="1" />
+      <outcome id="82" probabilities="0.16204743761803833"
+      active="1" />
+      <outcome id="86" probabilities="0.027908308868516318"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="19"
+    specifiers="total=2.5">
+      <outcome id="12" probabilities="0.0034304709229422414"
+      active="1" />
+      <outcome id="13" probabilities="0.9965695290770578"
+      active="1" />
+    </market>
+    <market status="-3" cashout_status="-2" id="62"
+    specifiers="goalnr=1" />
+    <market status="1" cashout_status="1" id="18"
+    specifiers="total=5">
+      <outcome id="12" probabilities="7.591313010690826E-5"
+      active="1" />
+      <outcome id="13" probabilities="0.9999240868698931"
+      active="1" />
+    </market>
+    <market status="-3" cashout_status="-2" id="70"
+    specifiers="total=1.5" />
+    <market status="1" cashout_status="1" id="18"
+    specifiers="total=4">
+      <outcome id="12" probabilities="9.631759410843044E-4"
+      active="1" />
+      <outcome id="13" probabilities="0.9990368240589157"
+      active="1" />
+    </market>
+    <market status="-3" cashout_status="-2" id="62"
+    specifiers="goalnr=2" />
+    <market status="0" cashout_status="-1" id="18"
+    specifiers="total=1" />
+    <market status="1" cashout_status="1" id="20"
+    specifiers="total=3.5">
+      <outcome id="12" probabilities="3.449561126092071E-4"
+      active="1" />
+      <outcome id="13" probabilities="0.9996550438873908"
+      active="1" />
+    </market>
+    <market status="1" cashout_status="1" id="199"
+    specifiers="variant=sr:correct_score:below:5-5">
+      <outcome id="sr:correct_score:below:5-5:1503"
+      probabilities="5.91377156140269E-8" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1502"
+      probabilities="1.0220326727778685E-6" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1505"
+      probabilities="8.092420032422543E-6" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1504"
+      probabilities="4.15250686824342E-9" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1488"
+      probabilities="0.02589830089280709" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1487"
+      probabilities="0.08909223741296766" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1501"
+      probabilities="1.0547623711356125E-5" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1489"
+      probabilities="0.0029970986131442334" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1500"
+      probabilities="7.256934728839913E-5" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1507"
+      probabilities="3.41909552063732E-7" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1506"
+      probabilities="2.3523927003785593E-6" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1509"
+      probabilities="2.4076469363521605E-9" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1508"
+      probabilities="3.312999618745894E-8" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1495"
+      probabilities="2.4403902717440982E-4" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1494"
+      probabilities="0.001679027750665354" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1497"
+      probabilities="1.6525462173775136E-6" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1496"
+      probabilities="1.882772240348351E-5" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1491"
+      probabilities="2.6506613794227084E-5" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1490"
+      probabilities="3.507483181886805E-4" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1493"
+      probabilities="0.0057759904637908095" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1492"
+      probabilities="1.5410461778175192E-6" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1499"
+      probabilities="2.496443895791568E-4" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1510"
+      probabilities="9.70716008331078E-7" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1498"
+      probabilities="9.990845763673334E-8" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1484"
+      probabilities="0.00281297736530359" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1483"
+      probabilities="0.02791700651512336" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1486"
+      probabilities="1.188499641742459E-5" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1485"
+      probabilities="2.044267164197529E-4" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1482"
+      probabilities="0.1590314520331842" active="1" />
+      <outcome id="sr:correct_score:below:5-5:1481"
+      probabilities="0.6835905423983524" active="1" />
+    </market>
+    <market status="0" cashout_status="1" id="92"
+    specifiers="total=1.5">
+      <outcome id="12" probabilities="0.008064626606763436"
+      active="0" />
+      <outcome id="13" probabilities="0.9919353733932366"
+      active="0" />
+    </market>
+    <market status="-3" cashout_status="-2" id="79"
+    specifiers="total=1.5" />
+    <market status="0" cashout_status="-1" id="18"
+    specifiers="total=0.75" />
+    <market status="0" cashout_status="1" id="96">
+      <outcome id="74" probabilities="0.873568865834812"
+      active="0" />
+      <outcome id="76" probabilities="0.1264311058066497"
+      active="0" />
+    </market>
+    <market status="0" cashout_status="-1" id="83" />
+    <market status="0" cashout_status="1" id="16"
+    specifiers="hcp=-2">
+      <outcome id="1715" probabilities="0.9997808413657869"
+      active="0" />
+      <outcome id="1714" probabilities="2.1915863421306803E-4"
+      active="0" />
+    </market>
+    <market status="0" cashout_status="-1" id="543" />
+    <market status="-3" cashout_status="-2" id="31" />
+    <market status="1" cashout_status="1" id="16"
+    specifiers="hcp=-0.5">
+      <outcome id="1715" probabilities="0.9686724680495495"
+      active="1" />
+      <outcome id="1714" probabilities="0.03132753195045046"
+      active="1" />
+    </market>
+    <market status="-3" cashout_status="-2" id="68"
+    specifiers="total=3.5" />
+    <market status="0" cashout_status="1" id="16"
+    specifiers="hcp=-1">
+      <outcome id="1715" probabilities="0.9968529132990167"
+      active="0" />
+      <outcome id="1714" probabilities="0.0031470867009832926"
+      active="0" />
+    </market>
+    <market status="-3" cashout_status="-2" id="68"
+    specifiers="total=3.25" />
+    <market status="1" cashout_status="1" id="16"
+    specifiers="hcp=-0.25">
+      <outcome id="1715" probabilities="0.9659104020510187"
+      active="1" />
+      <outcome id="1714" probabilities="0.034089597948981254"
+      active="1" />
+    </market>
+    <market status="0" cashout_status="1" id="16"
+    specifiers="hcp=-1.75">
+      <outcome id="1715" probabilities="0.9983593422438002"
+      active="0" />
+      <outcome id="1714" probabilities="0.0016406577561998148"
+      active="0" />
+    </market>
+    <market status="1" cashout_status="1" id="18"
+    specifiers="total=5.5">
+      <outcome id="12" probabilities="7.584633597856882E-5"
+      active="1" />
+      <outcome id="13" probabilities="0.9999241536640214"
+      active="1" />
+    </market>
+    <market status="0" cashout_status="1" id="91"
+    specifiers="total=0.5">
+      <outcome id="12" probabilities="0.22128327852239227"
+      active="0" />
+      <outcome id="13" probabilities="0.7787167214776077"
+      active="0" />
+    </market>
+    <market status="1" cashout_status="1" id="1">
+      <outcome id="1" probabilities="0.03132753195045074"
+      active="1" />
+      <outcome id="2" probabilities="0.16204743761803833"
+      active="1" />
+      <outcome id="3" probabilities="0.8066250304315112"
+      active="1" />
+    </market>
+  </odds>
+</cashout>
