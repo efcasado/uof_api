@@ -18,7 +18,7 @@ defmodule UOF.API.Test do
     assert market.id == 282
     assert market.name == "Innings 1 to 5th top - {$competitor1} total"
     assert market.groups == "all|score|4.5_innings"
-    assert Enum.map(market.outcomes, & &1.id) == [13, 12]
+    assert Enum.map(market.outcomes, & &1.id) == ["13", "12"]
   end
 
   test "can parse 'descriptions/:lang/match_status.xml' response" do
@@ -97,6 +97,33 @@ defmodule UOF.API.Test do
     assert Enum.count(reasons) == 17
     assert reason.id == 0
     assert reason.description == "OTHER"
+  end
+
+  test "can parse 'descriptions/:lang/variants.xml' response" do
+    data = File.read!("test/data/variants.xml")
+
+    {:ok, %UOF.API.Mappings.VariantDescriptions{variants: variants}} =
+      Saxaboom.parse(data, %UOF.API.Mappings.VariantDescriptions{})
+
+    assert Enum.count(variants) == 144
+    variant = hd(variants)
+    assert variant.id == "sr:correct_score:after:4"
+    assert Enum.count(variant.outcomes) == 5
+    outcome = hd(variant.outcomes)
+    assert outcome.id == "sr:correct_score:after:4:1530"
+    assert outcome.name == "4:0"
+    assert Enum.count(variant.mappings) == 1
+    mapping = hd(variant.mappings)
+    assert mapping.product_id == 3
+    assert mapping.product_ids == "3"
+    assert mapping.sport_id == "sr:sport:22"
+    assert mapping.market_id == 1262
+    assert mapping.product_market_id == "960"
+    assert Enum.count(mapping.outcome_mappings) == 5
+    outcome_mapping = hd(mapping.outcome_mappings)
+    assert outcome_mapping.outcome_id == "sr:correct_score:after:4:1530"
+    assert outcome_mapping.product_outcome_id == "26"
+    assert outcome_mapping.product_outcome_name == "4:0"
   end
 
   test "can parse 'descriptions/producers.xml' response" do

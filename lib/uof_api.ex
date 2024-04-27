@@ -45,6 +45,15 @@ defmodule UOF.API do
   end
 
   @doc """
+  Get a list of all variants and which markets they are used for.
+  """
+  def variants(lang \\ "en") do
+    endpoint = ["descriptions", lang, "variants.xml"]
+
+    HTTP.get(endpoint, %UOF.API.Mappings.VariantDescriptions{})
+  end
+
+  @doc """
   Describe all currently avbailable producers and their ids.
   """
   def producers do
