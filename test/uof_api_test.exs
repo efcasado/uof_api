@@ -360,4 +360,40 @@ defmodule UOF.API.Test do
     assert category.name == "England"
     assert category.country_code == "ENG"
   end
+
+  test "can parse 'sports/:lang/sports/:sport/tournaments.xml' response" do
+    data = File.read!("test/data/tournaments.xml")
+
+    {:ok, %UOF.API.Mappings.Tournaments{tournaments: tournaments}} =
+      Saxaboom.parse(data, %UOF.API.Mappings.Tournaments{})
+
+    tournament = Enum.at(tournaments, 2)
+
+    # tournament attributes
+    assert Enum.count(tournaments) == 1312
+    assert tournament.id == "sr:tournament:7"
+    assert tournament.name == "UEFA Champions League"
+    # tournament -> sport
+    sport = tournament.sport
+    assert sport.id == "sr:sport:1"
+    assert sport.name == "Soccer"
+    # tournament -> category
+    category = tournament.category
+    assert category.id == "sr:category:393"
+    assert category.name == "International Clubs"
+    # tournament -> current season
+    current_season = tournament.current_season
+    assert current_season.start_date == "2023-06-27"
+    assert current_season.end_date == "2024-06-01"
+    assert current_season.year == "23/24"
+    assert current_season.id == "sr:season:106479"
+    # tournament -> season coverage
+    season_coverage = tournament.season_coverage
+    assert season_coverage.season_id == "sr:season:106479"
+    assert season_coverage.scheduled == 215
+    assert season_coverage.played == 210
+    assert season_coverage.max_covered == 136
+    assert season_coverage.max_coverage_level == "gold"
+    assert season_coverage.min_coverage_level == "silver"
+  end
 end
