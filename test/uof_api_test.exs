@@ -3,6 +3,9 @@ defmodule UOF.API.Test do
 
   doctest UOF.API
 
+  ## Betting descriptions
+  ## =========================================================================
+
   test "can parse 'descriptions/:lang/markets.xml' response" do
     data = File.read!("test/data/markets.xml")
 
@@ -554,5 +557,18 @@ defmodule UOF.API.Test do
     assert home_team.country == "Germany"
     assert home_team.country_code == "DEU"
     assert home_team.gender == "male"
+  end
+
+  ## User information
+  ## =========================================================================
+
+  test "can parse 'users/whoami.xml' response" do
+    data = File.read!("test/data/whoami.xml")
+
+    {:ok, details} = Saxaboom.parse(data, %UOF.API.Mappings.BookmakerDetails{})
+
+    assert details.expire_at == "2023-02-03T22:50:17Z"
+    assert details.bookmaker_id == "11111"
+    assert details.virtual_host == "/unifiedfeed/11111"
   end
 end
