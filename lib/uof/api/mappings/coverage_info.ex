@@ -3,14 +3,15 @@ defmodule UOF.API.Mappings.CoverageInfo do
 
   @type t :: %__MODULE__{
           level: String.t(),
-          live_coverage: String.t(),
-          includes: String.t()
+          live_coverage: Boolean.t(),
+          covered_from: String.t(),
+          includes: list(String.t())
         }
 
   document do
     attribute(:level)
-    attribute(:live_coverage)
-    # <coverage_info ...><coverage includes="..."/></coverage_info>
-    attribute(:includes)
+    attribute(:live_coverage, cast: :boolean)
+    attribute(:covered_from)
+    elements(:coverage, as: :includes, value: :includes)
   end
 end

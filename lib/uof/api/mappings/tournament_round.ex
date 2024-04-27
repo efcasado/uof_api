@@ -2,7 +2,7 @@ defmodule UOF.API.Mappings.TournamentRound do
   use Saxaboom.Mapper
 
   document do
-    attribute(:betradar_id)
+    attribute(:betradar_id, cast: :integer)
     attribute(:betradar_name)
     attribute(:type)
     # cup
