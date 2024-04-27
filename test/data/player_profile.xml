@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<player_profile xmlns="http://schemas.sportradar.com/sportsapi/v1/unified"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+generated_at="2024-04-27T08:35:42+00:00"
+xsi:schemaLocation="http://schemas.sportradar.com/sportsapi/v1/unified http://schemas.sportradar.com/ufsportsapi/v1/endpoints/unified/ufsportsapi.xsd">
+
+  <player date_of_birth="1973-08-29" nationality="Germany"
+  country_code="DEU" full_name="Thomas Tuchel" gender="male"
+  id="sr:player:72771" name="Tuchel, Thomas" />
+</player_profile>

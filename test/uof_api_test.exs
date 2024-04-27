@@ -459,7 +459,17 @@ defmodule UOF.API.Test do
   ## Entity descriptions
   ##=========================================================================
   test "can parse 'sports/:lang/player/:player/profile.xml' response" do
-    # TO-DO
+    data = File.read!("test/data/player_profile.xml")
+
+    {:ok, profile} = Saxaboom.parse(data, %UOF.API.Mappings.PlayerProfile{})
+
+    assert profile.player.date_of_birth == "1973-08-29"
+    assert profile.player.nationality == "Germany"
+    assert profile.player.country_code == "DEU"
+    assert profile.player.full_name == "Thomas Tuchel"
+    assert profile.player.gender == "male"
+    assert profile.player.id == "sr:player:72771"
+    assert profile.player.name == "Tuchel, Thomas"
   end
 
   test "can parse 'sports/:lang/competitor/:competitor/profile.xml' response" do
