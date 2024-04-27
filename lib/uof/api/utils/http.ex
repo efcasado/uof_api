@@ -1,7 +1,7 @@
 defmodule UOF.API.Utils.HTTP do
   import Logger
 
-  def get(path, schema) do
+  def get(schema, path, params \\ []) do
     base_url = Application.get_env(:uof_api, :base_url)
     auth_token = Application.get_env(:uof_api, :auth_token)
 
@@ -9,7 +9,8 @@ defmodule UOF.API.Utils.HTTP do
 
     response =
       Req.get!(url,
-        headers: %{"x-access-token" => auth_token}
+        headers: %{"x-access-token" => auth_token},
+        params: params
       ).body
 
     debug("response=#{response}")
