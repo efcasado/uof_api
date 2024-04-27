@@ -6,10 +6,10 @@ defmodule UOF.API.Mappings.Jersey do
     attribute(:base)
     attribute(:sleeve)
     attribute(:number)
-    attribute(:stripes)
-    attribute(:horizontal_stripes)
-    attribute(:squares)
-    attribute(:split)
+    attribute(:stripes, cast: :boolean)
+    attribute(:horizontal_stripes, cast: :boolean)
+    attribute(:squares, cast: :boolean)
+    attribute(:split, cast: :boolean)
     attribute(:shirt_type)
   end
 end
