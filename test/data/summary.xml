@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<match_summary xmlns="http://schemas.sportradar.com/sportsapi/v1/unified"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+generated_at="2024-04-26T19:25:50+00:00"
+xsi:schemaLocation="http://schemas.sportradar.com/sportsapi/v1/unified http://schemas.sportradar.com/ufsportsapi/v1/endpoints/unified/ufsportsapi.xsd">
+
+  <sport_event id="sr:match:42308595"
+  scheduled="2024-04-26T17:30:00+00:00" start_time_tbd="false">
+    <tournament_round type="group" number="30"
+    group_long_name="2nd Bundesliga" betradar_id="16956"
+    betradar_name="2nd Bundesliga" />
+    <season start_date="2023-09-01" end_date="2024-06-01"
+    year="23/24" tournament_id="sr:tournament:921"
+    id="sr:season:107905" name="2. HBL 23/24" />
+    <tournament id="sr:tournament:921" name="2. HBL">
+      <sport id="sr:sport:6" name="Handball" />
+      <category id="sr:category:53" name="Germany"
+      country_code="DEU" />
+    </tournament>
+    <competitors>
+      <competitor qualifier="home" id="sr:competitor:6325"
+      name="VfL Eintracht Hagen" abbreviation="HAG"
+      short_name="Eintracht Hagen" country="Germany"
+      country_code="DEU" gender="male">
+        <reference_ids>
+          <reference_id name="betradar" value="8042520" />
+        </reference_ids>
+      </competitor>
+      <competitor qualifier="away" id="sr:competitor:7808"
+      name="HC Elbflorenz 2006" abbreviation="ELB"
+      short_name="Elbflorenz 2006" country="Germany"
+      country_code="DEU" gender="male">
+        <reference_ids>
+          <reference_id name="betradar" value="9919108" />
+        </reference_ids>
+      </competitor>
+    </competitors>
+    <venue id="sr:venue:7072" name="Ischelandhalle" capacity="1200"
+    city_name="Hagen" country_name="Germany" country_code="DEU"
+    map_coordinates="51.370987,7.477113" />
+  </sport_event>
+  <sport_event_conditions attendance="1054">
+    <venue id="sr:venue:7072" name="Ischelandhalle" capacity="1200"
+    city_name="Hagen" country_name="Germany" country_code="DEU"
+    map_coordinates="51.370987,7.477113" />
+  </sport_event_conditions>
+  <sport_event_status home_score="30" away_score="31"
+  status_code="4" match_status_code="100" status="closed"
+  match_status="ended" winner_id="sr:competitor:7808">
+    <period_scores>
+      <period_score home_score="13" away_score="16"
+      match_status_code="6" type="regular_period" number="1" />
+      <period_score home_score="17" away_score="15"
+      match_status_code="7" type="regular_period" number="2" />
+    </period_scores>
+    <results>
+      <result home_score="30" away_score="31"
+      match_status_code="100" />
+    </results>
+  </sport_event_status>
+  <coverage_info level="silver" live_coverage="true"
+  covered_from="venue">
+    <coverage includes="basic_score" />
+    <coverage includes="key_events" />
+  </coverage_info>
+</match_summary>
