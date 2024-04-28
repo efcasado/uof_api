@@ -1,4 +1,5 @@
 defmodule UOF.API.Mappings.CurrentSeason do
+  @moduledoc false
   use Saxaboom.Mapper
 
   @type t :: %__MODULE__{

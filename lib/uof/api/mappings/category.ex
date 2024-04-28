@@ -1,4 +1,5 @@
 defmodule UOF.API.Mappings.Category do
+  @moduledoc false
   use Saxaboom.Mapper
 
   @type t :: %__MODULE__{

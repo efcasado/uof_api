@@ -1,4 +1,5 @@
 defmodule UOF.API.Mappings.Probability.Market do
+  @moduledoc false
   use Saxaboom.Mapper
 
   alias UOF.API.Mappings.Probability.Outcome

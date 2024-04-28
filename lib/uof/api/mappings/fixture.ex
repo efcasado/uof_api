@@ -1,4 +1,5 @@
 defmodule UOF.API.Mappings.Fixture do
+  @moduledoc false
   use Saxaboom.Mapper
 
   alias UOF.API.Mappings.{Competitor, CoverageInfo, ExtraInfo, ProductInfo, Reference}

@@ -1,4 +1,5 @@
 defmodule UOF.API.Utils.HTTP do
+  @moduledoc false
   import Logger
 
   def get(schema, path, params \\ []) do

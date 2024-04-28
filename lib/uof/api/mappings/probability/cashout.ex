@@ -1,4 +1,5 @@
 defmodule UOF.API.Mappings.Probability.Cashout do
+  @moduledoc false
   use Saxaboom.Mapper
 
   alias UOF.API.Mappings.Probability.EventStatus

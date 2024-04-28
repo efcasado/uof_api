@@ -1,4 +1,5 @@
 defmodule UOF.API.Mappings.CompetitorProfile do
+  @moduledoc false
   use Saxaboom.Mapper
 
   alias UOF.API.Mappings.{Competitor, Jersey, Manager, Player, Venue}

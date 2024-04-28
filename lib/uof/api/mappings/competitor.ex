@@ -1,4 +1,5 @@
 defmodule UOF.API.Mappings.Competitor do
+  @moduledoc false
   use Saxaboom.Mapper
 
   alias UOF.API.Mappings.{Category, Reference, Sport}

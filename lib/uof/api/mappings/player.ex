@@ -1,4 +1,5 @@
 defmodule UOF.API.Mappings.Player do
+  @moduledoc false
   use Saxaboom.Mapper
 
   document do

@@ -1,4 +1,5 @@
 defmodule UOF.API.Mappings.BookmakerDetails do
+  @moduledoc false
   use Saxaboom.Mapper
 
   @type t :: %__MODULE__{

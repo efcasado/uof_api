@@ -1,4 +1,5 @@
 defmodule UOF.API.Mappings.CoverageInfo do
+  @moduledoc false
   use Saxaboom.Mapper
 
   @type t :: %__MODULE__{

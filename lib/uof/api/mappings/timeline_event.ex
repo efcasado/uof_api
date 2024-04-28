@@ -1,4 +1,5 @@
 defmodule UOF.API.Mappings.TimelineEvent.GoalScorer do
+  @moduledoc false
   use Saxaboom.Mapper
 
   document do
@@ -8,6 +9,7 @@ defmodule UOF.API.Mappings.TimelineEvent.GoalScorer do
 end
 
 defmodule UOF.API.Mappings.TimelineEvent.Assist do
+  @moduledoc false
   use Saxaboom.Mapper
 
   document do
@@ -18,6 +20,7 @@ defmodule UOF.API.Mappings.TimelineEvent.Assist do
 end
 
 defmodule UOF.API.Mappings.TimelineEvent.Player do
+  @moduledoc false
   use Saxaboom.Mapper
 
   document do
@@ -27,6 +30,7 @@ defmodule UOF.API.Mappings.TimelineEvent.Player do
 end
 
 defmodule UOF.API.Mappings.TimelineEvent do
+  @moduledoc false
   use Saxaboom.Mapper
 
   alias UOF.API.Mappings.TimelineEvent.{Assist, GoalScorer, Player}

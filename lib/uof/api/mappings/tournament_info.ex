@@ -1,4 +1,5 @@
 defmodule UOF.API.Mappings.TournamentInfo do
+  @moduledoc false
   use Saxaboom.Mapper
 
   alias UOF.API.Mappings.{CoverageInfo, Group, Round, Season, SeasonCoverage, Tournament}

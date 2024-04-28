@@ -1,4 +1,5 @@
 defmodule UOF.API.Mappings.Round do
+  @moduledoc false
   use Saxaboom.Mapper
 
   document do

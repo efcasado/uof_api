@@ -1,4 +1,5 @@
 defmodule UOF.API.Mappings.MatchStatus.Sport do
+  @moduledoc false
   use Saxaboom.Mapper
 
   document do
@@ -7,6 +8,7 @@ defmodule UOF.API.Mappings.MatchStatus.Sport do
 end
 
 defmodule UOF.API.Mappings.MatchStatus do
+  @moduledoc false
   use Saxaboom.Mapper
 
   document do

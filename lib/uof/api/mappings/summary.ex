@@ -1,4 +1,5 @@
 defmodule UOF.API.Mappings.Summary do
+  @moduledoc false
   use Saxaboom.Mapper
 
   alias UOF.API.Mappings.{CoverageInfo, EventConditions, SportEvent, SportEventStatus}

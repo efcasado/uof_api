@@ -1,4 +1,5 @@
 defmodule UOF.API.Mappings.SportEvent do
+  @moduledoc false
   use Saxaboom.Mapper
 
   alias UOF.API.Mappings.{Competitor, Season, Tournament, TournamentRound, Venue}

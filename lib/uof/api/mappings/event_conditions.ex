@@ -1,4 +1,5 @@
 defmodule UOF.API.Mappings.EventConditions do
+  @moduledoc false
   use Saxaboom.Mapper
 
   alias UOF.API.Mappings.Venue

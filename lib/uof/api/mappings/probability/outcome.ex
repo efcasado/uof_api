@@ -1,4 +1,5 @@
 defmodule UOF.API.Mappings.Probability.Outcome do
+  @moduledoc false
   use Saxaboom.Mapper
 
   document do

@@ -1,4 +1,5 @@
 defmodule UOF.API.Mappings.SeasonCoverage do
+  @moduledoc false
   use Saxaboom.Mapper
 
   document do

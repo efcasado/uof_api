@@ -1,4 +1,5 @@
 defmodule UOF.API.Mappings.ResultChanges do
+  @moduledoc false
   use Saxaboom.Mapper
 
   alias UOF.API.Mappings.ResultChange
