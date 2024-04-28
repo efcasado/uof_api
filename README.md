@@ -58,3 +58,20 @@ UOF.API.Sports.live_schedule
 |> hd
 |> then(fn(fixture) -> UOF.API.Probability.probabilities(fixture.id) end)
 ```
+
+#### Custom Bet API
+
+```elixir
+# configuration
+:ok = Application.put_env(:uof_api, :base_url, "<betradar-uof-base-url>")
+:ok = Application.put_env(:uof_api, :auth_token, "<betradar-uof-base-url>")
+
+{:ok, schedule} = UOF.API.Sports.live_schedule
+
+fixture = schedule.events
+|> Enum.filter(&(&1.liveodds == "booked" && &1.status != "ended" && &1.tournament.sport.id == "sr:sport:1" && &1.venue != nil))
+|> Enum.shuffle
+|> hd
+
+{:ok, available} = UOF.API.CustomBet.available_selections(fixture.id)
+```

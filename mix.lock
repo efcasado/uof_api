@@ -21,4 +21,5 @@
   "saxy": {:hex, :saxy, "1.5.0", "0141127f2d042856f135fb2d94e0beecda7a2306f47546dbc6411fc5b07e28bf", [:mix], [], "hexpm", "ea7bb6328fbd1f2aceffa3ec6090bfb18c85aadf0f8e5030905e84235861cf89"},
   "stream_split": {:hex, :stream_split, "0.1.7", "2d3fd1fd21697da7f91926768d65f79409086052c9ec7ae593987388f52425f8", [:mix], [], "hexpm", "1dc072ff507a64404a0ad7af90df97096183fee8eeac7b300320cea7c4679147"},
   "telemetry": {:hex, :telemetry, "1.2.1", "68fdfe8d8f05a8428483a97d7aab2f268aaff24b49e0f599faa091f1d4e7f61c", [:rebar3], [], "hexpm", "dad9ce9d8effc621708f99eac538ef1cbe05d6a874dd741de2e689c47feafed5"},
+  "xml_builder": {:hex, :xml_builder, "2.3.0", "69d214c6ad41ae1300b36acff4367551cdfd9dc1b860affc16e103c6b1589053", [:mix], [], "hexpm", "972ec33346a225cd5acd14ab23d4e79042bd37cb904e07e24cd06992dde1a0ed"},
 }
