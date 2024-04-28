@@ -1,4 +1,16 @@
 defmodule UOF.API.Probability do
+  @moduledoc """
+  Betradar's Probability API can be used to fetch the probabilities for all
+  active markets offered by Betradar's Unified Odds Feed product.
+
+  Probabilities can go down to `1e-10` (ie. `0.0000000001`).
+
+  The only supported sports are: soccer, baseball, basketball, tennis, table
+  tennis, badminton, volleyball, squash, handball, ice hockey and field hockey.
+
+  For a fixture to be available in the Probability API, the fixture must be
+  active in `Live Odds` and you must have `Live Odds` access to this fixture.
+  """
   alias UOF.API.Utils.HTTP
 
   @doc """
