@@ -23,7 +23,8 @@ defmodule UofApi.MixProject do
       {:saxy, "~> 1.5"},
       {:req, "~> 0.4.14"},
       # dev
-      {:ex_doc, "~> 0.31", only: :dev, runtime: false}
+      {:ex_doc, "~> 0.31", only: :dev, runtime: false},
+      {:mock, "~> 0.3.8", only: :test}
     ]
   end
 end

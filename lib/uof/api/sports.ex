@@ -1,7 +1,6 @@
 defmodule UOF.API.Sports do
   alias UOF.API.Utils.HTTP
 
-  ## Static Sport Event Information
   ## =========================================================================
 
   @doc """
