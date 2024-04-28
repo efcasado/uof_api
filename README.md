@@ -14,34 +14,47 @@ Elixir client for Betradar's Unified Odds Feed (UOF) HTTP API.
 
 ### Get Started
 
-```elixir
-config :uof_api,
-    base_url: "<betradar-uof-base-url>",
-    auth_token: "<your-auth-token>",
-    parse: true | false
+```
+make
 ```
 
-```elixir
-# Get all available sports
-{:ok, %UOF.API.Mappings.Sports{sports: sports}} = UOF.API.Sports.sports
-# ...
-football = Enum.find(sports, &(&1.name == "Soccer"))
 
-# Get all available tournaments
-{:ok, %UOF.API.Mappings.Tournaments{tournaments: tournaments}} = UOF.API.Sports.tournaments
-# Get all football tournaments
-football_tournaments = Enum.filter(tournaments, &(&1.sport == football))
-```
+### Examples
+
+#### Probability API
+
+The example below illustrates how to use different functions from `UOF API` to
+fetch the probabilities of a random fixture.
 
 ```elixir
-# Get today's schedule
-{:ok, schedule} = UOF.API.Sports.live_schedule
+# configuration
+:ok = Application.put_env(:uof_api, :base_url, "<betradar-uof-base-url>")
+:ok = Application.put_env(:uof_api, :auth_token, "<betradar-uof-base-url>")
 
-# Distinct statuses of today's fixtures
-Enum.map(schedule.events, &(&1.status)) |> Enum.uniq
-# => ["not_started", "ended", "live", "closed"]
+# sports supported by probability api
+supported_sports = [
+  "Soccer",
+  "Baseball",
+  "Basketball",
+  "Tennis",
+  "Table Tennis",
+  "Badminton",
+  "Volleyball",
+  "Squash",
+  "Handball",
+  "Ice Hockey",
+  "Field Hockey"
+]
 
-# Id of a live fixture
-Enum.find(fixtures, &(&1.status == "live")).id
-# => "sr:match:49495489"
+sports = UOF.API.Sports.sports
+|> then(fn({:ok, resp}) -> resp.sports end)
+|> Enum.filter(&(&1.name in supported_sports))
+
+# fetch probabilities of a random fixture
+UOF.API.Sports.live_schedule
+|> then(fn({:ok, schedule}) -> schedule.fixtures end)
+|> Enum.filter(&(&1.status == "live" && &1.liveodds == "booked" && &1.tournament.sport in sports))
+|> Enum.shuffle
+|> hd
+|> then(fn(fixture) -> UOF.API.Probability.probabilities(fixture.id) end)
 ```
