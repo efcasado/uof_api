@@ -8,7 +8,7 @@ defmodule UOF.API.Descriptions do
     # TO-DO: Optional mappings
     endpoint = ["descriptions", lang, "markets.xml"]
 
-    HTTP.get(endpoint, %UOF.API.Mappings.MarketDescriptions{})
+    HTTP.get(%UOF.API.Mappings.MarketDescriptions{}, endpoint)
   end
 
   @doc """
@@ -18,7 +18,7 @@ defmodule UOF.API.Descriptions do
   def match_statuses(lang \\ "en") do
     endpoint = ["descriptions", lang, "match_status.xml"]
 
-    HTTP.get(endpoint, %UOF.API.Mappings.MatchStatusDescriptions{})
+    HTTP.get(%UOF.API.Mappings.MatchStatusDescriptions{}, endpoint)
   end
 
   @doc """
@@ -28,7 +28,7 @@ defmodule UOF.API.Descriptions do
   def betstop_reasons do
     endpoint = ["descriptions", "betstop_reasons.xml"]
 
-    HTTP.get(endpoint, %UOF.API.Mappings.BetStopReasonDescriptions{})
+    HTTP.get(%UOF.API.Mappings.BetStopReasonDescriptions{}, endpoint)
   end
 
   @doc """
@@ -37,7 +37,7 @@ defmodule UOF.API.Descriptions do
   def betting_statuses do
     endpoint = ["descriptions", "betting_status.xml"]
 
-    HTTP.get(endpoint, %UOF.API.Mappings.BettingStatusDescriptions{})
+    HTTP.get(%UOF.API.Mappings.BettingStatusDescriptions{}, endpoint)
   end
 
   @doc """
@@ -46,7 +46,7 @@ defmodule UOF.API.Descriptions do
   def variants(lang \\ "en") do
     endpoint = ["descriptions", lang, "variants.xml"]
 
-    HTTP.get(endpoint, %UOF.API.Mappings.VariantDescriptions{})
+    HTTP.get(%UOF.API.Mappings.VariantDescriptions{}, endpoint)
   end
 
   @doc """
@@ -55,7 +55,7 @@ defmodule UOF.API.Descriptions do
   def producers do
     endpoint = ["descriptions", "producers.xml"]
 
-    HTTP.get(endpoint, %UOF.API.Mappings.Producers{})
+    HTTP.get(%UOF.API.Mappings.Producers{}, endpoint)
   end
 
   @doc """
@@ -64,6 +64,6 @@ defmodule UOF.API.Descriptions do
   def void_reasons do
     endpoint = ["descriptions", "void_reasons.xml"]
 
-    HTTP.get(endpoint, %UOF.API.Mappings.VoidReasonDescriptions{})
+    HTTP.get(%UOF.API.Mappings.VoidReasonDescriptions{}, endpoint)
   end
 end
