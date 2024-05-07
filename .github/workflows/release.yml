@@ -17,7 +17,6 @@ jobs:
 
       - uses: cycjimmy/semantic-release-action@v4.1.0
         with:
-          dry_run: true
           extra_plugins: |
             @insurgent/conventional-changelog-preset@9.0.1
             @semantic-release/changelog@6.0.3
