@@ -1,6 +1,42 @@
 defmodule UOF.API.Sports do
   alias UOF.API.Utils.HTTP
 
+  ## Auxiliary functions
+  ## =========================================================================
+  def fixtures(filter \\ & &1, map \\ & &1) do
+    fixtures(0, 1000, filter, map, [])
+  end
+
+  defp fixtures(start, limit, filter, map, acc) do
+    {:ok, schedule} = pre_schedule(start, limit)
+
+    case schedule.events do
+      [] ->
+        acc
+
+      events ->
+        # TO-DO: Return subset of fields (eg. only fixture ids)
+        # events = maybe_filter_fixtures(events, filter)
+        events = for e <- events, filter.(e), do: map.(e)
+        fixtures(start + limit, limit, filter, map, events ++ acc)
+    end
+  end
+
+  # defp maybe_filter_fixtures(fixtures, nil) do
+  #   fixtures
+  # end
+  # defp maybe_filter_fixtures(fixtures, filter) do
+  #   Enum.filter(fixtures, filter)
+  # end
+
+  def fixtures_by_sport(sports) when is_list(sports) do
+    fixtures(&(&1.tournament.sport.name in sports))
+  end
+
+  def fixtures_by_sport(sport) do
+    fixtures_by_sport([sport])
+  end
+
   ## =========================================================================
 
   @doc """
