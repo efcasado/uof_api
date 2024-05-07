@@ -25,5 +25,5 @@ jobs:
             semantic-release-hex@1.1.1
           branches: |
             [ 'main' ]
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
