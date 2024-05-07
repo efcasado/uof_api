@@ -1,0 +1,29 @@
+name: release
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - uses: cycjimmy/semantic-release-action@v4.1.0
+        with:
+          dry_run: true
+          extra_plugins: |
+            @insurgent/conventional-changelog-preset@9.0.1
+            @semantic-release/changelog@6.0.3
+            @semantic-release/git@10.0.1
+            semantic-release-hex@1.1.1
+          branches: |
+            [ 'main' ]
