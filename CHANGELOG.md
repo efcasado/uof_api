@@ -1,3 +1,21 @@
+## [1.0.5](https://github.com/efcasado/uof_api/compare/v1.0.4...v1.0.5) (2024-05-09)
+
+
+### 🛠 Builds
+
+* limit workflow concurrency ([549d7ef](https://github.com/efcasado/uof_api/commit/549d7efb2a6b9e6eae50812af172e0e43a9a5eef))
+
+
+### 📚 Documentation
+
+* configure ex_docs ([d7570d8](https://github.com/efcasado/uof_api/commit/d7570d80ce1685cafab3ac19c06f8fdf79234418))
+
+
+### ♻️ Chores
+
+* add badges to README.md ([256f1cd](https://github.com/efcasado/uof_api/commit/256f1cdf1f5ac87ebb4e32e6ada0e6957dde099c))
+* rename elixir workflow as build ([2e0bd60](https://github.com/efcasado/uof_api/commit/2e0bd60ccaae0a33eb1c1a044c964ad5f6fc7f9b))
+
 ## [1.0.4](https://github.com/efcasado/uof_api/compare/v1.0.3...v1.0.4) (2024-05-09)
 
 
