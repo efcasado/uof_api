@@ -1,3 +1,16 @@
+## [1.0.3](https://github.com/efcasado/uof_api/compare/v1.0.2...v1.0.3) (2024-05-09)
+
+
+### 🛠 Builds
+
+* enable publishing ([2c62485](https://github.com/efcasado/uof_api/commit/2c62485726fc16cde1408f41e227f7420813f195))
+* fetch dependencies before publishing ([27e148c](https://github.com/efcasado/uof_api/commit/27e148c5a368ab30213ec9402a4309461b1b47e0))
+
+
+### ♻️ Chores
+
+* add hex.config to .gitignore ([ddb9456](https://github.com/efcasado/uof_api/commit/ddb94563253e6e52dcafaa68a437c4584562f2c0))
+
 ## [1.0.2](https://github.com/efcasado/uof_api/compare/v1.0.1...v1.0.2) (2024-05-09)
 
 
