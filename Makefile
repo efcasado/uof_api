@@ -28,5 +28,6 @@ docs:
 shell: compile
 	iex -S mix
 
-publish:
+publish: deps
+	mix local.hex --force
 	mix hex.publish --yes --dry-run
