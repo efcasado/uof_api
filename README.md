@@ -24,7 +24,7 @@ make
 ```elixir
 # configuration
 :ok = Application.put_env(:uof_api, :base_url, "<betradar-uof-base-url>")
-:ok = Application.put_env(:uof_api, :auth_token, "<betradar-uof-base-url>")
+:ok = Application.put_env(:uof_api, :auth_token, "<betradar-uof-auth-token>")
 
 fixtures = UOF.API.Sports.fixtures
 
