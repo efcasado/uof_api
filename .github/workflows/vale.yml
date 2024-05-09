@@ -1,0 +1,21 @@
+name: vale
+on: [pull_request]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  vale:
+    name: Prose linter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: errata-ai/vale-action@reviewdog
+        with:
+          version: 3.4.2
+          filter_mode: diff_context
+          fail_on_error: true
+          reporter: github-pr-review
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
