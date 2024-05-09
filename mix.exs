@@ -10,7 +10,7 @@ defmodule UofApi.MixProject do
       description: description(),
       package: package(),
       deps: deps(),
-      name: "UOF API",
+      name: "UOF_API",
       source_url: "https://github.com/efcasado/uof_api"
     ]
   end
@@ -39,7 +39,6 @@ defmodule UofApi.MixProject do
 
   defp package() do
     [
-      name: "UOF API",
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/efcasado/uof_api"}
     ]
