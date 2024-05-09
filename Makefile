@@ -30,4 +30,4 @@ shell: compile
 
 publish: deps
 	mix local.hex --force
-	mix hex.publish --yes --dry-run
+	mix hex.publish --yes
