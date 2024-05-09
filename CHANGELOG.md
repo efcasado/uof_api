@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/efcasado/uof_api/compare/v1.0.3...v1.0.4) (2024-05-09)
+
+
+### 🛠 Builds
+
+* fix app name in mix.exs ([41ac325](https://github.com/efcasado/uof_api/commit/41ac3256a52b0714c63655c2337786e005296d30))
+
 ## [1.0.3](https://github.com/efcasado/uof_api/compare/v1.0.2...v1.0.3) (2024-05-09)
 
 
