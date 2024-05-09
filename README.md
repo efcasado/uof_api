@@ -31,23 +31,20 @@ to use.
 
 ### Usage
 
-To fetch all available fixtures, one can run
+Fetch all available fixtures.
 
 ```elixir
 fixtures = UOF.API.Sports.fixtures
 ```
 
-Given the above list of fixtures, we can easily get a quick idea of the nature
-of the currently available fixtures.
-
-For example, we can count how many fixtures are available
+Given a list fixtures, count how many of them there are.
 
 ```elixir
 Enum.count(fixtures)
 # => 51591
 ```
 
-Or inspect a random fixture
+Or inspect a random fixture from the list.
 
 ```elixir
 fixture = Enum.random(fixtures)
