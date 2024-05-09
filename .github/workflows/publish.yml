@@ -1,0 +1,18 @@
+name: publish
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    name: publish package to hex
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: publish package to hex
+      shell: 'script -q -e -c "bash --noprofile --norc -eo pipefail {0}"'
+      run: make publish
+      env:
+        HEX_API_KEY: ${{ secrets.HEX_API_KEY }}

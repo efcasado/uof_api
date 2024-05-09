@@ -1,4 +1,4 @@
-.PHONY: all deps compile format test docs shell
+.PHONY: all deps compile format test docs shell publish
 
 ifndef NODOCKER
 SHELL     := BASH_ENV=.rc /bin/bash --noprofile
@@ -27,3 +27,6 @@ docs:
 
 shell: compile
 	iex -S mix
+
+publish:
+	mix hex.publish --yes --dry-run
