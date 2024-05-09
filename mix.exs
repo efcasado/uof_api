@@ -9,6 +9,7 @@ defmodule UofApi.MixProject do
       start_permanent: Mix.env() == :prod,
       description: description(),
       package: package(),
+      docs: docs(),
       deps: deps(),
       name: "UOF_API",
       source_url: "https://github.com/efcasado/uof_api"
@@ -41,6 +42,14 @@ defmodule UofApi.MixProject do
     [
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/efcasado/uof_api"}
+    ]
+  end
+
+  defp docs() do
+    [
+      main: "readme",
+      logo: "assets/readme_logo.png",
+      extras: ["README.md"]
     ]
   end
 end
