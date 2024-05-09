@@ -396,3 +396,9 @@ competitor = Enum.random(fixture.competitors)
 #    ]
 #  }}
 ```
+
+## Contributing
+
+This project uses [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
+
+The list of supported commit types can be found [here](https://github.com/insurgent-lab/conventional-changelog-preset?tab=readme-ov-file#commit-types).
