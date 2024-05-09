@@ -1,3 +1,11 @@
+## [1.0.2](https://github.com/efcasado/uof_api/compare/v1.0.1...v1.0.2) (2024-05-09)
+
+
+### 🛠 Builds
+
+* fix release workflow ([74f6a26](https://github.com/efcasado/uof_api/commit/74f6a2669a69cd778c5d21e77847ee7a02541dab))
+* update gh token used in release workflow ([e98701b](https://github.com/efcasado/uof_api/commit/e98701b0cd2d3fe78e6d1c7007c5b0ff221697be))
+
 ## [1.0.1](https://github.com/efcasado/uof_api/compare/v1.0.0...v1.0.1) (2024-05-09)
 
 
