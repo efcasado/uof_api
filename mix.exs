@@ -48,7 +48,6 @@ defmodule UofApi.MixProject do
   defp docs() do
     [
       main: "readme",
-      logo: "assets/readme_logo.png",
       extras: ["README.md"]
     ]
   end
