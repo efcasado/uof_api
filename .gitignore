@@ -10,6 +10,7 @@
 
 cache.ets
 erl_crash.dump
+hex.config
 *.ez
 uof_messages-*.tar
 *~
