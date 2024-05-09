@@ -1,3 +1,20 @@
+## [1.0.1](https://github.com/efcasado/uof_api/compare/v1.0.0...v1.0.1) (2024-05-09)
+
+
+### 🛠 Builds
+
+* automate publishing of hex package ([d403174](https://github.com/efcasado/uof_api/commit/d403174da6ca795083da744f49a6f83275c30754))
+* remove unused env variables ([e56b861](https://github.com/efcasado/uof_api/commit/e56b861ed2bf6acc0656d4cb3364731c25c755a5))
+
+
+### ♻️ Chores
+
+* **ci:** introduce vale as linter for documentation ([373110d](https://github.com/efcasado/uof_api/commit/373110db434e7a7d6fa07c58b44e9eee7b8df532))
+* **docs:** add basic example to README.md ([05dc6b5](https://github.com/efcasado/uof_api/commit/05dc6b5bb544d7a0225c17f2a8708b7b8f1f4270))
+* **docs:** fix typo in README.md ([480fe7f](https://github.com/efcasado/uof_api/commit/480fe7f5c9881b232b35d026af2e279e1e22cff6))
+* **docs:** improve examples ([695e49b](https://github.com/efcasado/uof_api/commit/695e49bb34dbe533fe9c1bdf79660d3aa7c8808c))
+* **docs:** update README.md ([070ea17](https://github.com/efcasado/uof_api/commit/070ea17c6d8d480c787196eac58538c86f4510fd))
+
 ## 1.0.0 (2024-05-07)
 
 
