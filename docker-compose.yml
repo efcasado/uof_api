@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  hoverfly:
+    image: spectolabs/hoverfly:v1.9.2
+    ports:
+      - "8888:8888"
+      - "8500:8500"
+    volumes:
+      - ./data:/hoverfly/data
