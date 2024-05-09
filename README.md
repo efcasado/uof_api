@@ -4,34 +4,54 @@
 
 # UOF API
 
-Elixir client for Betradar's Unified Odds Feed (UOF) HTTP API.
-
 > [!IMPORTANT]
 > This is an **unofficial client** for Betradar's Unified Odds Feed (UOF) HTTP API.
 > Betradar offers official Java and .NET SDKs. You can read more about these
 > [here](https://sdk.sportradar.com).
 
+Elixir client for Betradar's Unified Odds Feed (UOF) HTTP API.
 
-### Get Started
-
-```
-make
-```
+This project implements Betradar's Custom Bet, Probability, Recovery and Sports
+APIs, which can be found in the `UOF.API.{CustomBet, Probability, Recovery,
+Sports}` modules, respectively.
 
 
-### Examples
+## Get Started
+
+### Configuration
+
+To be able to interact with Betradar's API, you first need to configure a valid
+`authentication token` and the `base url` of the Betradar environment you want
+to use.
 
 ```elixir
-# configuration
 :ok = Application.put_env(:uof_api, :base_url, "<betradar-uof-base-url>")
 :ok = Application.put_env(:uof_api, :auth_token, "<betradar-uof-auth-token>")
+```
 
+### Usage
+
+To fetch all available fixtures, one can run
+
+```elixir
 fixtures = UOF.API.Sports.fixtures
+```
 
+Given the above list of fixtures, we can easily get a quick idea of the nature
+of the currently available fixtures.
+
+For example, we can count how many fixtures are available
+
+```elixir
 Enum.count(fixtures)
-# 51591
+# => 51591
+```
 
-hd(fixtures)
+Or inspect a random fixture
+
+```elixir
+fixture = Enum.random(fixtures)
+# =>
 # %UOF.API.Mappings.SportEvent{
 #   liveodds: nil,
 #   status: "not_started",
@@ -119,15 +139,26 @@ hd(fixtures)
 #     }
 #   ]
 # }
+```
 
+We can also list of the different statuses reported by all the currently
+available fixtures
+
+```elixir
 fixtures
 |> Enum.map(&(&1.status))
 |> Enum.uniq
-# ["not_started", "cancelled", "postponed", "closed"]
+# => ["not_started", "cancelled", "postponed", "closed"]
+```
 
+Similarly, we can easily get a list of the different sports the currently
+available fixtures belong to
+
+```elixir
 fixtures
 |> Enum.map(&(&1.tournament.sport.name))
 |> Enum.uniq
+# =>
 # [
 #   "Soccer",
 #   "Handball",
@@ -166,9 +197,14 @@ fixtures
 #   "ESport Dota",
 #   "Cycling"
 # ]
+```
 
+Or, count how many fixtures there are for each sport
+
+```elixir
 fixtures
 |> Enum.reduce(%{}, fn(f, acc) -> Map.update(acc, f.tournament.sport.name, 1, &(&1 + 1)) end)
+# =>
 # %{
 #   "Handball" => 776,
 #   "Basketball" => 2832,
@@ -207,25 +243,20 @@ fixtures
 #   "Aussie Rules" => 265,
 #   "Volleyball" => 389
 # }
+```
 
-hd(hd(fixtures).competitors)
-# %UOF.API.Mappings.Competitor{
-#   id: "sr:competitor:65668",
-#   name: "Barracas Central",
-#   state: nil,
-#   country: "Argentina",
-#   country_code: "ARG",
-#   abbreviation: "BAR",
-#   qualifier: "home",
-#   virtual: nil,
-#   gender: "male",
-#   short_name: "Barracas",
-#   sport: nil,
-#   category: nil,
-#   references: [%UOF.API.Mappings.Reference{name: "betradar", value: "17080628"}]
-# }
+When we fetch the list of all available fixtures, we only get limited
+information for each of the returned fixtures. We can use other available
+function to retrieve more details.
 
-UOF.API.Sports.competitor(hd(hd(fixtures).competitors).id)
+The example below illustrates how much more information there is available
+about the teams competing in a football game.
+
+```elixir
+fixture = Enum.random(fixtures)
+competitor = Enum.random(fixture.competitors)
+{:ok, competitor} = UOF.API.Sports.competitor(competitor.id)
+# =>
 # {:ok,
 #  %UOF.API.Mappings.CompetitorProfile{
 #    competitor: %UOF.API.Mappings.Competitor{
@@ -348,357 +379,8 @@ UOF.API.Sports.competitor(hd(hd(fixtures).competitors).id)
 #        id: "sr:player:2539015",
 #        name: "Capraro, Nicolas"
 #      },
-#      %UOF.API.Mappings.Player{
-#        type: "defender",
-#        date_of_birth: "2001-05-31",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: 176,
-#        weight: nil,
-#        jersey_number: 3,
-#        full_name: "Franco Nicolas Tolosa",
-#        gender: "male",
-#        id: "sr:player:2342547",
-#        name: "Tolosa, Franco Nicolas"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "midfielder",
-#        date_of_birth: "2001-08-28",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: 181,
-#        weight: nil,
-#        jersey_number: 4,
-#        full_name: "Pedro Agustin Velurtas",
-#        gender: "male",
-#        id: "sr:player:2254161",
-#        name: "Velurtas, Pedro"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "midfielder",
-#        date_of_birth: "2000-08-02",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: 181,
-#        weight: 76,
-#        jersey_number: 5,
-#        full_name: "Rodrigo Ezequiel Herrera",
-#        gender: "male",
-#        id: "sr:player:2083425",
-#        name: "Herrera, Rodrigo"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "forward",
-#        date_of_birth: "1997-12-16",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: 179,
-#        weight: 76,
-#        jersey_number: 6,
-#        full_name: "Rodrigo Axel Insua",
-#        gender: "male",
-#        id: "sr:player:2109216",
-#        name: "Insua, Rodrigo"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "midfielder",
-#        date_of_birth: "2000-06-07",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: 177,
-#        weight: nil,
-#        jersey_number: 8,
-#        full_name: "Siro Ignacio Cabral Rosane",
-#        gender: "male",
-#        id: "sr:player:2098302",
-#        name: "Rosane, Siro"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "midfielder",
-#        date_of_birth: "1991-12-11",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: 174,
-#        weight: 70,
-#        jersey_number: 8,
-#        full_name: "Matias Alejandro Laba",
-#        gender: "male",
-#        id: "sr:player:146950",
-#        name: "Laba, Matias"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "forward",
-#        date_of_birth: "1996-10-30",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: 185,
-#        weight: 84,
-#        jersey_number: 9,
-#        full_name: "Alexis Andres Dominguez Ansorena",
-#        gender: "male",
-#        id: "sr:player:1131875",
-#        name: "Dominguez, Alexis"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "midfielder",
-#        date_of_birth: "1998-06-28",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: 184,
-#        weight: nil,
-#        jersey_number: 11,
-#        full_name: "Alan Martin Cantero",
-#        gender: "male",
-#        id: "sr:player:2089567",
-#        name: "Cantero, Alan"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "defender",
-#        date_of_birth: "1998-08-16",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: 184,
-#        weight: 79,
-#        jersey_number: 14,
-#        full_name: "Marcos Gonzalo Goni",
-#        gender: "male",
-#        id: "sr:player:1103783",
-#        name: "Goni, Gonzalo"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "defender",
-#        date_of_birth: "1999-11-04",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: 187,
-#        weight: nil,
-#        jersey_number: 15,
-#        full_name: "Nicolas Demartini",
-#        gender: "male",
-#        id: "sr:player:2136340",
-#        name: "Demartini, Nicolas"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "forward",
-#        date_of_birth: "1989-10-14",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: 177,
-#        weight: 93,
-#        jersey_number: 17,
-#        full_name: "Ramon Dario Abila",
-#        gender: "male",
-#        id: "sr:player:798660",
-#        name: "Abila, Ramon"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "midfielder",
-#        date_of_birth: "1990-09-16",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: 169,
-#        weight: 70,
-#        jersey_number: 19,
-#        full_name: "Carlos Alfredo Arce",
-#        gender: "male",
-#        id: "sr:player:2218880",
-#        name: "Arce, Carlos Alfredo"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "forward",
-#        date_of_birth: "1995-03-15",
-#        nationality: "Uruguay",
-#        country_code: "URY",
-#        height: 171,
-#        weight: 63,
-#        jersey_number: 20,
-#        full_name: "Jhonatan Marcelo Candia Hernandez",
-#        gender: "male",
-#        id: "sr:player:1121379",
-#        name: "Candia, Jhonatan"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "forward",
-#        date_of_birth: "1999-01-23",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: 172,
-#        weight: nil,
-#        jersey_number: 21,
-#        full_name: "Lucas Emanuel Brochero",
-#        gender: "male",
-#        id: "sr:player:2091333",
-#        name: "Brochero, Lucas"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "midfielder",
-#        date_of_birth: "2000-12-10",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: 174,
-#        weight: nil,
-#        jersey_number: 22,
-#        full_name: "Bahiano Benjamin Garcia",
-#        gender: "male",
-#        id: "sr:player:2754743",
-#        name: "Garcia, Bahiano Benjamin"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "defender",
-#        date_of_birth: "1997-02-11",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: nil,
-#        weight: nil,
-#        jersey_number: 23,
-#        full_name: "Lucas Faggioli",
-#        gender: "male",
-#        id: "sr:player:2317417",
-#        name: "Faggioli, Lucas"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "midfielder",
-#        date_of_birth: "2001-08-23",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: 171,
-#        weight: 71,
-#        jersey_number: 24,
-#        full_name: "Manuel Agustin Duarte",
-#        gender: "male",
-#        id: "sr:player:2148716",
-#        name: "Duarte, Manuel"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "goalkeeper",
-#        date_of_birth: "1990-08-26",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: 188,
-#        weight: 78,
-#        jersey_number: 25,
-#        full_name: "Sebastian Emanuel Moyano",
-#        gender: "male",
-#        id: "sr:player:147578",
-#        name: "Moyano, Sebastian"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "defender",
-#        date_of_birth: "1999-11-16",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: nil,
-#        weight: nil,
-#        jersey_number: 26,
-#        full_name: "Agustin Irazoque",
-#        gender: "male",
-#        id: "sr:player:2220158",
-#        name: "Irazoque, Agustin"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "midfielder",
-#        date_of_birth: "1999-12-27",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: 172,
-#        weight: nil,
-#        jersey_number: 27,
-#        full_name: "Marcos Iacobellis",
-#        gender: "male",
-#        id: "sr:player:2108256",
-#        name: "Iacobellis, Marcos"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "forward",
-#        date_of_birth: "2001-07-30",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: 180,
-#        weight: nil,
-#        jersey_number: 29,
-#        full_name: "Daniel Eduardo Juarez",
-#        gender: "male",
-#        id: "sr:player:2091259",
-#        name: "Juarez, Daniel Eduardo"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "goalkeeper",
-#        date_of_birth: "1997-08-21",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: 186,
-#        weight: 72,
-#        jersey_number: 30,
-#        full_name: "Marcelo Agustin Mino",
-#        gender: "male",
-#        id: "sr:player:1112861",
-#        name: "Mino, Marcelo"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "forward",
-#        date_of_birth: "2000-07-12",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: 170,
-#        weight: 72,
-#        jersey_number: 32,
-#        full_name: "Santiago Agustin Coronel",
-#        gender: "male",
-#        id: "sr:player:2186238",
-#        name: "Coronel, Santiago Agustin"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "midfielder",
-#        date_of_birth: "1998-07-23",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: 164,
-#        weight: 64,
-#        jersey_number: 33,
-#        full_name: "Facundo Leonel Mater",
-#        gender: "male",
-#        id: "sr:player:2073027",
-#        name: "Mater, Facundo"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "midfielder",
-#        date_of_birth: "2004-09-17",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: nil,
-#        weight: nil,
-#        jersey_number: 36,
-#        full_name: "Alex Lionel Juarez",
-#        gender: "male",
-#        id: "sr:player:2374465",
-#        name: "Juarez, Axel"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "midfielder",
-#        date_of_birth: "2001-03-08",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: 175,
-#        weight: 72,
-#        jersey_number: 43,
-#        full_name: "Maximiliano Ezequiel Zalazar",
-#        gender: "male",
-#        id: "sr:player:2038795",
-#        name: "Zalazar, Maximiliano"
-#      },
-#      %UOF.API.Mappings.Player{
-#        type: "forward",
-#        date_of_birth: "2002-04-22",
-#        nationality: "Argentina",
-#        country_code: "ARG",
-#        height: 185,
-#        weight: 83,
-#        jersey_number: 48,
-#        full_name: "Federico Aguirre",
-#        gender: "male",
-#        id: "sr:player:2563575",
-#        name: "Aguirre, Federico"
-#      },
+#      # truncated to improve readability
+#      # (...)
 #      %UOF.API.Mappings.Player{
 #        type: "midfielder",
 #        date_of_birth: "2000-09-18",
@@ -714,105 +396,4 @@ UOF.API.Sports.competitor(hd(hd(fixtures).competitors).id)
 #      }
 #    ]
 #  }}
-```
-
-#### Probability API
-
-The example below illustrates how to use different functions from `UOF API` to
-fetch the probabilities of a random fixture.
-
-```elixir
-# configuration
-:ok = Application.put_env(:uof_api, :base_url, "<betradar-uof-base-url>")
-:ok = Application.put_env(:uof_api, :auth_token, "<betradar-uof-base-url>")
-
-# sports supported by probability api
-supported_sports = [
-  "Soccer",
-  "Baseball",
-  "Basketball",
-  "Tennis",
-  "Table Tennis",
-  "Badminton",
-  "Volleyball",
-  "Squash",
-  "Handball",
-  "Ice Hockey",
-  "Field Hockey"
-]
-
-sports = UOF.API.Sports.sports
-|> then(fn({:ok, resp}) -> resp.sports end)
-|> Enum.filter(&(&1.name in supported_sports))
-
-# fetch probabilities of a random fixture
-UOF.API.Sports.live_schedule
-|> then(fn({:ok, schedule}) -> schedule.fixtures end)
-|> Enum.filter(&(&1.status == "live" && &1.liveodds == "booked" && &1.tournament.sport in sports))
-|> Enum.shuffle
-|> hd
-|> then(fn(fixture) -> UOF.API.Probability.probabilities(fixture.id) end)
-```
-
-#### Custom Bet API
-
-```elixir
-defmodule Utils do
-  def build(fixture, length) when length > 1 do
-    {:ok, available} = UOF.API.CustomBet.available_selections(fixture)
-
-    {mid, mspecs, oid} = random_selection(available.markets)
-    do_build(fixture, length - 1, {nil, nil, [{fixture, mid, oid, mspecs}]})
-  end
-
-  defp do_build(_fixture, 0, {odds, probs, sels}) do
-    {odds, probs, sels}
-  end
-
-  defp do_build(fixture, n, {_, _, sels}) do
-    {:ok, calc} = UOF.API.CustomBet.calculate(sels, true)
-    {mid, mspecs, oid} = random_selection(calc.available_selections.markets)
-    do_build(fixture, n - 1, {calc.odds, calc.probability, [{fixture, mid, oid, mspecs} | sels]})
-  end
-
-  def random_selection(markets) do
-    markets
-    |> Enum.flat_map(fn market ->
-      market.outcomes
-      |> Enum.filter(&(&1.conflict != true))
-      |> Enum.map(&{market.id, market.specifiers, &1.id})
-    end)
-    |> Enum.random()
-  end
-end
-
-# configure :uof_api
-base_url = System.fetch_env!("UOF_BASE_URL")
-auth_token = System.fetch_env!("UOF_AUTH_TOKEN")
-
-:ok = Application.put_env(:uof_api, :base_url, base_url)
-:ok = Application.put_env(:uof_api, :auth_token, auth_token)
-
-# disable debug logs
-Logger.configure(level: :info)
-
-acca_length = 3
-
-fixtures =
-  UOF.API.Sports.fixtures(
-    &(&1.tournament.sport.name in ["Basketball", "Soccer"] &&
-        &1.liveodds != "not_available" &&
-        &1.status != "ended"),
-    & &1.id
-  )
-
-fixture =
-  fixtures
-  |> Enum.shuffle()
-  |> Enum.find(fn fixture ->
-    {:ok, available} = UOF.API.CustomBet.available_selections(fixture)
-    Enum.count(available.markets) >= acca_length
-  end)
-
-acca = Utils.build(fixture, acca_length)
 ```
