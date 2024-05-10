@@ -11,34 +11,34 @@ defmodule UOF.API.Descriptions do
     HTTP.get(%UOF.API.Mappings.MarketDescriptions{}, endpoint)
   end
 
-  @doc """
-  Describe all sport-specific match status codes used during live matches in
-  `odds_change` messages.
-  """
-  def match_statuses(lang \\ "en") do
-    endpoint = ["descriptions", lang, "match_status.xml"]
+  # @doc """
+  # Describe all sport-specific match status codes used during live matches in
+  # `odds_change` messages.
+  # """
+  # def match_statuses(lang \\ "en") do
+  #   endpoint = ["descriptions", lang, "match_status.xml"]
 
-    HTTP.get(%UOF.API.Mappings.MatchStatusDescriptions{}, endpoint)
-  end
+  #   HTTP.get(%UOF.API.Mappings.MatchStatusDescriptions{}, endpoint)
+  # end
 
-  @doc """
-  Describe all bet stop reasons.
-  """
-  @spec betstop_reasons :: {:ok, UOF.API.Mappings.BetStopReasonDescription.t()}
-  def betstop_reasons do
-    endpoint = ["descriptions", "betstop_reasons.xml"]
+  # @doc """
+  # Describe all bet stop reasons.
+  # """
+  # @spec betstop_reasons :: {:ok, UOF.API.Mappings.BetStopReasonDescription.t()}
+  # def betstop_reasons do
+  #   endpoint = ["descriptions", "betstop_reasons.xml"]
 
-    HTTP.get(%UOF.API.Mappings.BetStopReasonDescriptions{}, endpoint)
-  end
+  #   HTTP.get(%UOF.API.Mappings.BetStopReasonDescriptions{}, endpoint)
+  # end
 
-  @doc """
-  Describes all betting statuses used in `odds_change` messages.
-  """
-  def betting_statuses do
-    endpoint = ["descriptions", "betting_status.xml"]
+  # @doc """
+  # Describes all betting statuses used in `odds_change` messages.
+  # """
+  # def betting_statuses do
+  #   endpoint = ["descriptions", "betting_status.xml"]
 
-    HTTP.get(%UOF.API.Mappings.BettingStatusDescriptions{}, endpoint)
-  end
+  #   HTTP.get(%UOF.API.Mappings.BettingStatusDescriptions{}, endpoint)
+  # end
 
   @doc """
   Get a list of all variants and which markets they are used for.
