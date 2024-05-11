@@ -27,16 +27,6 @@ defmodule UOF.API.Descriptions.Test do
     assert Enum.map(market.outcomes, & &1.id) == ["13", "12"]
   end
 
-  test "can parse UOF.API.Descriptions.void_reasons/0 response" do
-    {:ok, desc} = UOF.API.Descriptions.void_reasons()
-
-    reason = hd(desc.reasons)
-
-    assert Enum.count(desc.reasons) == 17
-    assert reason.id == 0
-    assert reason.description == "OTHER"
-  end
-
   test "can parse UOF.API.Descriptions.variants/{0, 1} response" do
     {:ok, desc} = UOF.API.Descriptions.variants()
 

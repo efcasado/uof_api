@@ -28,13 +28,4 @@ defmodule UOF.API.Descriptions do
 
     HTTP.get(%UOF.API.Mappings.Producers{}, endpoint)
   end
-
-  @doc """
-  Describe all possible void reasons used in `bet_settlement` messages.
-  """
-  def void_reasons do
-    endpoint = ["descriptions", "void_reasons.xml"]
-
-    HTTP.get(%UOF.API.Mappings.VoidReasonDescriptions{}, endpoint)
-  end
 end
