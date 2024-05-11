@@ -29,6 +29,28 @@ defmodule UOF.API.Descriptions.Market do
     end
   end
 
+  @doc """
+  """
+  # UOF.API.Descriptions.Market.variant(241, "sr:exact_games:bestof:7")
+  def variant(market, variant, include_mappings? \\ false, lang \\ "en") do
+    case UOF.API.get("/descriptions/#{lang}/markets/#{market}/variants/#{variant}",
+           query: [include_mappings: include_mappings?]
+         ) do
+      {:ok, %_{status: 200, body: resp}} ->
+        resp
+        |> Map.get("market_descriptions")
+        |> Map.get("market")
+
+      # |> Enum.map(fn x ->
+      #   {:ok, x} = changeset(x)
+      #   x
+      # end)
+
+      {:error, _} = error ->
+        error
+    end
+  end
+
   defmodule Outcome do
     @moduledoc false
     use Ecto.Schema

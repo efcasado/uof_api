@@ -28,4 +28,23 @@ defmodule UOF.API.EctoHelpers do
     end)
     |> Map.new()
   end
+
+  def split(params, field, separator) do
+    values = Map.get(params, field)
+    values = String.split(values, separator)
+    Map.put(params, field, values)
+  end
+
+  def rename(params, old, new, default) do
+    {values, params} = Map.pop(params, old, default)
+    Map.put(params, new, values)
+  end
+
+  def apply(%Ecto.Changeset{valid?: true} = changeset) do
+    {:ok, apply_changes(changeset)}
+  end
+
+  def apply(%Ecto.Changeset{} = changeset) do
+    {:error, traverse_errors(changeset)}
+  end
 end
