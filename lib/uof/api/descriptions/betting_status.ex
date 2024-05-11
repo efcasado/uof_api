@@ -9,9 +9,28 @@ defmodule UOF.API.Descriptions.BettingStatus do
   no longer present in `OddsChange` messages.
   """
   use Ecto.Schema
-
   import Ecto.Changeset
   import UOF.API.EctoHelpers
+
+  @doc """
+  List all supported betting statuses.
+  """
+  @spec all() :: list(BettingStatus.t())
+  def all() do
+    case UOF.API.get("/descriptions/betting_status.xml") do
+      {:ok, %_{status: 200, body: resp}} ->
+        resp
+        |> Map.get("betting_status_descriptions")
+        |> Map.get("betting_status")
+        |> Enum.map(fn x ->
+          {:ok, x} = changeset(x)
+          x
+        end)
+
+      {:error, _} = error ->
+        error
+    end
+  end
 
   @primary_key false
 
@@ -31,45 +50,16 @@ defmodule UOF.API.Descriptions.BettingStatus do
     )
   end
 
-  def cast(params) do
-    %__MODULE__{}
-    |> cast(attrs(params), [:id, :description])
-    |> case do
-      %Ecto.Changeset{valid?: true} = changeset ->
-        {:ok, apply_changes(changeset)}
+  def changeset(model \\ %__MODULE__{}, params) do
+    params = prepare(params)
 
-      %Ecto.Changeset{} = changeset ->
-        {:error, {params, traverse_errors(changeset)}}
-    end
+    model
+    |> cast(params, [:id, :description])
+    |> apply
   end
 
-  defp attrs(params) do
+  defp prepare(params) do
     params
-    |> Enum.map(fn
-      {"@id", val} -> {:id, val}
-      {"@description", val} -> {:description, val}
-      x -> x
-    end)
-    |> Map.new()
-  end
-
-  @doc """
-  List all supported betting statuses.
-  """
-  @spec all() :: list(BettingStatus.t())
-  def all() do
-    case UOF.API.get("/descriptions/betting_status.xml") do
-      {:ok, %_{status: 200, body: resp}} ->
-        resp
-        |> Map.get("betting_status_descriptions")
-        |> Map.get("betting_status")
-        |> Enum.map(fn x ->
-          {:ok, x} = cast(x)
-          x
-        end)
-
-      {:error, _} = error ->
-        error
-    end
+    |> rename_fields
   end
 end

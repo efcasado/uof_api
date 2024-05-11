@@ -9,9 +9,28 @@ defmodule UOF.API.Descriptions.BetStop do
   provided in a subsequent `OddsChange` message.
   """
   use Ecto.Schema
-
   import Ecto.Changeset
   import UOF.API.EctoHelpers
+
+  @doc """
+  List all supported bet stop reasons.
+  """
+  @spec all() :: list(BetStop.t())
+  def all() do
+    case UOF.API.get("/descriptions/betstop_reasons.xml") do
+      {:ok, %_{status: 200, body: resp}} ->
+        resp
+        |> Map.get("betstop_reasons_descriptions")
+        |> Map.get("betstop_reason")
+        |> Enum.map(fn x ->
+          {:ok, x} = changeset(x)
+          x
+        end)
+
+      {:error, _} = error ->
+        error
+    end
+  end
 
   @primary_key false
 
@@ -114,45 +133,16 @@ defmodule UOF.API.Descriptions.BetStop do
     )
   end
 
-  @doc """
-  List all supported bet stop reasons.
-  """
-  @spec all() :: list(BetStop.t())
-  def all() do
-    case UOF.API.get("/descriptions/betstop_reasons.xml") do
-      {:ok, %_{status: 200, body: resp}} ->
-        resp
-        |> Map.get("betstop_reasons_descriptions")
-        |> Map.get("betstop_reason")
-        |> Enum.map(fn x ->
-          {:ok, x} = cast(x)
-          x
-        end)
+  def changeset(model \\ %__MODULE__{}, params) do
+    params = prepare(params)
 
-      {:error, _} = error ->
-        error
-    end
+    model
+    |> cast(params, [:id, :description])
+    |> apply
   end
 
-  defp cast(params) do
-    %__MODULE__{}
-    |> cast(attrs(params), [:id, :description])
-    |> case do
-      %Ecto.Changeset{valid?: true} = changeset ->
-        {:ok, apply_changes(changeset)}
-
-      %Ecto.Changeset{} = changeset ->
-        {:error, {params, traverse_errors(changeset)}}
-    end
-  end
-
-  defp attrs(params) do
+  defp prepare(params) do
     params
-    |> Enum.map(fn
-      {"@id", val} -> {:id, val}
-      {"@description", val} -> {:description, val}
-      x -> x
-    end)
-    |> Map.new()
+    |> rename_fields
   end
 end
