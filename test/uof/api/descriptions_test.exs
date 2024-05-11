@@ -50,19 +50,4 @@ defmodule UOF.API.Descriptions.Test do
     assert outcome_mapping.product_outcome_id == "26"
     assert outcome_mapping.product_outcome_name == "4:0"
   end
-
-  test "can parse UOF.API.Descriptions.producers/0 response" do
-    {:ok, desc} = UOF.API.Descriptions.producers()
-
-    producer = hd(desc.producers)
-
-    assert Enum.count(desc.producers) == 15
-    assert producer.id == 1
-    assert producer.name == "LO"
-    assert producer.description == "Live Odds"
-    assert producer.api_url == "https://stgapi.betradar.com/v1/liveodds/"
-    assert producer.active == true
-    assert producer.scope == "live"
-    assert producer.stateful_recovery_window_in_minutes == 600
-  end
 end

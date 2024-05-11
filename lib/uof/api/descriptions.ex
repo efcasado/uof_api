@@ -19,13 +19,4 @@ defmodule UOF.API.Descriptions do
 
     HTTP.get(%UOF.API.Mappings.VariantDescriptions{}, endpoint)
   end
-
-  @doc """
-  Describe all currently avbailable producers and their ids.
-  """
-  def producers do
-    endpoint = ["descriptions", "producers.xml"]
-
-    HTTP.get(%UOF.API.Mappings.Producers{}, endpoint)
-  end
 end
