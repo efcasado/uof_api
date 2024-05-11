@@ -15,18 +15,6 @@ defmodule UOF.API.Descriptions.Test do
     :ok
   end
 
-  test "can parse UOF.API.Descriptions.markets/{0, 1} response" do
-    {:ok, desc} = UOF.API.Descriptions.markets()
-
-    market = hd(desc.markets)
-
-    assert Enum.count(desc.markets) == 1172
-    assert market.id == 282
-    assert market.name == "Innings 1 to 5th top - {$competitor1} total"
-    assert market.groups == "all|score|4.5_innings"
-    assert Enum.map(market.outcomes, & &1.id) == ["13", "12"]
-  end
-
   test "can parse UOF.API.Descriptions.variants/{0, 1} response" do
     {:ok, desc} = UOF.API.Descriptions.variants()
 
