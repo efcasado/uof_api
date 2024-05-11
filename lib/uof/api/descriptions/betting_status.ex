@@ -8,15 +8,15 @@ defmodule UOF.API.Descriptions.BettingStatus do
   Risk sensitive users may decide to keep markets closed until `BettingStatus` is
   no longer present in `OddsChange` messages.
   """
-  use TypedEctoSchema
+  use Ecto.Schema
 
   import Ecto.Changeset
   import UOF.API.EctoHelpers
 
   @primary_key false
 
-  typed_embedded_schema do
-    field(:id, :integer, null: false) :: non_neg_integer()
+  embedded_schema do
+    field(:id, :integer)
 
     field(:description, Ecto.Enum,
       values: [
@@ -27,8 +27,7 @@ defmodule UOF.API.Descriptions.BettingStatus do
         :POSSIBLE_BOUNDARY,
         :POSSIBLE_CHECKOUT,
         :INGAME_PENALTY
-      ],
-      null: false
+      ]
     )
   end
 

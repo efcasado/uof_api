@@ -8,15 +8,15 @@ defmodule UOF.API.Descriptions.BetStop do
   available (typically not for live matches). The cause of the `BetStop` is
   provided in a subsequent `OddsChange` message.
   """
-  use TypedEctoSchema
+  use Ecto.Schema
 
   import Ecto.Changeset
   import UOF.API.EctoHelpers
 
   @primary_key false
 
-  typed_embedded_schema do
-    field(:id, :integer, null: false) :: non_neg_integer()
+  embedded_schema do
+    field(:id, :integer)
 
     field(:description, Ecto.Enum,
       values: [
@@ -110,8 +110,7 @@ defmodule UOF.API.Descriptions.BetStop do
         :POSSIBLE_SCORE_AWAY,
         :POSSIBLE_VIDEO_ASSISTANT_REFEREE_HOME,
         :POSSIBLE_VIDEO_ASSISTANT_REFEREE_AWAY
-      ],
-      null: false
+      ]
     )
   end
 
