@@ -33,66 +33,55 @@ defmodule UOF.API.Descriptions.MatchStatus do
     end
   end
 
-  defmodule Sports do
-    @moduledoc false
-    use Ecto.Schema
-    import Ecto.Changeset
-    import UOF.API.EctoHelpers
-
-    @primary_key false
-
-    embedded_schema do
-      field(:all, :boolean, default: false)
-      field(:ids, {:array, :string}, default: [])
-    end
-
-    def changeset(model \\ %__MODULE__{}, params) do
-      cast(model, prepare(params), [:all, :ids])
-    end
-
-    defp prepare(params) do
-      params
-      |> rename_fields
-      |> prepare_ids
-    end
-
-    defp prepare_ids(params) do
-      ids =
-        params
-        |> Map.get("sport", [])
-        |> Enum.map(fn
-          {"@id", id} -> id
-          %{"@id" => id} -> id
-        end)
-
-      Map.put(params, "ids", ids)
-    end
-  end
-
   @primary_key false
 
   embedded_schema do
-    field(:id, :integer)
-    field(:description, :string)
-    field(:period_number, :integer)
-    embeds_one(:sports, Sports)
+    field :id, :integer
+    field :description, :string
+    field :period_number, :integer
+
+    embeds_one :sports, Sports, primary_key: false do
+      field :all, :boolean, default: false
+      field :ids, {:array, :string}, default: []
+    end
   end
 
   def changeset(model \\ %__MODULE__{}, params) do
-    model
-    |> cast(prepare(params), [:id, :description, :period_number])
-    |> cast_embed(:sports)
-    |> case do
-      %Ecto.Changeset{valid?: true} = changeset ->
-        {:ok, apply_changes(changeset)}
+    params = prepare(params)
 
-      %Ecto.Changeset{} = changeset ->
-        {:error, {params, traverse_errors(changeset)}}
-    end
+    model
+    |> cast(params, [:id, :description, :period_number])
+    |> cast_embed(:sports, with: &sport_changeset/2)
+    |> apply
   end
 
   defp prepare(params) do
     params
     |> rename_fields
+  end
+
+  def sport_changeset(model \\ %__MODULE__{}, params) do
+    params = prepare_sport(params)
+
+    model
+    |> cast(params, [:all, :ids])
+  end
+
+  defp prepare_sport(params) do
+    params
+    |> rename_fields
+    |> prepare_ids
+  end
+
+  defp prepare_ids(params) do
+    ids =
+      params
+      |> Map.get("sport", [])
+      |> Enum.map(fn
+        {"@id", id} -> id
+        %{"@id" => id} -> id
+      end)
+
+    Map.put(params, "ids", ids)
   end
 end
