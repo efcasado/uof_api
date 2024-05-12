@@ -35,10 +35,6 @@ defmodule UOF.API.Sports.Test do
     {:ok, File.read!("test/data/timeline.xml")}
   end
 
-  defp fetch_mock_data(["sports", _lang, "sports", _sport, "categories.xml"]) do
-    {:ok, File.read!("test/data/categories.xml")}
-  end
-
   defp fetch_mock_data(["sports", _lang, "tournaments.xml"]) do
     {:ok, File.read!("test/data/tournaments.xml")}
   end
@@ -420,22 +416,6 @@ defmodule UOF.API.Sports.Test do
     assert match_ended_event.id == "1731393345"
     assert match_ended_event.time == "2024-04-26T19:10:23+00:00"
     assert match_ended_event.match_clock == "60:00"
-  end
-
-  test "can parse UOF.API.Sports.categories/{1, 2} response" do
-    {:ok, sport_categories} = UOF.API.Sports.categories("sr:sport:1")
-
-    # sport
-    sport = sport_categories.sport
-    assert sport.id == "sr:sport:1"
-    assert sport.name == "Soccer"
-    # categories
-    categories = sport_categories.categories
-    category = hd(categories)
-    assert Enum.count(categories) == 224
-    assert category.id == "sr:category:1"
-    assert category.name == "England"
-    assert category.country_code == "ENG"
   end
 
   test "can parse UOF.API.Sports.tournaments/{0, 1} response" do
