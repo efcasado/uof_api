@@ -63,19 +63,10 @@ defmodule UOF.API.Descriptions.VoidReason do
   end
 
   def changeset(model \\ %__MODULE__{}, params) do
+    params = sanitize(params)
+
     model
-    |> cast(prepare(params), [:id, :description])
-    |> case do
-      %Ecto.Changeset{valid?: true} = changeset ->
-        {:ok, apply_changes(changeset)}
-
-      %Ecto.Changeset{} = changeset ->
-        {:error, {params, traverse_errors(changeset)}}
-    end
-  end
-
-  defp prepare(params) do
-    params
-    |> rename_fields
+    |> cast(params, [:id, :description])
+    |> apply
   end
 end

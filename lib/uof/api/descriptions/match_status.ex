@@ -46,31 +46,25 @@ defmodule UOF.API.Descriptions.MatchStatus do
     end
   end
 
-  def changeset(model \\ %__MODULE__{}, params) do
-    params = prepare(params)
+  def changeset(model \\ %__MODULE__{}, params)
+
+  def changeset(%__MODULE__{} = model, params) do
+    params = sanitize(params)
 
     model
     |> cast(params, [:id, :description, :period_number])
-    |> cast_embed(:sports, with: &sport_changeset/2)
+    |> cast_embed(:sports, with: &changeset/2)
     |> apply
   end
 
-  defp prepare(params) do
-    params
-    |> rename_fields
-  end
-
-  def sport_changeset(model \\ %__MODULE__{}, params) do
-    params = prepare_sport(params)
+  def changeset(%UOF.API.Descriptions.MatchStatus.Sports{} = model, params) do
+    params =
+      params
+      |> sanitize
+      |> prepare_ids
 
     model
     |> cast(params, [:all, :ids])
-  end
-
-  defp prepare_sport(params) do
-    params
-    |> rename_fields
-    |> prepare_ids
   end
 
   defp prepare_ids(params) do

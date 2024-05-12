@@ -51,121 +51,54 @@ defmodule UOF.API.Descriptions.Market do
     end
   end
 
-  defmodule Outcome do
-    @moduledoc false
-    use Ecto.Schema
-    import Ecto.Changeset
-    import UOF.API.EctoHelpers
-
-    @primary_key false
-
-    embedded_schema do
-      field(:id, :integer)
-      field(:name, :string)
-    end
-
-    def changeset(model \\ %__MODULE__{}, params) do
-      cast(model, prepare(params), [:id, :name])
-    end
-
-    defp prepare(params) do
-      params
-      |> rename_fields
-    end
-  end
-
-  defmodule Specifier do
-    @moduledoc false
-    use Ecto.Schema
-    import Ecto.Changeset
-    import UOF.API.EctoHelpers
-
-    @primary_key false
-
-    embedded_schema do
-      # ["decimal", "integer", "string", "variable_text"]
-      field(:type, :string)
-      field(:name, :string)
-    end
-
-    def changeset(model \\ %__MODULE__{}, params) do
-      cast(model, prepare(params), [:name, :type])
-    end
-
-    defp prepare(params) do
-      params
-      |> rename_fields
-    end
-  end
-
   @primary_key false
 
   embedded_schema do
-    field(:id, :integer)
-    field(:name, :string)
-    field(:groups, {:array, :string})
+    field :id, :integer
+    field :name, :string
+    field :groups, {:array, :string}
     # ["player", "competitor", "free_text"]
-    field(:outcome_type, :string)
-    field(:includes_outcomes_of_type, :string)
-    embeds_many(:outcomes, Outcome)
-    embeds_many(:specifiers, Specifier)
+    field :outcome_type, :string
+    field :includes_outcomes_of_type, :string
+
+    embeds_many :outcomes, Outcome, primary_key: false do
+      field :id, :integer
+      field :name, :string
+    end
+
+    embeds_many :specifiers, Specifier, primary_key: false do
+      # ["decimal", "integer", "string", "variable_text"]
+      field :type, :string
+      field :name, :string
+    end
+
     # TO-DO: embeds_many(:mappings, Mapping)
   end
 
-  def changeset(model \\ %__MODULE__{}, params) do
+  def changeset(model \\ %__MODULE__{}, params)
+
+  def changeset(%__MODULE__{} = model, params) do
+    params =
+      params
+      |> sanitize
+      |> bubble_up("outcomes", "outcome")
+      |> bubble_up("specifiers", "specifier")
+      |> split("groups", "|")
+
     model
-    |> cast(prepare(params), [:id, :name, :groups, :outcome_type, :includes_outcomes_of_type])
-    |> cast_embed(:outcomes)
-    |> cast_embed(:specifiers)
-    |> case do
-      %Ecto.Changeset{valid?: true} = changeset ->
-        {:ok, apply_changes(changeset)}
-
-      %Ecto.Changeset{} = changeset ->
-        {:error, {params, traverse_errors(changeset)}}
-    end
+    |> cast(params, [:id, :name, :groups, :outcome_type, :includes_outcomes_of_type])
+    |> cast_embed(:outcomes, with: &changeset/2)
+    |> cast_embed(:specifiers, with: &changeset/2)
+    |> apply
   end
 
-  defp prepare(params) do
-    params
-    |> rename_fields
-    |> prepare_outcomes
-    |> prepare_specifiers
-    |> split_groups
+  def changeset(%UOF.API.Descriptions.Market.Outcome{} = model, params) do
+    params = sanitize(params)
+    cast(model, params, [:id, :name])
   end
 
-  defp prepare_outcomes(params) do
-    outcomes =
-      params
-      |> Map.get("outcomes", %{})
-      |> Map.get("outcome", [])
-
-    case outcomes do
-      outcome when not is_list(outcome) ->
-        Map.put(params, "outcomes", [outcome])
-
-      _ ->
-        Map.put(params, "outcomes", outcomes)
-    end
-  end
-
-  defp prepare_specifiers(params) do
-    specifiers =
-      params
-      |> Map.get("specifiers", %{})
-      |> Map.get("specifier", [])
-
-    case specifiers do
-      specifier when not is_list(specifier) ->
-        Map.put(params, "specifiers", [specifier])
-
-      _ ->
-        Map.put(params, "specifiers", specifiers)
-    end
-  end
-
-  defp split_groups(params) do
-    scope = String.split(params["groups"], "|")
-    Map.put(params, "groups", scope)
+  def changeset(%UOF.API.Descriptions.Market.Specifier{} = model, params) do
+    params = sanitize(params)
+    cast(model, params, [:type, :name])
   end
 end

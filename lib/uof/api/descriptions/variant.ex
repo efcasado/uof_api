@@ -50,89 +50,45 @@ defmodule UOF.API.Descriptions.Variant do
     end
   end
 
-  def changeset(model \\ %__MODULE__{}, params) do
-    params = prepare(params)
+  def changeset(model \\ %__MODULE__{}, params)
+
+  def changeset(%__MODULE__{} = model, params) do
+    params =
+      params
+      |> sanitize
+      |> bubble_up("outcomes", "outcome")
+      |> bubble_up("mappings", "mapping")
 
     model
     |> cast(params, [:id])
-    |> cast_embed(:outcomes, with: &outcome_changeset/2)
-    |> cast_embed(:mappings, with: &mapping_changeset/2)
+    |> cast_embed(:outcomes, with: &changeset/2)
+    |> cast_embed(:mappings, with: &changeset/2)
     |> apply
   end
 
-  defp prepare(params) do
-    params
-    |> rename_fields
-    |> prepare_outcomes
-    |> prepare_mappings
-  end
-
-  defp prepare_outcomes(params) do
-    outcomes =
-      params
-      |> Map.get("outcomes", %{})
-      |> Map.get("outcome", [])
-
-    case outcomes do
-      outcome when not is_list(outcome) ->
-        Map.put(params, "outcomes", [outcome])
-
-      _ ->
-        Map.put(params, "outcomes", outcomes)
-    end
-  end
-
-  defp prepare_mappings(params) do
-    mappings =
-      params
-      |> Map.get("mappings", %{})
-      |> Map.get("mapping", [])
-
-    case mappings do
-      mapping when not is_list(mapping) ->
-        Map.put(params, "mappings", [mapping])
-
-      _ ->
-        Map.put(params, "mappings", mappings)
-    end
-  end
-
-  def outcome_changeset(model, params) do
-    params = prepare_outcome(params)
+  def changeset(%UOF.API.Descriptions.Variant.Outcome{} = model, params) do
+    params = sanitize(params)
 
     model
     |> cast(params, [:id, :name])
   end
 
-  def prepare_outcome(params) do
-    params
-    |> rename_fields
-  end
-
-  def mapping_changeset(model, params) do
-    params = prepare_mapping(params)
+  def changeset(%UOF.API.Descriptions.Variant.Mapping{} = model, params) do
+    params =
+      params
+      |> sanitize
+      |> split("product_ids", "|")
+      |> rename("mapping_outcome", "outcome_mappings", [])
 
     model
     |> cast(params, [:product_id, :product_ids, :sport_id, :market_id, :product_market_id])
-    |> cast_embed(:outcome_mappings, with: &outcome_mapping_changeset/2)
+    |> cast_embed(:outcome_mappings, with: &changeset/2)
   end
 
-  def prepare_mapping(params) do
-    params
-    |> rename_fields
-    |> split("product_ids", "|")
-    |> rename("mapping_outcome", "outcome_mappings", [])
-  end
-
-  def outcome_mapping_changeset(model, params) do
-    params = prepare_outcome_mapping(params)
+  def changeset(%UOF.API.Descriptions.Variant.Mapping.OutcomeMapping{} = model, params) do
+    params = sanitize(params)
 
     model
     |> cast(params, [:outcome_id, :product_outcome_id, :product_outcome_name])
-  end
-
-  def prepare_outcome_mapping(params) do
-    params
-    |> rename_fields
   end
 end

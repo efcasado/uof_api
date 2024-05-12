@@ -41,8 +41,13 @@ defmodule UOF.API.Descriptions.Producer do
   end
 
   def changeset(model \\ %__MODULE__{}, params) do
+    params =
+      params
+      |> sanitize
+      |> split("scope", "|")
+
     model
-    |> cast(prepare(params), [
+    |> cast(params, [
       :id,
       :name,
       :description,
@@ -51,23 +56,6 @@ defmodule UOF.API.Descriptions.Producer do
       :scope,
       :stateful_recovery_window_in_minutes
     ])
-    |> case do
-      %Ecto.Changeset{valid?: true} = changeset ->
-        {:ok, apply_changes(changeset)}
-
-      %Ecto.Changeset{} = changeset ->
-        {:error, {params, traverse_errors(changeset)}}
-    end
-  end
-
-  defp prepare(params) do
-    params
-    |> rename_fields
-    |> prepare_scope
-  end
-
-  defp prepare_scope(params) do
-    scope = String.split(params["scope"], "|")
-    Map.put(params, "scope", scope)
+    |> apply
   end
 end

@@ -51,15 +51,10 @@ defmodule UOF.API.Descriptions.BettingStatus do
   end
 
   def changeset(model \\ %__MODULE__{}, params) do
-    params = prepare(params)
+    params = sanitize(params)
 
     model
     |> cast(params, [:id, :description])
     |> apply
-  end
-
-  defp prepare(params) do
-    params
-    |> rename_fields
   end
 end
