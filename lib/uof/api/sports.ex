@@ -130,15 +130,6 @@ defmodule UOF.API.Sports do
     HTTP.get(%UOF.API.Mappings.Timeline{}, endpoint)
   end
 
-  @doc """
-  List all the available sports.
-  """
-  def sports(lang \\ "en") do
-    endpoint = ["sports", lang, "sports.xml"]
-
-    HTTP.get(%UOF.API.Mappings.Sports{}, endpoint)
-  end
-
   def tournaments(lang \\ "en") do
     endpoint = ["sports", lang, "tournaments.xml"]
 

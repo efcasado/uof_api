@@ -39,10 +39,6 @@ defmodule UOF.API.Sports.Test do
     {:ok, File.read!("test/data/tournaments.xml")}
   end
 
-  defp fetch_mock_data(["sports", _lang, "sports.xml"]) do
-    {:ok, File.read!("test/data/sports.xml")}
-  end
-
   defp fetch_mock_data(["sports", _lang, "tournaments", _tournament, "info.xml"]) do
     {:ok, File.read!("test/data/tournament_info.xml")}
   end
@@ -449,16 +445,6 @@ defmodule UOF.API.Sports.Test do
     assert season_coverage.max_covered == 136
     assert season_coverage.max_coverage_level == "gold"
     assert season_coverage.min_coverage_level == "silver"
-  end
-
-  test "can parse UOF.API.Sports.sports/{0, 1} response" do
-    {:ok, data} = UOF.API.Sports.sports()
-
-    sport = hd(data.sports)
-
-    assert Enum.count(data.sports) == 204
-    assert sport.id == "sr:sport:143"
-    assert sport.name == "7BallRun"
   end
 
   test "can parse UOF.API.Sports.tournament/{1, 2} response" do
