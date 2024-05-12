@@ -2,15 +2,39 @@ defmodule UOF.API.Users do
   @moduledoc """
   API used for administrative purposes.
   """
-  alias UOF.API.Utils.HTTP
+  use Ecto.Schema
+  import Ecto.Changeset
+  import UOF.API.EctoHelpers
 
   @doc """
   Get information about the token being used, including information such as
   the caller's bookmaker id and when the caller's access token will expire.
   """
   def whoami do
-    endpoint = ["users", "whoami.xml"]
+    case UOF.API.get("/users/whoami.xml") do
+      {:ok, %_{status: 200, body: resp}} ->
+        resp
+        |> Map.get("bookmaker_details")
+        |> changeset
 
-    HTTP.get(%UOF.API.Mappings.BookmakerDetails{}, endpoint)
+      {:error, _} = error ->
+        error
+    end
+  end
+
+  @primary_key false
+
+  embedded_schema do
+    field :expire_at, :string
+    field :bookmaker_id, :string
+    field :virtual_host, :string
+  end
+
+  def changeset(model \\ %__MODULE__{}, params) do
+    params = sanitize(params)
+
+    model
+    |> cast(params, [:expire_at, :bookmaker_id, :virtual_host])
+    |> apply
   end
 end
