@@ -1,8 +1,5 @@
 defmodule UOF.API.EctoHelpers do
-  @moduledoc """
-  Ecto Helpers is a module that is ensuring we have the common functions in
-  use for most of the schemas or modules that uses Ecto.
-  """
+  @moduledoc false
   import Ecto.Changeset
 
   @doc """
