@@ -13,6 +13,7 @@ defmodule UOF.API.Descriptions.Variant do
     case UOF.API.get("/descriptions/#{lang}/variants.xml") do
       {:ok, %_{status: 200, body: resp}} ->
         resp
+        |> UOF.API.Utils.xml_to_map()
         |> Map.get("variant_descriptions")
         |> Map.get("variant")
         |> Enum.map(fn x ->
@@ -55,7 +56,6 @@ defmodule UOF.API.Descriptions.Variant do
   def changeset(%__MODULE__{} = model, params) do
     params =
       params
-      |> sanitize
       |> bubble_up("outcomes", "outcome")
       |> bubble_up("mappings", "mapping")
 
@@ -67,8 +67,6 @@ defmodule UOF.API.Descriptions.Variant do
   end
 
   def changeset(%UOF.API.Descriptions.Variant.Outcome{} = model, params) do
-    params = sanitize(params)
-
     model
     |> cast(params, [:id, :name])
   end
@@ -76,7 +74,6 @@ defmodule UOF.API.Descriptions.Variant do
   def changeset(%UOF.API.Descriptions.Variant.Mapping{} = model, params) do
     params =
       params
-      |> sanitize
       |> split("product_ids", "|")
       |> rename("mapping_outcome", "outcome_mappings", [])
 
@@ -86,8 +83,6 @@ defmodule UOF.API.Descriptions.Variant do
   end
 
   def changeset(%UOF.API.Descriptions.Variant.Mapping.OutcomeMapping{} = model, params) do
-    params = sanitize(params)
-
     model
     |> cast(params, [:outcome_id, :product_outcome_id, :product_outcome_name])
   end

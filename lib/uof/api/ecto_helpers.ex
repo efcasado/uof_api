@@ -14,18 +14,6 @@ defmodule UOF.API.EctoHelpers do
     end)
   end
 
-  @doc """
-  Remove leading '@' from field names in the `params` map.
-  """
-  def sanitize(params) do
-    params
-    |> Enum.map(fn
-      {<<"@", key::binary>>, value} -> {key, value}
-      other -> other
-    end)
-    |> Map.new()
-  end
-
   def bubble_up(params, level1, level2) do
     values =
       params

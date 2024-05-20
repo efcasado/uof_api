@@ -12,7 +12,8 @@ defmodule UOF.API do
     {"x-access-token", Application.get_env(:uof_api, :auth_token)}
   ])
 
-  plug(Tesla.Middleware.XML, convention: BadgerFish)
+  # plug(Tesla.Middleware.XML, convention: BadgerFish)
+  plug(Tesla.Middleware.XML, engine: Saxy)
 
   # https://docs.betradar.com/display/BD/UOF+-+Language+Support
   @supported_languages [

@@ -21,6 +21,7 @@ defmodule UOF.API.Descriptions.MatchStatus do
     case UOF.API.get("/descriptions/#{lang}/match_status.xml") do
       {:ok, %_{status: 200, body: resp}} ->
         resp
+        |> UOF.API.Utils.xml_to_map()
         |> Map.get("match_status_descriptions")
         |> Map.get("match_status")
         |> Enum.map(fn x ->
@@ -49,8 +50,6 @@ defmodule UOF.API.Descriptions.MatchStatus do
   def changeset(model \\ %__MODULE__{}, params)
 
   def changeset(%__MODULE__{} = model, params) do
-    params = sanitize(params)
-
     model
     |> cast(params, [:id, :description, :period_number])
     |> cast_embed(:sports, with: &changeset/2)
@@ -58,10 +57,7 @@ defmodule UOF.API.Descriptions.MatchStatus do
   end
 
   def changeset(%UOF.API.Descriptions.MatchStatus.Sports{} = model, params) do
-    params =
-      params
-      |> sanitize
-      |> prepare_ids
+    params = prepare_ids(params)
 
     model
     |> cast(params, [:all, :ids])
@@ -72,8 +68,8 @@ defmodule UOF.API.Descriptions.MatchStatus do
       params
       |> Map.get("sport", [])
       |> Enum.map(fn
-        {"@id", id} -> id
-        %{"@id" => id} -> id
+        {"id", id} -> id
+        %{"id" => id} -> id
       end)
 
     Map.put(params, "ids", ids)

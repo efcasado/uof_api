@@ -130,24 +130,6 @@ defmodule UOF.API.Sports do
     HTTP.get(%UOF.API.Mappings.Timeline{}, endpoint)
   end
 
-  def tournaments(lang \\ "en") do
-    endpoint = ["sports", lang, "tournaments.xml"]
-
-    HTTP.get(%UOF.API.Mappings.Tournaments{}, endpoint)
-  end
-
-  @doc """
-  Get details about the given tournament.
-  """
-  def tournament(tournament, lang \\ "en") do
-    # https://docs.betradar.com/display/BD/UOF+-+Tournament+we+provide+coverage+for
-    endpoint = ["sports", lang, "tournaments", tournament, "info.xml"]
-
-    # TO-DO: staged tournaments
-    # https://docs.betradar.com/display/BD/UOF+-+Formula+1
-    HTTP.get(%UOF.API.Mappings.TournamentInfo{}, endpoint)
-  end
-
   ## Entity Description
   ## =========================================================================
   @doc """

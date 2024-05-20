@@ -17,8 +17,10 @@ defmodule UOF.API.Sports.Category do
     case UOF.API.get("/sports/#{lang}/sports/#{sport}/categories.xml") do
       {:ok, %_{status: 200, body: resp}} ->
         resp
+        |> UOF.API.Utils.xml_to_map()
         |> Map.get("sport_categories")
         |> changeset
+        |> apply
 
       {:error, _} = error ->
         error
@@ -66,19 +68,14 @@ defmodule UOF.API.Sports.Category do
     |> cast(params, [])
     |> cast_embed(:sport, with: &changeset/2)
     |> cast_embed(:categories, with: &changeset/2)
-    |> apply
   end
 
   def changeset(%UOF.API.Sports.Category.Sport{} = model, params) do
-    params = sanitize(params)
-
     model
     |> cast(params, [:id, :name])
   end
 
   def changeset(%UOF.API.Sports.Category.Category{} = model, params) do
-    params = sanitize(params)
-
     model
     |> cast(params, [:id, :name, :country_code])
   end

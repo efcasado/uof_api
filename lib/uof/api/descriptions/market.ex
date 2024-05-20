@@ -17,6 +17,7 @@ defmodule UOF.API.Descriptions.Market do
          ) do
       {:ok, %_{status: 200, body: resp}} ->
         resp
+        |> UOF.API.Utils.xml_to_map()
         |> Map.get("market_descriptions")
         |> Map.get("market")
         |> Enum.map(fn x ->
@@ -38,6 +39,7 @@ defmodule UOF.API.Descriptions.Market do
          ) do
       {:ok, %_{status: 200, body: resp}} ->
         resp
+        |> UOF.API.Utils.xml_to_map()
         |> Map.get("market_descriptions")
         |> Map.get("market")
 
@@ -80,7 +82,6 @@ defmodule UOF.API.Descriptions.Market do
   def changeset(%__MODULE__{} = model, params) do
     params =
       params
-      |> sanitize
       |> bubble_up("outcomes", "outcome")
       |> bubble_up("specifiers", "specifier")
       |> split("groups", "|")
@@ -93,12 +94,10 @@ defmodule UOF.API.Descriptions.Market do
   end
 
   def changeset(%UOF.API.Descriptions.Market.Outcome{} = model, params) do
-    params = sanitize(params)
     cast(model, params, [:id, :name])
   end
 
   def changeset(%UOF.API.Descriptions.Market.Specifier{} = model, params) do
-    params = sanitize(params)
     cast(model, params, [:type, :name])
   end
 end

@@ -16,6 +16,7 @@ defmodule UOF.API.Descriptions.Producer do
     case UOF.API.get("/descriptions/producers.xml") do
       {:ok, %_{status: 200, body: resp}} ->
         resp
+        |> UOF.API.Utils.xml_to_map()
         |> Map.get("producers")
         |> Map.get("producer")
         |> Enum.map(fn x ->
@@ -41,10 +42,7 @@ defmodule UOF.API.Descriptions.Producer do
   end
 
   def changeset(model \\ %__MODULE__{}, params) do
-    params =
-      params
-      |> sanitize
-      |> split("scope", "|")
+    params = split(params, "scope", "|")
 
     model
     |> cast(params, [

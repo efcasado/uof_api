@@ -29,7 +29,7 @@ defmodule UofApi.MixProject do
       {:saxy, "~> 1.5"},
       {:req, "~> 0.4.14"},
       {:tesla, "~> 1.9"},
-      {:tesla_middleware_xml, "~> 1.0.1"},
+      {:tesla_middleware_xml, "~> 2.0.0"},
       {:xml_builder, "~> 2.3"},
       # dev
       {:ex_doc, "~> 0.31", only: :dev, runtime: false},

@@ -13,10 +13,11 @@ defmodule UOF.API.Sports.Sport do
     case UOF.API.get("/sports/#{lang}/sports.xml") do
       {:ok, %_{status: 200, body: resp}} ->
         resp
+        |> UOF.API.Utils.xml_to_map()
         |> Map.get("sports")
         |> Map.get("sport")
         |> Enum.map(fn x ->
-          {:ok, x} = changeset(x)
+          {:ok, x} = apply(changeset(x))
           x
         end)
 
@@ -38,10 +39,6 @@ defmodule UOF.API.Sports.Sport do
   end
 
   def changeset(model \\ %__MODULE__{}, params) do
-    params = sanitize(params)
-
-    model
-    |> cast(params, [:id, :name])
-    |> apply
+    cast(model, params, [:id, :name])
   end
 end

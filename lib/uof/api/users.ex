@@ -14,6 +14,7 @@ defmodule UOF.API.Users do
     case UOF.API.get("/users/whoami.xml") do
       {:ok, %_{status: 200, body: resp}} ->
         resp
+        |> UOF.API.Utils.xml_to_map()
         |> Map.get("bookmaker_details")
         |> changeset
 
@@ -31,8 +32,6 @@ defmodule UOF.API.Users do
   end
 
   def changeset(model \\ %__MODULE__{}, params) do
-    params = sanitize(params)
-
     model
     |> cast(params, [:expire_at, :bookmaker_id, :virtual_host])
     |> apply

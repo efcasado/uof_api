@@ -20,6 +20,7 @@ defmodule UOF.API.Descriptions.BetStop do
     case UOF.API.get("/descriptions/betstop_reasons.xml") do
       {:ok, %_{status: 200, body: resp}} ->
         resp
+        |> UOF.API.Utils.xml_to_map()
         |> Map.get("betstop_reasons_descriptions")
         |> Map.get("betstop_reason")
         |> Enum.map(fn x ->
@@ -134,8 +135,6 @@ defmodule UOF.API.Descriptions.BetStop do
   end
 
   def changeset(model \\ %__MODULE__{}, params) do
-    params = sanitize(params)
-
     model
     |> cast(params, [:id, :description])
     |> apply
