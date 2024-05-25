@@ -132,14 +132,4 @@ defmodule UOF.API.Sports do
 
     HTTP.get(%UOF.API.Mappings.CompetitorProfile{}, endpoint)
   end
-
-  @doc """
-  Get the details of the given venue.
-  """
-  def venue(venue, lang \\ "en") do
-    # https://docs.betradar.com/display/BD/UOF+-+Venues
-    endpoint = ["sports", lang, "venues", venue, "profile.xml"]
-
-    HTTP.get(%UOF.API.Mappings.VenueProfile{}, endpoint)
-  end
 end

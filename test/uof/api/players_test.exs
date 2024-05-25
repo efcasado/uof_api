@@ -13,7 +13,7 @@ defmodule UOF.API.Players.Test do
     :ok
   end
 
-  test "can parse UOF.API.Sports.player/{1, 2} response" do
+  test "can parse UOF.API.Players.show/{1, 2} response" do
     {:ok, player} = UOF.API.Players.show("sr:player:72771")
 
     assert player.date_of_birth == "1973-08-29"

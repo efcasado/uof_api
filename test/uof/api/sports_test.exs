@@ -39,10 +39,6 @@ defmodule UOF.API.Sports.Test do
     {:ok, File.read!("test/data/competitor_profile.xml")}
   end
 
-  defp fetch_mock_data(["sports", _lang, "venues", _venue, "profile.xml"]) do
-    {:ok, File.read!("test/data/venue_profile.xml")}
-  end
-
   defp fetch_mock_data(_endpoint) do
     {:error, "mock data not found"}
   end
@@ -464,27 +460,5 @@ defmodule UOF.API.Sports.Test do
     assert player.gender == "male"
     assert player.id == "sr:player:8959"
     assert player.name == "Neuer, Manuel"
-  end
-
-  test "can parse UOF.API.Sports.venue/{1, 2} response" do
-    {:ok, profile} = UOF.API.Sports.venue("sr:venue:574")
-
-    # venue
-    assert profile.venue.id == "sr:venue:574"
-    assert profile.venue.name == "Allianz Arena"
-    assert profile.venue.capacity == 75000
-    assert profile.venue.city_name == "Munich"
-    assert profile.venue.country_name == "Germany"
-    assert profile.venue.country_code == "DEU"
-    assert profile.venue.map_coordinates == "48.218777,11.624748"
-    # home teams
-    home_team = hd(profile.home_teams)
-    assert Enum.count(profile.home_teams) == 1
-    assert home_team.id == "sr:competitor:2672"
-    assert home_team.name == "Bayern Munich"
-    assert home_team.abbreviation == "BMU"
-    assert home_team.country == "Germany"
-    assert home_team.country_code == "DEU"
-    assert home_team.gender == "male"
   end
 end
