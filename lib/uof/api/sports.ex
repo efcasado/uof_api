@@ -59,15 +59,6 @@ defmodule UOF.API.Sports do
   end
 
   @doc """
-  Get a list of all live fixtures.
-  """
-  def live_schedule(lang \\ "en") do
-    endpoint = ["sports", lang, "schedules", "live", "schedule.xml"]
-
-    HTTP.get(%UOF.API.Mappings.Schedule{}, endpoint)
-  end
-
-  @doc """
   Get a lists of almost all fixtures Betradar offers prematch odds for.
   """
   def pre_schedule(start \\ 0, limit \\ 100, lang \\ "en") do
@@ -132,16 +123,6 @@ defmodule UOF.API.Sports do
 
   ## Entity Description
   ## =========================================================================
-  @doc """
-  Get the details of the given player.
-  """
-  def player(player, lang \\ "en") do
-    # https://docs.betradar.com/display/BD/UOF+-+Player+profile
-    endpoint = ["sports", lang, "players", player, "profile.xml"]
-
-    HTTP.get(%UOF.API.Mappings.PlayerProfile{}, endpoint)
-  end
-
   @doc """
   Get the details of the given competitor.
   """

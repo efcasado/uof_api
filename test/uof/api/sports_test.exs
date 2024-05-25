@@ -35,10 +35,6 @@ defmodule UOF.API.Sports.Test do
     {:ok, File.read!("test/data/timeline.xml")}
   end
 
-  defp fetch_mock_data(["sports", _lang, "players", _player, "profile.xml"]) do
-    {:ok, File.read!("test/data/player_profile.xml")}
-  end
-
   defp fetch_mock_data(["sports", _lang, "competitors", _competitor, "profile.xml"]) do
     {:ok, File.read!("test/data/competitor_profile.xml")}
   end
@@ -412,18 +408,6 @@ defmodule UOF.API.Sports.Test do
 
   ## Entity descriptions
   ## =========================================================================
-  test "can parse UOF.API.Sports.player/{1, 2} response" do
-    {:ok, profile} = UOF.API.Sports.player("sr:player:72771")
-
-    assert profile.player.date_of_birth == "1973-08-29"
-    assert profile.player.nationality == "Germany"
-    assert profile.player.country_code == "DEU"
-    assert profile.player.full_name == "Thomas Tuchel"
-    assert profile.player.gender == "male"
-    assert profile.player.id == "sr:player:72771"
-    assert profile.player.name == "Tuchel, Thomas"
-  end
-
   test "can parse UOF.API.Sports.competitor/{1, 2} response" do
     {:ok, profile} = UOF.API.Sports.competitor("sr:competitor:2672")
 
