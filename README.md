@@ -14,8 +14,7 @@
 Elixir client for Betradar's Unified Odds Feed (UOF) HTTP API.
 
 This project implements Betradar's Custom Bet, Probability, Recovery and Sports
-APIs, which can be found in the `UOF.API.{CustomBet, Probability, Recovery,
-Sports}` modules, respectively.
+APIs.
 
 
 ## Get Started
@@ -36,7 +35,7 @@ to use.
 Fetch all available fixtures.
 
 ```elixir
-fixtures = UOF.API.Sports.fixtures
+{:ok, fixtures} = UOF.API.Fixtures.all()
 ```
 
 Given a list fixtures, count how many of them there are.
