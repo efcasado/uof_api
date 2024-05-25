@@ -13,15 +13,9 @@ defmodule UOF.API.Sports.Category.Test do
     :ok
   end
 
-  test "can parse UOF.API.Sports.Category.by_sport/{1, 2} response" do
-    {:ok, sport_categories} = UOF.API.Sports.Category.by_sport("sr:sport:1")
+  test "can parse UOF.API.Sports.categories/{1, 2} response" do
+    categories = UOF.API.Sports.categories("sr:sport:1")
 
-    # sport
-    sport = sport_categories.sport
-    assert sport.id == "sr:sport:1"
-    assert sport.name == "Soccer"
-    # categories
-    categories = sport_categories.categories
     category = hd(categories)
     assert Enum.count(categories) == 224
     assert category.id == "sr:category:1"

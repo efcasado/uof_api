@@ -14,7 +14,7 @@ defmodule UOF.API.Sports.Sport.Test do
   end
 
   test "can parse UOF.API.Sports.Sport.all/{0, 1} response" do
-    sports = UOF.API.Sports.Sport.all()
+    sports = UOF.API.Sports.all()
 
     assert Enum.count(sports) == 204
     assert hd(sports).id == "sr:sport:143"

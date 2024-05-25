@@ -1,5 +1,54 @@
 defmodule UOF.API.Sports do
+  @moduledoc """
+  """
+  use Ecto.Schema
+  import Ecto.Changeset
+  import UOF.API.EctoHelpers
+
   alias UOF.API.Utils.HTTP
+
+  @doc """
+  List all the available sports.
+  """
+  # @spec all(lang :: String.t()) :: list(__MODULE__.t())
+  def all(lang \\ "en") do
+    case UOF.API.get("/sports/#{lang}/sports.xml") do
+      {:ok, %_{status: 200, body: resp}} ->
+        resp
+        |> UOF.API.Utils.xml_to_map()
+        |> Map.get("sports")
+        |> Map.get("sport")
+        |> Enum.map(fn x ->
+          {:ok, x} = apply(UOF.API.Sports.Sport.changeset(x))
+          x
+        end)
+
+      {:error, _} = error ->
+        error
+    end
+  end
+
+  @doc """
+  List all the available categories for the given sport.
+  """
+  # @spec categories(sport :: String.t(), lang :: String.t()) :: list(__MODULE__.t())
+  def categories(sport, lang \\ "en") do
+    case UOF.API.get("/sports/#{lang}/sports/#{sport}/categories.xml") do
+      {:ok, %_{status: 200, body: resp}} ->
+        resp
+        |> UOF.API.Utils.xml_to_map()
+        |> Map.get("sport_categories")
+        |> Map.get("categories")
+        |> Map.get("category")
+        |> Enum.map(fn x ->
+          {:ok, x} = apply(UOF.API.Sports.Category.changeset(x))
+          x
+        end)
+
+      {:error, _} = error ->
+        error
+    end
+  end
 
   ## Auxiliary functions
   ## =========================================================================
@@ -119,17 +168,5 @@ defmodule UOF.API.Sports do
     endpoint = ["sports", lang, "sport_events", fixture, "timeline.xml"]
 
     HTTP.get(%UOF.API.Mappings.Timeline{}, endpoint)
-  end
-
-  ## Entity Description
-  ## =========================================================================
-  @doc """
-  Get the details of the given competitor.
-  """
-  def competitor(competitor, lang \\ "en") do
-    # https://docs.betradar.com/display/BD/UOF+-+Competitors+profile
-    endpoint = ["sports", lang, "competitors", competitor, "profile.xml"]
-
-    HTTP.get(%UOF.API.Mappings.CompetitorProfile{}, endpoint)
   end
 end

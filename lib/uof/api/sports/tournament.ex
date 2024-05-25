@@ -95,7 +95,7 @@ defmodule UOF.API.Sports.Tournament do
     end
 
     embeds_one :sport, UOF.API.Sports.Sport
-    embeds_one :category, UOF.API.Sports.Category.Category
+    embeds_one :category, UOF.API.Sports.Category
   end
 
   def from_simple_form({element, attrs, elements}) do
