@@ -35,7 +35,7 @@ defmodule UOF.API.EctoHelpers do
     Map.put(params, field, values)
   end
 
-  def rename(params, old, new, default) do
+  def rename(params, old, new, default \\ nil) do
     {values, params} = Map.pop(params, old, default)
     Map.put(params, new, values)
   end

@@ -15,14 +15,6 @@ defmodule UOF.API.Sports.Test do
     :ok
   end
 
-  defp fetch_mock_data(["sports", _lang, "fixtures", "changes.xml"]) do
-    {:ok, File.read!("test/data/fixture_changes.xml")}
-  end
-
-  defp fetch_mock_data(["sports", _lang, "results", "changes.xml"]) do
-    {:ok, File.read!("test/data/result_changes.xml")}
-  end
-
   defp fetch_mock_data(["sports", _lang, "sport_events", _fixture, "summary.xml"]) do
     {:ok, File.read!("test/data/summary.xml")}
   end
@@ -37,26 +29,6 @@ defmodule UOF.API.Sports.Test do
 
   ## Static sport event information
   ## =========================================================================
-
-  test "can parse UOF.API.Sports.fixture_changes/{0, 1} response" do
-    {:ok, data} = UOF.API.Sports.fixture_changes()
-
-    change = hd(data.changes)
-
-    assert Enum.count(data.changes) == 9543
-    assert change.sport_event_id == "sr:match:49540297"
-    assert change.update_time == "2024-04-26T19:12:43+00:00"
-  end
-
-  test "can parse UOF.API.Sports.result_changes/{0, 1} response" do
-    {:ok, data} = UOF.API.Sports.result_changes()
-
-    change = hd(data.changes)
-
-    assert Enum.count(data.changes) == 4236
-    assert change.sport_event_id == "sr:match:49689671"
-    assert change.update_time == "2024-04-26T19:12:56+00:00"
-  end
 
   ## Sport event information
   ## =========================================================================

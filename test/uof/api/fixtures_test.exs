@@ -5,8 +5,16 @@ defmodule UOF.API.Fixtures.Test do
     :ok = Application.put_env(:tesla, UOF.API, adapter: Tesla.Mock)
 
     Tesla.Mock.mock(fn
-      %{method: :get} ->
+      %{method: :get, url: "/sports/en/sport_events/sr:match:8696826/fixture.xml"} ->
         resp = File.read!("test/data/fixture.xml")
+        %Tesla.Env{status: 200, headers: [{"content-type", "application/xml"}], body: resp}
+
+      %{method: :get, url: "/sports/en/fixtures/changes.xml"} ->
+        resp = File.read!("test/data/fixture_changes.xml")
+        %Tesla.Env{status: 200, headers: [{"content-type", "application/xml"}], body: resp}
+
+      %{method: :get, url: "/sports/en/results/changes.xml"} ->
+        resp = File.read!("test/data/result_changes.xml")
         %Tesla.Env{status: 200, headers: [{"content-type", "application/xml"}], body: resp}
     end)
 
@@ -86,5 +94,25 @@ defmodule UOF.API.Fixtures.Test do
     [reference] = fixture.reference_ids
     assert reference.name == "BetradarCtrl"
     assert reference.value == "11428313"
+  end
+
+  test "can parse UOF.API.Fixtures.changed/{0, 1} response" do
+    changes = UOF.API.Fixtures.changed()
+
+    change = hd(changes)
+
+    assert Enum.count(changes) == 9543
+    assert change.sport_event_id == "sr:match:49540297"
+    assert change.update_time == "2024-04-26T19:12:43+00:00"
+  end
+
+  test "can parse UOF.API.Fixtures.changed_results/{0, 1} response" do
+    changes = UOF.API.Fixtures.changed_result()
+
+    change = hd(changes)
+
+    assert Enum.count(changes) == 4236
+    assert change.sport_event_id == "sr:match:49689671"
+    assert change.update_time == "2024-04-26T19:12:56+00:00"
   end
 end

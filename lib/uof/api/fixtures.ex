@@ -42,11 +42,46 @@ defmodule UOF.API.Fixtures do
     end
   end
 
-  # def changed() do
-  # end
+  @doc """
+  Get a list of all the fixtures that have changed in the last 24 hours.
+  """
+  def changed(lang \\ "en") do
+    case UOF.API.get("/sports/#{lang}/fixtures/changes.xml") do
+      {:ok, %_{status: 200, body: resp}} ->
+        resp
+        |> UOF.API.Utils.xml_to_map()
+        |> Map.get("fixture_changes")
+        |> Map.get("fixture_change")
+        |> Enum.map(fn x ->
+          {:ok, x} = apply(UOF.API.Fixtures.Change.changeset(x))
+          x
+        end)
 
-  # def changed_results() do
-  # end
+      {:error, _} = error ->
+        error
+    end
+  end
+
+  @doc """
+  Get a lists of all the fixtures that have changed results in the last 24 hours.
+  """
+  def changed_result(lang \\ "en") do
+    # TO-DO: add support for 'after datetime' and 'sport' filters
+    case UOF.API.get("/sports/#{lang}/results/changes.xml") do
+      {:ok, %_{status: 200, body: resp}} ->
+        resp
+        |> UOF.API.Utils.xml_to_map()
+        |> Map.get("result_changes")
+        |> Map.get("result_change")
+        |> Enum.map(fn x ->
+          {:ok, x} = apply(UOF.API.Fixtures.Change.changeset(x))
+          x
+        end)
+
+      {:error, _} = error ->
+        error
+    end
+  end
 
   @doc """
   Get the details of the given fixture.
@@ -65,6 +100,58 @@ defmodule UOF.API.Fixtures do
         |> IO.inspect()
         |> UOF.API.Fixtures.Fixture.changeset()
         |> apply
+
+      {:error, _} = error ->
+        error
+    end
+  end
+
+  @doc """
+  Get information and results for the given fixture.
+  """
+  def summary(id, lang \\ "en") do
+    # https://docs.betradar.com/display/BD/UOF+-+Summary+end+point
+    # TO-DO: differentiate between match and race summaries
+    case UOF.API.get("/sports/#{lang}/sport_events/#{id}/summary.xml") do
+      {:ok, %_{status: 200, body: resp}} ->
+        resp
+        |> UOF.API.Utils.xml_to_map()
+        |> IO.inspect()
+        |> Map.get("match_summary")
+        # |> Map.get("fixture")
+        # |> bubble_up("competitors", "competitor")
+        # |> bubble_up("extra_info", "info")
+        # |> bubble_up("reference_ids", "reference_id")
+        |> rename("sport_event", "fixture")
+
+      # |> UOF.API.Fixtures.Fixture.Summary.changeset()
+      # |> apply
+
+      {:error, _} = error ->
+        error
+    end
+  end
+
+  @doc """
+  Get detailed information (including event timeline) for the given sport event.
+  # Prematch, Live or Post-match. Prematch details are very brief. Post-match
+  # details include results.
+  """
+  def timeline(id, lang \\ "en") do
+    case UOF.API.get("/sports/#{lang}/sport_events/#{id}/timeline.xml") do
+      {:ok, %_{status: 200, body: resp}} ->
+        resp
+        |> UOF.API.Utils.xml_to_map()
+        |> IO.inspect()
+        |> Map.get("match_timeline")
+        |> rename("sport_event", "fixture")
+
+      # |> bubble_up("competitors", "competitor")
+      # |> bubble_up("extra_info", "info")
+      # |> bubble_up("reference_ids", "reference_id")
+      # |> IO.inspect()
+      # |> UOF.API.Fixtures.Fixture.Summary.changeset()
+      # |> apply
 
       {:error, _} = error ->
         error
