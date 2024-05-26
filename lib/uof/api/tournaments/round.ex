@@ -13,7 +13,7 @@ defmodule UOF.API.Tournaments.Round do
     field :cup_round_match_number, :integer
   end
 
-  def changeset(%__MODULE__{} = model, params) do
+  def changeset(model \\ %__MODULE__{}, params) do
     model
     |> cast(params, [:type, :name, :number, :cup_round_matches, :cup_round_match_number])
   end

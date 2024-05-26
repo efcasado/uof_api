@@ -10,12 +10,6 @@ defmodule UOF.API.Fixtures do
     all(lang, 0, 1000, filter, map, [])
   end
 
-  # def changed() do
-  # end
-
-  # def changed_results() do
-  # end
-
   defp all(lang, start, limit, filter, map, acc) do
     case pre_schedule(lang, start, limit) do
       [] ->
@@ -42,6 +36,35 @@ defmodule UOF.API.Fixtures do
           {:ok, x} = apply(UOF.API.Schedules.Fixture.changeset(x))
           x
         end)
+
+      {:error, _} = error ->
+        error
+    end
+  end
+
+  # def changed() do
+  # end
+
+  # def changed_results() do
+  # end
+
+  @doc """
+  Get the details of the given fixture.
+  """
+  def show(id, lang \\ "en") do
+    # TO-DO: handle codds fixture (eg. codds:competition_group:77739)
+    case UOF.API.get("/sports/#{lang}/sport_events/#{id}/fixture.xml") do
+      {:ok, %_{status: 200, body: resp}} ->
+        resp
+        |> UOF.API.Utils.xml_to_map()
+        |> Map.get("fixtures_fixture")
+        |> Map.get("fixture")
+        |> bubble_up("competitors", "competitor")
+        |> bubble_up("extra_info", "info")
+        |> bubble_up("reference_ids", "reference_id")
+        |> IO.inspect()
+        |> UOF.API.Fixtures.Fixture.changeset()
+        |> apply
 
       {:error, _} = error ->
         error

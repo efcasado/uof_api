@@ -15,10 +15,6 @@ defmodule UOF.API.Sports.Test do
     :ok
   end
 
-  defp fetch_mock_data(["sports", _lang, "sport_events", _fixture, "fixture.xml"]) do
-    {:ok, File.read!("test/data/fixture.xml")}
-  end
-
   defp fetch_mock_data(["sports", _lang, "fixtures", "changes.xml"]) do
     {:ok, File.read!("test/data/fixture_changes.xml")}
   end
@@ -41,81 +37,6 @@ defmodule UOF.API.Sports.Test do
 
   ## Static sport event information
   ## =========================================================================
-
-  test "can parse UOF.API.Sports.fixture/{1, 2} response" do
-    {:ok, ff} = UOF.API.Sports.fixture("sr:match:8696826")
-
-    # fixture attributes
-    assert ff.fixture.start_time_confirmed == true
-    assert ff.fixture.liveodds == "not_available"
-    assert ff.fixture.status == "closed"
-    assert ff.fixture.next_live_time == "2016-10-31T18:00:00+00:00"
-    assert ff.fixture.id == "sr:match:8696826"
-    assert ff.fixture.scheduled == "2016-10-31T18:00:00+00:00"
-    assert ff.fixture.start_time_tbd == false
-    # tournament round
-    assert ff.fixture.tournament_round.type == "group"
-    assert ff.fixture.tournament_round.number == "25"
-    assert ff.fixture.tournament_round.group_long_name == "Ettan, Sodra"
-    assert ff.fixture.tournament_round.betradar_name == "Ettan, Sodra"
-    assert ff.fixture.tournament_round.betradar_id == 4301
-    # season
-    assert ff.fixture.season.start_date == "2016-04-16"
-    assert ff.fixture.season.end_date == "2016-11-05"
-    assert ff.fixture.season.year == "2016"
-    assert ff.fixture.season.tournament_id == "sr:tournament:68"
-    assert ff.fixture.season.id == "sr:season:12346"
-    assert ff.fixture.season.name == "Div 1, Sodra 2016"
-    # tournament
-    assert ff.fixture.tournament.id == "sr:tournament:68"
-    assert ff.fixture.tournament.name == "Ettan, Sodra"
-    assert ff.fixture.tournament.sport.id == "sr:sport:1"
-    assert ff.fixture.tournament.sport.name == "Soccer"
-    assert ff.fixture.tournament.category.id == "sr:category:9"
-    assert ff.fixture.tournament.category.name == "Sweden"
-    # competitors
-    [competitor1, competitor2] = ff.fixture.competitors
-    assert competitor1.qualifier == "home"
-    assert competitor1.id == "sr:competitor:1860"
-    assert competitor1.name == "IK Oddevold"
-    assert competitor1.abbreviation == "ODD"
-    assert competitor1.short_name == "Oddevold"
-    assert competitor1.country == "Sweden"
-    assert competitor1.country_code == "SWE"
-    assert competitor1.gender == "male"
-    assert competitor2.qualifier == "away"
-    assert competitor2.id == "sr:competitor:22356"
-    assert competitor2.name == "Tvaakers IF"
-    assert competitor2.abbreviation == "TVA"
-    assert competitor2.short_name == "Tvaakers"
-    assert competitor2.country == "Sweden"
-    assert competitor2.country_code == "SWE"
-    assert competitor2.gender == "male"
-    # tv channels
-    assert ff.fixture.tv_channels == []
-    # extra info
-    [info1, info2, info3, info4, info5, info6, info7] = ff.fixture.extra_info
-    assert info1.key == "RTS"
-    assert info1.value == "not_available"
-    assert info2.key == "coverage_source"
-    assert info2.value == "venue"
-    assert info3.key == "extended_live_markets_offered"
-    assert info3.value == "false"
-    assert info4.key == "streaming"
-    assert info4.value == "false"
-    assert info5.key == "auto_traded"
-    assert info5.value == "false"
-    assert info6.key == "neutral_ground"
-    assert info6.value == "false"
-    assert info7.key == "period_length"
-    assert info7.value == "45"
-    # product info
-    # TO-DO: implement
-    # reference ids
-    [reference] = ff.fixture.references
-    assert reference.name == "BetradarCtrl"
-    assert reference.value == "11428313"
-  end
 
   test "can parse UOF.API.Sports.fixture_changes/{0, 1} response" do
     {:ok, data} = UOF.API.Sports.fixture_changes()

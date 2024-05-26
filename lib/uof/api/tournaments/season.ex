@@ -11,10 +11,11 @@ defmodule UOF.API.Tournaments.Season do
     field :year, :string
     field :id, :string
     field :name, :string
+    field :tournament_id, :string
   end
 
   def changeset(%__MODULE__{} = model, params) do
     model
-    |> cast(params, [:id, :name, :start_date, :end_date, :year])
+    |> cast(params, [:id, :name, :start_date, :end_date, :year, :tournament_id])
   end
 end
