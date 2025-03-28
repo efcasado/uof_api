@@ -13,6 +13,7 @@ defmodule UOF.API.Mappings.Competitor do
           qualifier: String.t(),
           virtual: String.t(),
           gender: String.t(),
+          age_group: String.t(),
           short_name: String.t(),
           sport: Sport.t(),
           category: Category.t(),
@@ -29,6 +30,7 @@ defmodule UOF.API.Mappings.Competitor do
     attribute(:qualifier)
     attribute(:virtual)
     attribute(:gender)
+    attribute(:age_group)
     attribute(:short_name)
     element(:sport, into: %Sport{})
     element(:category, into: %Category{})
