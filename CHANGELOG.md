@@ -1,3 +1,16 @@
+## [1.1.0](https://github.com/efcasado/uof_api/compare/v1.0.5...v1.1.0) (2025-03-28)
+
+
+### ✨ Features
+
+* add age_group field to competitor model ([2e0c310](https://github.com/efcasado/uof_api/commit/2e0c3106f47407f257a08395da5b47665253b8ed))
+
+
+### 📚 Documentation
+
+* document usage of conventional commits ([6de2680](https://github.com/efcasado/uof_api/commit/6de2680f03382813fd13c9cf078062c4c43b5aaf))
+* remove logo ([3904612](https://github.com/efcasado/uof_api/commit/3904612b8d5850b0d337b8d221423e2319e99a4a))
+
 ## [1.0.5](https://github.com/efcasado/uof_api/compare/v1.0.4...v1.0.5) (2024-05-09)
 
 
