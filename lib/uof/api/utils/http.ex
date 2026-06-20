@@ -25,7 +25,7 @@ defmodule UOF.API.Utils.HTTP do
     end
   end
 
-  def post(schema, path, body) do
+  def post(schema, path, body \\ "", params \\ []) do
     base_url = Application.get_env(:uof_api, :base_url)
     auth_token = Application.get_env(:uof_api, :auth_token)
 
@@ -40,7 +40,8 @@ defmodule UOF.API.Utils.HTTP do
           "content-type" => "application/xml",
           "accept" => "application/xml"
         },
-        body: body
+        body: body,
+        params: params
       ).body
 
     debug("response=#{response}")
