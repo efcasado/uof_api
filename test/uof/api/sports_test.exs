@@ -165,6 +165,38 @@ defmodule UOF.API.Sports.Test do
     assert change.update_time == ~U[2024-04-26 19:12:56Z]
   end
 
+  test "fixtures/0 paginates the prematch schedule and aggregates events" do
+    page = File.read!("test/data/schedule.xml")
+
+    stub(UOF.API.Utils.HTTP, :get, fn schema, _endpoint, params ->
+      data = if Keyword.get(params, :start, 0) == 0, do: page, else: "<schedule/>"
+      UOF.API.XML.decode(data, schema)
+    end)
+
+    events = UOF.API.Sports.fixtures()
+
+    assert length(events) == 4
+
+    assert events |> Enum.map(& &1.id) |> Enum.sort() ==
+             ["sr:match:1", "sr:match:2", "sr:match:3", "sr:match:4"]
+  end
+
+  test "filters a schedule by liveodds booking state" do
+    {:ok, schedule} =
+      UOF.API.XML.decode(
+        File.read!("test/data/schedule.xml"),
+        UOF.API.Schemas.Sports.ScheduleEndpoint
+      )
+
+    assert Enum.map(UOF.API.Sports.bookable(schedule), & &1.id) == ["sr:match:1"]
+    assert Enum.map(UOF.API.Sports.booked(schedule), & &1.id) == ["sr:match:2"]
+    assert Enum.map(UOF.API.Sports.buyable(schedule), & &1.id) == ["sr:match:3"]
+
+    assert Enum.map(UOF.API.Sports.with_liveodds(schedule, "not_available"), & &1.id) == [
+             "sr:match:4"
+           ]
+  end
+
   ## Sport event information
   ## =========================================================================
   test "can parse 'sports/:lang/sport_events/:fixture/summary.xml' response" do

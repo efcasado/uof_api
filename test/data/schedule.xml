@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schedule generated_at="2024-01-01T00:00:00+00:00">
+  <sport_event id="sr:match:1" liveodds="bookable"/>
+  <sport_event id="sr:match:2" liveodds="booked"/>
+  <sport_event id="sr:match:3" liveodds="buyable"/>
+  <sport_event id="sr:match:4" liveodds="not_available"/>
+</schedule>
