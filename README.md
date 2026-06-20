@@ -126,11 +126,21 @@ Betting descriptions:
 {:ok, %{producer: producers}} = UOF.API.Descriptions.producers()
 ```
 
-Custom bet — list available selections and calculate odds/probability:
+Custom bet lets you combine markets across fixtures into a single accumulator.
+First list the markets available for a fixture:
 
 ```elixir
-{:ok, selections} = UOF.API.CustomBet.available_selections("sr:match:42430779")
+{:ok, available} = UOF.API.CustomBet.available_selections("sr:match:42795059")
 
+market = hd(available.markets)
+outcome = hd(market.outcomes)
+# a selection is a {fixture_id, market_id, outcome_id} tuple
+{"sr:match:42795059", market.id, outcome.id}
+```
+
+Then calculate the combined odds and probability for a list of selections:
+
+```elixir
 {:ok, calculation} = UOF.API.CustomBet.calculate([
   {"sr:match:42795059", 97, 74},
   {"sr:match:42795059", 10, 9}
@@ -138,6 +148,9 @@ Custom bet — list available selections and calculate odds/probability:
 # calculation.calculation.odds        => #Decimal<5.22>
 # calculation.calculation.probability => #Decimal<0.15>
 ```
+
+Pass `true` as the second argument to `calculate/2` to also get back the further
+markets that can still be added to the bet.
 
 Probabilities (cashout):
 
