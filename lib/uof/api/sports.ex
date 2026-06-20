@@ -148,6 +148,15 @@ defmodule UOF.API.Sports do
     HTTP.get(UOF.API.Schemas.Sports.SportCategoriesEndpoint, endpoint)
   end
 
+  @doc """
+  List all the tournaments for the given sport.
+  """
+  def sport_tournaments(sport, lang \\ "en") do
+    endpoint = ["sports", lang, "sports", sport, "tournaments.xml"]
+
+    HTTP.get(UOF.API.Schemas.Sports.SportTournamentsEndpoint, endpoint)
+  end
+
   def tournaments(lang \\ "en") do
     endpoint = ["sports", lang, "tournaments.xml"]
 
@@ -164,6 +173,15 @@ defmodule UOF.API.Sports do
     # TO-DO: staged tournaments
     # https://docs.betradar.com/display/BD/UOF+-+Formula+1
     HTTP.get(UOF.API.Schemas.Sports.TournamentInfoEndpoint, endpoint)
+  end
+
+  @doc """
+  Get all the seasons of the given tournament.
+  """
+  def seasons(tournament, lang \\ "en") do
+    endpoint = ["sports", lang, "tournaments", tournament, "seasons.xml"]
+
+    HTTP.get(UOF.API.Schemas.Sports.TournamentSeasons, endpoint)
   end
 
   ## Entity Description

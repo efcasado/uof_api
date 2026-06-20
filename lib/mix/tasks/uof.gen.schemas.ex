@@ -32,7 +32,7 @@ defmodule Mix.Tasks.Uof.Gen.Schemas do
     {:sports_api, "UOF.API.Schemas.Sports", "lib/uof/api/schemas/sports",
      ~w(fixtures_fixture schedule fixture_changes result_changes match_summary match_timeline
         sports sport_categories tournaments tournament_info player_profile competitor_profile
-        venue_summary)}
+        venue_summary tournament_seasons sport_tournaments)}
   ]
 
   @impl Mix.Task
