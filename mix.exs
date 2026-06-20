@@ -30,7 +30,7 @@ defmodule UofApi.MixProject do
       {:xml_builder, "~> 2.3"},
       # dev
       {:ex_doc, "~> 0.31", only: :dev, runtime: false},
-      {:mimic, "~> 1.0", only: :test}
+      {:mimic, "~> 2.3", only: :test}
     ]
   end
 
