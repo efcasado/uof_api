@@ -18,7 +18,7 @@ defmodule UOF.API.Utils.HTTP do
 
     case Application.get_env(:uof_api, :parse, true) do
       true ->
-        Saxaboom.parse(response, schema)
+        UOF.API.XML.decode(response, schema)
 
       false ->
         response
@@ -47,7 +47,7 @@ defmodule UOF.API.Utils.HTTP do
 
     case Application.get_env(:uof_api, :parse, true) do
       true ->
-        Saxaboom.parse(response, schema)
+        UOF.API.XML.decode(response, schema)
 
       false ->
         response

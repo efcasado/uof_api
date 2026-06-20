@@ -46,7 +46,7 @@ defmodule UOF.API.Sports do
     # TO-DO: handle codds fixture (eg. codds:competition_group:77739)
     endpoint = ["sports", lang, "sport_events", fixture, "fixture.xml"]
 
-    HTTP.get(%UOF.API.Mappings.FixturesFixture{}, endpoint)
+    HTTP.get(UOF.API.Schemas.Sports.FixturesEndpoint, endpoint)
   end
 
   @doc """
@@ -55,7 +55,7 @@ defmodule UOF.API.Sports do
   def schedule(date, lang \\ "en") do
     endpoint = ["sports", lang, "schedules", date, "schedule.xml"]
 
-    HTTP.get(%UOF.API.Mappings.Schedule{}, endpoint)
+    HTTP.get(UOF.API.Schemas.Sports.ScheduleEndpoint, endpoint)
   end
 
   @doc """
@@ -64,7 +64,7 @@ defmodule UOF.API.Sports do
   def live_schedule(lang \\ "en") do
     endpoint = ["sports", lang, "schedules", "live", "schedule.xml"]
 
-    HTTP.get(%UOF.API.Mappings.Schedule{}, endpoint)
+    HTTP.get(UOF.API.Schemas.Sports.ScheduleEndpoint, endpoint)
   end
 
   @doc """
@@ -73,7 +73,7 @@ defmodule UOF.API.Sports do
   def pre_schedule(start \\ 0, limit \\ 100, lang \\ "en") do
     endpoint = ["sports", lang, "schedules", "pre", "schedule.xml"]
 
-    HTTP.get(%UOF.API.Mappings.Schedule{}, endpoint, start: start, limit: limit)
+    HTTP.get(UOF.API.Schemas.Sports.ScheduleEndpoint, endpoint, start: start, limit: limit)
   end
 
   @doc """
@@ -82,7 +82,7 @@ defmodule UOF.API.Sports do
   def tournament_schedule(tournament, lang \\ "en") do
     endpoint = ["sports", lang, "tournaments", tournament, "schedule.xml"]
 
-    HTTP.get(%UOF.API.Mappings.Schedule{}, endpoint)
+    HTTP.get(UOF.API.Schemas.Sports.ScheduleEndpoint, endpoint)
   end
 
   @doc """
@@ -92,7 +92,7 @@ defmodule UOF.API.Sports do
     # TO-DO: add support for 'after datetime' and 'sport' filters
     endpoint = ["sports", lang, "fixtures", "changes.xml"]
 
-    HTTP.get(%UOF.API.Mappings.FixtureChanges{}, endpoint)
+    HTTP.get(UOF.API.Schemas.Sports.FixtureChangesEndpoint, endpoint)
   end
 
   @doc """
@@ -102,7 +102,7 @@ defmodule UOF.API.Sports do
     # TO-DO: add support for 'after datetime' and 'sport' filters
     endpoint = ["sports", lang, "results", "changes.xml"]
 
-    HTTP.get(%UOF.API.Mappings.ResultChanges{}, endpoint)
+    HTTP.get(UOF.API.Schemas.Sports.ResultChangesEndpoint, endpoint)
   end
 
   ## Sport Event Information
@@ -116,7 +116,7 @@ defmodule UOF.API.Sports do
     # TO-DO: differentiate between match and race summaries
     endpoint = ["sports", lang, "sport_events", fixture, "summary.xml"]
 
-    HTTP.get(%UOF.API.Mappings.Summary{}, endpoint)
+    HTTP.get(UOF.API.Schemas.Sports.MatchSummaryEndpoint, endpoint)
   end
 
   @doc """
@@ -127,7 +127,7 @@ defmodule UOF.API.Sports do
   def timeline(fixture, lang \\ "en") do
     endpoint = ["sports", lang, "sport_events", fixture, "timeline.xml"]
 
-    HTTP.get(%UOF.API.Mappings.Timeline{}, endpoint)
+    HTTP.get(UOF.API.Schemas.Sports.MatchTimelineEndpoint, endpoint)
   end
 
   @doc """
@@ -136,7 +136,7 @@ defmodule UOF.API.Sports do
   def sports(lang \\ "en") do
     endpoint = ["sports", lang, "sports.xml"]
 
-    HTTP.get(%UOF.API.Mappings.Sports{}, endpoint)
+    HTTP.get(UOF.API.Schemas.Sports.SportsEndpoint, endpoint)
   end
 
   @doc """
@@ -145,13 +145,13 @@ defmodule UOF.API.Sports do
   def categories(sport, lang \\ "en") do
     endpoint = ["sports", lang, "sports", sport, "categories.xml"]
 
-    HTTP.get(%UOF.API.Mappings.SportCategories{}, endpoint)
+    HTTP.get(UOF.API.Schemas.Sports.SportCategoriesEndpoint, endpoint)
   end
 
   def tournaments(lang \\ "en") do
     endpoint = ["sports", lang, "tournaments.xml"]
 
-    HTTP.get(%UOF.API.Mappings.Tournaments{}, endpoint)
+    HTTP.get(UOF.API.Schemas.Sports.TournamentsEndpoint, endpoint)
   end
 
   @doc """
@@ -163,7 +163,7 @@ defmodule UOF.API.Sports do
 
     # TO-DO: staged tournaments
     # https://docs.betradar.com/display/BD/UOF+-+Formula+1
-    HTTP.get(%UOF.API.Mappings.TournamentInfo{}, endpoint)
+    HTTP.get(UOF.API.Schemas.Sports.TournamentInfoEndpoint, endpoint)
   end
 
   ## Entity Description
@@ -175,7 +175,7 @@ defmodule UOF.API.Sports do
     # https://docs.betradar.com/display/BD/UOF+-+Player+profile
     endpoint = ["sports", lang, "players", player, "profile.xml"]
 
-    HTTP.get(%UOF.API.Mappings.PlayerProfile{}, endpoint)
+    HTTP.get(UOF.API.Schemas.Sports.PlayerProfileEndpoint, endpoint)
   end
 
   @doc """
@@ -185,7 +185,7 @@ defmodule UOF.API.Sports do
     # https://docs.betradar.com/display/BD/UOF+-+Competitors+profile
     endpoint = ["sports", lang, "competitors", competitor, "profile.xml"]
 
-    HTTP.get(%UOF.API.Mappings.CompetitorProfile{}, endpoint)
+    HTTP.get(UOF.API.Schemas.Sports.CompetitorProfileEndpoint, endpoint)
   end
 
   @doc """
@@ -195,6 +195,6 @@ defmodule UOF.API.Sports do
     # https://docs.betradar.com/display/BD/UOF+-+Venues
     endpoint = ["sports", lang, "venues", venue, "profile.xml"]
 
-    HTTP.get(%UOF.API.Mappings.VenueProfile{}, endpoint)
+    HTTP.get(UOF.API.Schemas.Sports.VenueSummaryEndpoint, endpoint)
   end
 end
