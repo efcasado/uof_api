@@ -181,13 +181,23 @@ returns an acknowledgement):
 ## Regenerating the schemas
 
 The Ecto schemas under `lib/uof/api/schemas/` are generated from Betradar's
-XSDs. The XSDs are downloaded on demand (pinned to an upstream SDK tag) into the
-git-ignored `priv/xsd/` cache:
+official XSDs, taken from the [Unified Odds SDK for .NET][sdk] and pinned to a
+single release tag for reproducibility. The exact tag lives in `@sdk_tag` in
+[`Mix.UOF.XSD.Sources`](lib/mix/uof/xsd/sources.ex) (the single source of truth);
+`mix uof.xsd.fetch` prints it.
+
+The XSDs are downloaded on demand into the git-ignored `priv/xsd/` cache; they
+are never vendored into the repo:
 
 ```
 mix uof.xsd.fetch     # download the XSDs
 mix uof.gen.schemas   # generate the schemas
 ```
+
+To move to a newer SDK release, bump `@sdk_tag` there and re-run
+`mix uof.gen.schemas`.
+
+[sdk]: https://github.com/sportradar/UnifiedOddsSdkNetCore
 
 
 ## Contributing
