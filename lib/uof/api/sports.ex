@@ -1,67 +1,6 @@
 defmodule UOF.API.Sports do
   alias UOF.API.Utils.HTTP
 
-  ## Auxiliary functions
-  ## =========================================================================
-  def fixtures(filter \\ & &1, map \\ & &1) do
-    fixtures(0, 1000, filter, map, [])
-  end
-
-  defp fixtures(start, limit, filter, map, acc) do
-    {:ok, schedule} = pre_schedule(start, limit)
-
-    case schedule.sport_event do
-      [] ->
-        acc
-
-      events ->
-        # TO-DO: Return subset of fields (eg. only fixture ids)
-        # events = maybe_filter_fixtures(events, filter)
-        events = for e <- events, filter.(e), do: map.(e)
-        fixtures(start + limit, limit, filter, map, events ++ acc)
-    end
-  end
-
-  # defp maybe_filter_fixtures(fixtures, nil) do
-  #   fixtures
-  # end
-  # defp maybe_filter_fixtures(fixtures, filter) do
-  #   Enum.filter(fixtures, filter)
-  # end
-
-  def fixtures_by_sport(sports) when is_list(sports) do
-    fixtures(&(&1.tournament.sport.name in sports))
-  end
-
-  def fixtures_by_sport(sport) do
-    fixtures_by_sport([sport])
-  end
-
-  @doc """
-  Filter a schedule's sport events by their `liveodds` booking state (e.g.
-  `"bookable"`, `"booked"`, `"buyable"`, `"not_available"`).
-
-  Accepts a schedule struct (such as the one returned by `schedule/2`) or a
-  plain list of sport events. The state values are not enumerated by the schema,
-  so prefer this for any value beyond the named shortcuts below.
-  """
-  def with_liveodds(%{sport_event: events}, state), do: with_liveodds(events, state)
-
-  def with_liveodds(events, state) when is_list(events) do
-    Enum.filter(events, &(&1.liveodds == state))
-  end
-
-  @doc "Sport events that can be booked for live odds."
-  def bookable(schedule), do: with_liveodds(schedule, "bookable")
-
-  @doc "Sport events already booked for live odds."
-  def booked(schedule), do: with_liveodds(schedule, "booked")
-
-  @doc "Sport events available to buy."
-  def buyable(schedule), do: with_liveodds(schedule, "buyable")
-
-  ## =========================================================================
-
   @doc """
   Get the details of the given fixture.
   """
