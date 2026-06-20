@@ -1,10 +1,8 @@
-![UOF API](https://github.com/efcasado/uof_api/raw/main/assets/readme_logo.png)
+# Betradar's Unified Odds Feed (UOF) HTTP API
 
-[![Build Status](https://github.com/efcasado/uof_api/actions/workflows/elixir.yml/badge.svg?branch=main)](https://github.com/efcasado/uof_api/actions)
+[![CI](https://github.com/efcasado/uof_api/actions/workflows/elixir.yml/badge.svg)](https://github.com/efcasado/uof_api/actions/workflows/elixir.yml)
 [![Package Version](https://img.shields.io/hexpm/v/uof_api.svg)](https://hex.pm/packages/uof_api)
-
-
-# UOF API
+[![hexdocs.pm](https://img.shields.io/badge/hex-docs-purple.svg)](https://hexdocs.pm/uof_api/)
 
 > [!IMPORTANT]
 > This is an **unofficial client** for Betradar's Unified Odds Feed (UOF) HTTP API.
