@@ -16,7 +16,7 @@ clean:
 	rm -rf priv/xsd lib/uof/api/schemas
 
 compile:
-	mix compile
+	mix compile --warnings-as-errors
 
 format:
 	mix format
@@ -25,7 +25,7 @@ check:
 	mix format --check-formatted
 
 test:
-	mix test
+	mix test --warnings-as-errors
 
 docs:
 	mix docs
