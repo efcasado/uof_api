@@ -1,13 +1,13 @@
 defmodule Mix.Tasks.Uof.Gen.Schemas do
   @moduledoc """
-  Generate Ecto embedded schemas from Betradar's XSD files.
+  Generate Ecto embedded schemas from the XSDs cached under `priv/xsd/`.
 
-      mix uof.gen.schemas
+      mix uof.xsd.fetch     # download the XSDs first (pinned SDK tag)
+      mix uof.gen.schemas   # then generate
 
-  XSDs are downloaded on demand from the upstream SDK, pinned to the tag in
-  `Mix.UOF.XSD.Sources`, into the (git-ignored) `priv/xsd/` cache — they are
-  never vendored. Currently wired for the CustomBet schema group: one module
-  per `complexType` is generated into `lib/uof/api/schemas/custom_bet/`.
+  Reads the (git-ignored) `priv/xsd/` cache populated by `mix uof.xsd.fetch`
+  and raises if a group's XSDs are missing. One module per `complexType` is
+  generated per group into `lib/uof/api/schemas/<group>/`.
   """
   use Mix.Task
 
@@ -37,22 +37,19 @@ defmodule Mix.Tasks.Uof.Gen.Schemas do
 
   @impl Mix.Task
   def run(_args) do
-    # Fetch each distinct source once, then generate every entry from the cache.
-    @groups
-    |> Enum.map(&elem(&1, 0))
-    |> Enum.uniq()
-    |> Enum.each(fn group ->
-      Mix.shell().info("fetching #{group} XSDs from SDK #{Mix.UOF.XSD.Sources.sdk_tag()} ...")
-      Mix.UOF.XSD.Sources.fetch!(group)
-    end)
-
     for {group, namespace, out_dir, roots} <- @groups do
       generate_group(group, namespace, out_dir, roots)
     end
   end
 
   defp generate_group(group, namespace, out_dir, roots) do
-    paths = Path.wildcard(Path.join(Mix.UOF.XSD.Sources.dir(group), "**/*.xsd"))
+    dir = Mix.UOF.XSD.Sources.dir(group)
+    paths = Path.wildcard(Path.join(dir, "**/*.xsd"))
+
+    if paths == [] do
+      Mix.raise("no XSDs found in #{dir} for #{group}; run `mix uof.xsd.fetch` first")
+    end
+
     {types, parsed_roots} = Mix.UOF.XSD.parse_files(paths)
     types = scope(types, parsed_roots, roots)
 
