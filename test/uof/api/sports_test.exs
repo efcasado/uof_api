@@ -1,17 +1,13 @@
 defmodule UOF.API.Sports.Test do
   use ExUnit.Case
-  import Mock
+  use Mimic
 
-  # mock http requests towards Betradar and use recorded responses instead
-  setup_with_mocks([
-    {UOF.API.Utils.HTTP, [:passthrough],
-     [
-       get: fn schema, endpoint ->
-         {:ok, data} = fetch_mock_data(endpoint)
-         UOF.API.XML.decode(data, schema)
-       end
-     ]}
-  ]) do
+  setup do
+    stub(UOF.API.Utils.HTTP, :get, fn schema, endpoint ->
+      {:ok, data} = fetch_mock_data(endpoint)
+      UOF.API.XML.decode(data, schema)
+    end)
+
     :ok
   end
 

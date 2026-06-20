@@ -1,21 +1,18 @@
 defmodule UOF.API.CustomBet.Test do
   use ExUnit.Case
-  import Mock
+  use Mimic
 
-  # mock http requests towards Betradar and use recorded responses instead
-  setup_with_mocks([
-    {UOF.API.Utils.HTTP, [:passthrough],
-     [
-       get: fn schema, _endpoint ->
-         data = File.read!("test/data/available_selections.xml")
-         UOF.API.XML.decode(data, schema)
-       end,
-       post: fn schema, _endpoint, _body ->
-         data = File.read!("test/data/custombet_calculation.xml")
-         UOF.API.XML.decode(data, schema)
-       end
-     ]}
-  ]) do
+  setup do
+    stub(UOF.API.Utils.HTTP, :get, fn schema, _endpoint ->
+      data = File.read!("test/data/available_selections.xml")
+      UOF.API.XML.decode(data, schema)
+    end)
+
+    stub(UOF.API.Utils.HTTP, :post, fn schema, _endpoint, _body ->
+      data = File.read!("test/data/custombet_calculation.xml")
+      UOF.API.XML.decode(data, schema)
+    end)
+
     :ok
   end
 

@@ -11,7 +11,7 @@ defmodule Mix.UOF.XSD.Generator do
     * field names follow the XSD, except for entries in `@rename_overrides`
   """
 
-  alias Mix.UOF.XSD.{Attribute, ComplexType, Element}
+  alias Mix.UOF.XSD.{ComplexType, Element}
 
   # Per field-name type overrides applied on top of the XSD type mapping.
   @type_overrides %{
@@ -97,9 +97,13 @@ defmodule Mix.UOF.XSD.Generator do
 
   defp embed?(%Element{type: type}, registry), do: Map.has_key?(registry, type)
 
-  defp field_name(%{name: name}) do
-    Map.get_lazy(@rename_overrides, name, fn -> String.to_atom(name) end)
+  defp field_name(%{name: name}), do: rename(name)
+
+  for {xsd_name, field} <- @rename_overrides do
+    defp rename(unquote(xsd_name)), do: unquote(field)
   end
+
+  defp rename(name), do: String.to_atom(name)
 
   defp ecto_type(field) do
     case Map.fetch(@type_overrides, field.name) do
