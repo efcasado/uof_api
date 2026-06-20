@@ -165,7 +165,7 @@ defmodule UOF.API.Sports.Test do
     assert change.update_time == ~U[2024-04-26 19:12:56Z]
   end
 
-  test "fixtures/0 paginates the prematch schedule and aggregates events" do
+  test "stream/0 paginates the prematch schedule and aggregates events" do
     page = File.read!("test/data/schedule.xml")
 
     stub(UOF.API.Utils.HTTP, :get, fn schema, _endpoint, params ->
@@ -173,7 +173,7 @@ defmodule UOF.API.Sports.Test do
       UOF.API.XML.decode(data, schema)
     end)
 
-    events = UOF.API.Sports.fixtures()
+    events = UOF.API.Sports.Fixtures.stream() |> Enum.to_list()
 
     assert length(events) == 4
 
@@ -188,13 +188,14 @@ defmodule UOF.API.Sports.Test do
         UOF.API.Schemas.Sports.ScheduleEndpoint
       )
 
-    assert Enum.map(UOF.API.Sports.bookable(schedule), & &1.id) == ["sr:match:1"]
-    assert Enum.map(UOF.API.Sports.booked(schedule), & &1.id) == ["sr:match:2"]
-    assert Enum.map(UOF.API.Sports.buyable(schedule), & &1.id) == ["sr:match:3"]
+    assert Enum.map(UOF.API.Sports.Fixtures.bookable(schedule), & &1.id) == ["sr:match:1"]
+    assert Enum.map(UOF.API.Sports.Fixtures.booked(schedule), & &1.id) == ["sr:match:2"]
+    assert Enum.map(UOF.API.Sports.Fixtures.buyable(schedule), & &1.id) == ["sr:match:3"]
 
-    assert Enum.map(UOF.API.Sports.with_liveodds(schedule, "not_available"), & &1.id) == [
-             "sr:match:4"
-           ]
+    assert Enum.map(UOF.API.Sports.Fixtures.with_liveodds(schedule, "not_available"), & &1.id) ==
+             [
+               "sr:match:4"
+             ]
   end
 
   ## Sport event information

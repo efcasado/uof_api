@@ -48,29 +48,30 @@ to use.
 
 ### Usage
 
-Fetch all available fixtures. Pagination over the prematch schedule is handled
-for you, so this returns the full list.
+Stream all available fixtures. Pagination over the prematch schedule is handled
+for you, and pages are fetched lazily so the stream composes with `Stream`/`Enum`
+and supports early termination.
 
 ```elixir
-fixtures = UOF.API.Sports.fixtures()
-
-Enum.count(fixtures)
+UOF.API.Sports.Fixtures.stream()
+|> Enum.count()
 # => 51591
 ```
 
-`fixtures/1` accepts a predicate that is applied while paginating, which is the
-efficient way to narrow the catalogue down — for example, all events currently
-bookable for live odds:
+Compose `Stream` operations to narrow the catalogue down without loading it all
+into memory — for example, all events currently bookable for live odds:
 
 ```elixir
-UOF.API.Sports.fixtures(&(&1.liveodds == "bookable"))
+UOF.API.Sports.Fixtures.stream()
+|> Stream.filter(&(&1.liveodds == "bookable"))
+|> Enum.to_list()
 ```
 
-Aggregating over the returned events works as you would expect:
+Aggregating over the streamed events works as you would expect:
 
 ```elixir
-fixtures
-|> Enum.map(& &1.tournament.sport.name)
+UOF.API.Sports.Fixtures.stream()
+|> Stream.map(& &1.tournament.sport.name)
 |> Enum.uniq()
 # => ["Soccer", "Handball", "Basketball", ...]
 ```
@@ -153,7 +154,7 @@ from a schedule via the `liveodds` attribute:
 {:ok, _ack} = UOF.API.Booking.book("sr:match:12345")
 
 {:ok, schedule} = UOF.API.Sports.schedule("2024-12-01")
-UOF.API.Sports.bookable(schedule)
+UOF.API.Sports.Fixtures.bookable(schedule)
 # also: booked/1, buyable/1, with_liveodds/2
 ```
 

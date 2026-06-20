@@ -40,12 +40,13 @@ Logger.configure(level: :info)
 acca_length = 3
 
 fixtures =
-  UOF.API.Sports.fixtures(
+  UOF.API.Sports.Fixtures.stream()
+  |> Stream.filter(
     &(&1.tournament.sport.name in ["Basketball", "Soccer"] &&
         &1.liveodds != "not_available" &&
-        &1.status != "ended"),
-    & &1.id
+        &1.status != "ended")
   )
+  |> Stream.map(& &1.id)
 
 fixture =
   fixtures
