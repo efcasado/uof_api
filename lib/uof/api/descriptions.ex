@@ -1,4 +1,16 @@
 defmodule UOF.API.Descriptions do
+  @moduledoc """
+  Descriptions API.
+
+  Static, mostly language-dependent metadata that describes the values used
+  throughout the feed: market and variant descriptions, producers, sport-specific
+  match statuses and betting statuses used in `odds_change` messages, betstop
+  reasons, and void reasons used in `bet_settlement` messages.
+
+  Every function returns `{:ok, struct} | {:error, Ecto.Changeset.t()}`, where
+  the struct is an `UOF.API.Schemas.Descriptions.*` embedded schema. Endpoints
+  that vary by language take an optional `lang` (ISO code, default `"en"`).
+  """
   alias UOF.API.Utils.HTTP
 
   @doc """

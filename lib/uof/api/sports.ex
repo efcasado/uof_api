@@ -1,4 +1,20 @@
 defmodule UOF.API.Sports do
+  @moduledoc """
+  Sports API.
+
+  Covers the documented Sports HTTP endpoints: schedules (per-date, live,
+  prematch and per-tournament), individual fixtures, fixture and result changes,
+  sport-event summaries and timelines, the sport/category/tournament/season
+  catalogue, and player/competitor/venue profiles.
+
+  Every function returns `{:ok, struct} | {:error, Ecto.Changeset.t()}`, where
+  the struct is an `UOF.API.Schemas.Sports.*` embedded schema, and takes an
+  optional `lang` (ISO code, default `"en"`).
+
+  For client-side conveniences over these endpoints — lazily streaming the full
+  prematch catalogue and filtering sport events by `liveodds` booking state —
+  see `UOF.API.Sports.Fixtures`.
+  """
   alias UOF.API.Utils.HTTP
 
   @doc """
