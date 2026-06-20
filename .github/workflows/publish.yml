@@ -10,9 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-
+    - uses: jdx/mise-action@v2
     - name: publish package to hex
-      shell: 'script -q -e -c "bash --noprofile --norc -eo pipefail {0}"'
       run: make publish
       env:
         HEX_API_KEY: ${{ secrets.HEX_API_KEY }}

@@ -1,14 +1,19 @@
-.PHONY: all deps compile format test docs shell publish
-
-ifndef NODOCKER
-SHELL     := BASH_ENV=.rc /bin/bash --noprofile
-endif
+.PHONY: all deps fetch generate clean compile format test docs shell publish
 
 all: deps compile check test docs
 
 deps:
 	mix deps.get
 	mix deps.compile
+
+fetch: deps
+	mix uof.xsd.fetch
+
+generate: fetch
+	mix uof.gen.schemas
+
+clean:
+	rm -rf priv/xsd lib/uof/api/schemas
 
 compile:
 	mix compile

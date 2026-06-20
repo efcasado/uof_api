@@ -1,0 +1,31 @@
+[tools]
+# OTP 27 (matched elixir build): the :meck test dep (via :mock) does not
+# compile under OTP 29.
+elixir = "1.18.4-otp-27"
+erlang = "27.3.2"
+
+# Core development tasks
+[tasks.deps]
+description = "Get Elixir dependencies"
+run = "mix deps.get"
+sources = ["mix.lock"]
+
+[tasks.test]
+description = "Run the test suite"
+run = "mix test"
+depends = ["deps"]
+
+# XSD / schema generation tasks
+[tasks."xsd:fetch"]
+description = "Download the Betradar XSDs into the git-ignored priv/xsd cache (pinned SDK tag)"
+run = "mix uof.xsd.fetch"
+depends = ["deps"]
+
+[tasks."schemas:gen"]
+description = "Generate Ecto embedded schemas from the cached XSDs"
+run = "mix uof.gen.schemas"
+depends = ["xsd:fetch"]
+
+[tasks.clean]
+description = "Remove cached XSDs and generated schemas"
+run = "rm -rf priv/xsd lib/uof/api/schemas"
