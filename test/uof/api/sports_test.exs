@@ -59,6 +59,14 @@ defmodule UOF.API.Sports.Test do
     {:ok, File.read!("test/data/venue_profile.xml")}
   end
 
+  defp fetch_mock_data(["sports", _lang, "sports", _sport, "tournaments.xml"]) do
+    {:ok, File.read!("test/data/sport_tournaments.xml")}
+  end
+
+  defp fetch_mock_data(["sports", _lang, "tournaments", _tournament, "seasons.xml"]) do
+    {:ok, File.read!("test/data/tournament_seasons.xml")}
+  end
+
   defp fetch_mock_data(_endpoint) do
     {:error, "mock data not found"}
   end
@@ -392,6 +400,27 @@ defmodule UOF.API.Sports.Test do
     [reference] = competitor.reference_ids.reference_id
     assert reference.name == "betradar"
     assert reference.value == "6631"
+  end
+
+  test "can parse UOF.API.Sports.sport_tournaments/{1, 2} response" do
+    {:ok, data} = UOF.API.Sports.sport_tournaments("sr:sport:1")
+
+    assert data.sport.id == "sr:sport:1"
+    assert data.sport.name == "Soccer"
+
+    [tournament] = data.tournaments.tournament
+    assert tournament.id == "sr:tournament:7"
+    assert tournament.name == "UEFA Champions League"
+  end
+
+  test "can parse UOF.API.Sports.seasons/{1, 2} response" do
+    {:ok, data} = UOF.API.Sports.seasons("sr:tournament:7")
+
+    assert data.tournament.id == "sr:tournament:7"
+
+    [season] = data.seasons.season
+    assert season.id == "sr:season:106479"
+    assert season.name == "UEFA Champions League 23/24"
   end
 
   ## Entity descriptions
