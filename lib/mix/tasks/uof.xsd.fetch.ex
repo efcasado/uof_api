@@ -30,6 +30,8 @@ defmodule Mix.Tasks.Uof.Xsd.Fetch do
           end)
       end
 
+    Mix.shell().info("Fetching XSDs pinned to SDK tag #{Mix.UOF.XSD.Sources.sdk_tag()}")
+
     for group <- groups do
       dir = Mix.UOF.XSD.Sources.fetch!(group)
       count = dir |> Path.join("**/*.xsd") |> Path.wildcard() |> length()
