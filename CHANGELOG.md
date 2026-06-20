@@ -11,6 +11,64 @@
 * document usage of conventional commits ([6de2680](https://github.com/efcasado/uof_api/commit/6de2680f03382813fd13c9cf078062c4c43b5aaf))
 * remove logo ([3904612](https://github.com/efcasado/uof_api/commit/3904612b8d5850b0d337b8d221423e2319e99a4a))
 
+## [2.0.0](https://github.com/efcasado/uof_api/compare/v1.1.0...v2.0.0) (2026-06-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* move auxiliary functions to a separate module and use streams
+* generate schemas from xsd files
+
+### Features
+
+* ability to filter fixtures by booking state ([10d0378](https://github.com/efcasado/uof_api/commit/10d03785db40ff898b346f065c1e38a3d59448d6))
+* add support for booking events ([2cf31e6](https://github.com/efcasado/uof_api/commit/2cf31e62c2b664e3168e892fa35de2b845d416c0))
+* add support for fetching tournaments and seasons ([57adcb6](https://github.com/efcasado/uof_api/commit/57adcb695494fde03394f914056e2fd77bc1963e))
+* add support for recovery api ([4fd2cf9](https://github.com/efcasado/uof_api/commit/4fd2cf969450c1d1dd4503d2a2cd5e7af2054053))
+* generate schemas from xsd files ([64436b5](https://github.com/efcasado/uof_api/commit/64436b59ee13343ff9ca777b033755b05cabaf08))
+
+
+### Dependencies
+
+* bump ecto from 3.13.6 to 3.14.0 ([53e0617](https://github.com/efcasado/uof_api/commit/53e0617d6db2ffbee8071b3d9a76c0788c53e305))
+* bump ex_doc from 0.32.1 to 0.40.3 ([4b10398](https://github.com/efcasado/uof_api/commit/4b103986f649264e9b8e959bb18351582727183d))
+* bump mimic from 1.12.0 to 2.3.0 ([126b60e](https://github.com/efcasado/uof_api/commit/126b60e5dbdabecfdec5a9d32915b8a02ab08661))
+* bump req from 0.4.14 to 0.6.2 ([f76b111](https://github.com/efcasado/uof_api/commit/f76b111673196a290972221ee0ff07ac4ef59e6b))
+* bump saxy from 1.5.0 to 1.6.0 ([ef50884](https://github.com/efcasado/uof_api/commit/ef5088401da0a6a96f230d57ed89ffd171863178))
+* bump xml_builder from 2.3.0 to 2.4.0 ([3e97fe8](https://github.com/efcasado/uof_api/commit/3e97fe8e450bc74a8b33b2a3f9cb822ba14584c7))
+* **ci:** bump actions/cache from 4 to 5 ([ab3479d](https://github.com/efcasado/uof_api/commit/ab3479ded074a2da5138c367df845f56d6bbc939))
+* **ci:** bump actions/checkout from 4 to 7 ([981beda](https://github.com/efcasado/uof_api/commit/981beda1e86b6ce6ccdf6c28349191961b7dd840))
+* **ci:** bump jdx/mise-action from 2 to 4 ([aaec382](https://github.com/efcasado/uof_api/commit/aaec3821217d7a81a69ea273056c20ea09d90632))
+* upgrade to erlang 29 and elixir 1.20 ([769dafa](https://github.com/efcasado/uof_api/commit/769dafa92f3e4fbc2f5d3029ac408015c6ff6c5c))
+
+
+### Documentation
+
+* add missing moduledocs for sports and descriptions modules ([b87fcb8](https://github.com/efcasado/uof_api/commit/b87fcb8b8b6b8b06943787762fb72e8c60868a66))
+* fix typo ([886947d](https://github.com/efcasado/uof_api/commit/886947d9fe96890b439f29033b41f1ba82907668))
+* improve documentation about generated schemas ([3da4f87](https://github.com/efcasado/uof_api/commit/3da4f873254db4e6d313235c7c5edff926d45d32))
+* remove redundant custom bet example ([1dc7da7](https://github.com/efcasado/uof_api/commit/1dc7da72a798b5e6eb9d79fce83bc0dcb7e947ab))
+* update readme ([8ec1b3c](https://github.com/efcasado/uof_api/commit/8ec1b3c0c8d772acf821393d6e50b5a4ee653d46))
+* update readme file ([1f4907a](https://github.com/efcasado/uof_api/commit/1f4907aa13512ce5c3d1e40b096312a865c8d6e8))
+
+
+### Code Refactoring
+
+* idiomatic req usage ([2d0d2a5](https://github.com/efcasado/uof_api/commit/2d0d2a507e804f8daaf0ab348e4e8ef1571765e6))
+* move auxiliary functions to a separate module and use streams ([473d1f4](https://github.com/efcasado/uof_api/commit/473d1f4a6b33ce531e73034e817ea6012ded2d2f))
+
+
+### Build System
+
+* reproducible builds powered by mise ([d1054ca](https://github.com/efcasado/uof_api/commit/d1054ca3457e3904428c732fe16715277777a2cc))
+
+
+### Continuous Integration
+
+* automate dependency upgrades with dependabot ([7e22e36](https://github.com/efcasado/uof_api/commit/7e22e36b4da7475d1a13f588e9475b5be38400a8))
+* **release:** migrate from semantic-release to release-please ([2a08481](https://github.com/efcasado/uof_api/commit/2a084814e9560b5aeb426bf3e5dfabd335e4835d))
+* remove vale's prose checking workflow ([2601c0e](https://github.com/efcasado/uof_api/commit/2601c0e90c3db8538775fec3e68557322518b6b7))
+
 ## [1.0.5](https://github.com/efcasado/uof_api/compare/v1.0.4...v1.0.5) (2024-05-09)
 
 
