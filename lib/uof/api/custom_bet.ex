@@ -8,7 +8,6 @@ defmodule UOF.API.CustomBet do
   CustomBet API is only available for soccer and basketball fixtures.
   """
   alias UOF.API.Utils.HTTP
-  alias UOF.API.Mappings.CustomBet.{AvailableSelections, Calculation}
 
   @doc """
   Get the markets that are available to be used in a custom bet from the given
@@ -17,7 +16,7 @@ defmodule UOF.API.CustomBet do
   def available_selections(fixture) do
     endpoint = ["custombet", fixture, "available_selections"]
 
-    HTTP.get(%AvailableSelections{}, endpoint)
+    HTTP.get(UOF.API.Schemas.CustomBet.AvailableSelections, endpoint)
   end
 
   @doc """
@@ -27,11 +26,14 @@ defmodule UOF.API.CustomBet do
   def calculate(selections, filter \\ false) do
     body = selections_to_xml(selections, filter)
     endpoint = calculate_endpoint(filter)
-    HTTP.post(%Calculation{}, endpoint, body)
+    HTTP.post(calculate_schema(filter), endpoint, body)
   end
 
   defp calculate_endpoint(true), do: ["custombet", "calculate-filter"]
   defp calculate_endpoint(false), do: ["custombet", "calculate"]
+
+  defp calculate_schema(true), do: UOF.API.Schemas.CustomBet.FilteredCalculationResponse
+  defp calculate_schema(false), do: UOF.API.Schemas.CustomBet.CalculationResponse
 
   defp selections_to_xml(selections, false) do
     selections

@@ -8,6 +8,10 @@
 /tmp/
 /.fetch
 
+# XSD schemas are downloaded on demand by `mix uof.gen.schemas`
+# (pinned to an upstream SDK tag) and never vendored.
+/priv/xsd/
+
 cache.ets
 erl_crash.dump
 hex.config

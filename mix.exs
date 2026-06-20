@@ -24,8 +24,8 @@ defmodule UofApi.MixProject do
 
   defp deps do
     [
-      {:saxaboom, "0.2.1"},
       {:saxy, "~> 1.5"},
+      {:ecto, "~> 3.12"},
       {:req, "~> 0.4.14"},
       {:xml_builder, "~> 2.3"},
       # dev

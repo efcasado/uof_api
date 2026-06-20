@@ -8,7 +8,7 @@ defmodule UOF.API.Descriptions do
     # TO-DO: Optional mappings
     endpoint = ["descriptions", lang, "markets.xml"]
 
-    HTTP.get(%UOF.API.Mappings.MarketDescriptions{}, endpoint)
+    HTTP.get(UOF.API.Schemas.Descriptions.MarketDescriptions, endpoint)
   end
 
   @doc """
@@ -18,17 +18,16 @@ defmodule UOF.API.Descriptions do
   def match_statuses(lang \\ "en") do
     endpoint = ["descriptions", lang, "match_status.xml"]
 
-    HTTP.get(%UOF.API.Mappings.MatchStatusDescriptions{}, endpoint)
+    HTTP.get(UOF.API.Schemas.Descriptions.MatchStatusDescriptions, endpoint)
   end
 
   @doc """
   Describe all bet stop reasons.
   """
-  @spec betstop_reasons :: {:ok, UOF.API.Mappings.BetStopReasonDescription.t()}
   def betstop_reasons do
     endpoint = ["descriptions", "betstop_reasons.xml"]
 
-    HTTP.get(%UOF.API.Mappings.BetStopReasonDescriptions{}, endpoint)
+    HTTP.get(UOF.API.Schemas.Descriptions.BetstopReasonsDescriptions, endpoint)
   end
 
   @doc """
@@ -37,7 +36,7 @@ defmodule UOF.API.Descriptions do
   def betting_statuses do
     endpoint = ["descriptions", "betting_status.xml"]
 
-    HTTP.get(%UOF.API.Mappings.BettingStatusDescriptions{}, endpoint)
+    HTTP.get(UOF.API.Schemas.Descriptions.BettingStatusDescriptions, endpoint)
   end
 
   @doc """
@@ -46,7 +45,7 @@ defmodule UOF.API.Descriptions do
   def variants(lang \\ "en") do
     endpoint = ["descriptions", lang, "variants.xml"]
 
-    HTTP.get(%UOF.API.Mappings.VariantDescriptions{}, endpoint)
+    HTTP.get(UOF.API.Schemas.Descriptions.VariantDescriptions, endpoint)
   end
 
   @doc """
@@ -55,7 +54,7 @@ defmodule UOF.API.Descriptions do
   def producers do
     endpoint = ["descriptions", "producers.xml"]
 
-    HTTP.get(%UOF.API.Mappings.Producers{}, endpoint)
+    HTTP.get(UOF.API.Schemas.Descriptions.Producers, endpoint)
   end
 
   @doc """
@@ -64,6 +63,6 @@ defmodule UOF.API.Descriptions do
   def void_reasons do
     endpoint = ["descriptions", "void_reasons.xml"]
 
-    HTTP.get(%UOF.API.Mappings.VoidReasonDescriptions{}, endpoint)
+    HTTP.get(UOF.API.Schemas.Descriptions.VoidReasonsDescriptions, endpoint)
   end
 end

@@ -8,7 +8,7 @@ defmodule UOF.API.Probability.Test do
      [
        get: fn schema, _endpoint ->
          data = File.read!("test/data/cashout.xml")
-         Saxaboom.parse(data, schema)
+         UOF.API.XML.decode(data, schema)
        end
      ]}
   ]) do
@@ -18,23 +18,23 @@ defmodule UOF.API.Probability.Test do
   test "can parse UOF.API.Probability.probabilities/1" do
     {:ok, cashout} = UOF.API.Probability.probabilities("sr:match:41878167")
 
-    assert cashout.event_status.status == 1
-    assert cashout.event_status.match_status == 7
-    assert Enum.count(cashout.markets) == 162
-    [market1, market2 | _] = cashout.markets
+    assert cashout.sport_event_status.status == 1
+    assert cashout.sport_event_status.match_status == 7
+    assert Enum.count(cashout.odds.market) == 162
+    [market1, market2 | _] = cashout.odds.market
     assert market1.status == -3
     assert market1.cashout_status == -2
     assert market1.id == 66
     assert market1.specifiers == "hcp=0.5"
-    assert market1.outcomes == []
+    assert market1.outcome == []
     assert market2.status == 1
     assert market2.cashout_status == 1
     assert market2.id == 547
     assert market2.specifiers == "total=4.5"
-    assert Enum.count(market2.outcomes) == 6
-    outcome = hd(market2.outcomes)
+    assert Enum.count(market2.outcome) == 6
+    outcome = hd(market2.outcome)
     assert outcome.id == "1729"
     assert outcome.active == 1
-    assert_in_delta outcome.probability, 3.58e-4, 0.01e-4
+    assert_in_delta outcome.probabilities, 3.58e-4, 0.01e-4
   end
 end
