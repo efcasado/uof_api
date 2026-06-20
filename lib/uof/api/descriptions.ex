@@ -61,7 +61,7 @@ defmodule UOF.API.Descriptions do
   end
 
   @doc """
-  Describe all currently avbailable producers and their ids.
+  Describe all currently available producers and their ids.
   """
   def producers do
     endpoint = ["descriptions", "producers.xml"]
