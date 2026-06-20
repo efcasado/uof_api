@@ -26,7 +26,7 @@ defmodule UofApi.MixProject do
     [
       {:saxy, "~> 1.5"},
       {:ecto, "~> 3.12"},
-      {:req, "~> 0.4.14"},
+      {:req, "~> 0.6.2"},
       {:xml_builder, "~> 2.3"},
       # dev
       {:ex_doc, "~> 0.31", only: :dev, runtime: false},
