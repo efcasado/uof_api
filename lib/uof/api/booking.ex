@@ -7,8 +7,8 @@ defmodule UOF.API.Booking do
 
   There are no GET endpoints for the booking calendar — booking state is exposed
   on schedule responses via the `liveodds` attribute (`"booked"`, `"bookable"`,
-  `"buyable"`, `"unavailable"`), e.g. on the fixtures returned by
-  `UOF.API.Sports.schedule/2`.
+  `"buyable"`, `"not_available"`). Filter a schedule by that state with the
+  `liveodds` helpers in `UOF.API.Sports` (e.g. `UOF.API.Sports.bookable/1`).
   """
   alias UOF.API.Schemas.Response.Response
   alias UOF.API.Utils.HTTP

@@ -10,7 +10,7 @@ defmodule UOF.API.Sports do
   defp fixtures(start, limit, filter, map, acc) do
     {:ok, schedule} = pre_schedule(start, limit)
 
-    case schedule.events do
+    case schedule.sport_event do
       [] ->
         acc
 
@@ -36,6 +36,29 @@ defmodule UOF.API.Sports do
   def fixtures_by_sport(sport) do
     fixtures_by_sport([sport])
   end
+
+  @doc """
+  Filter a schedule's sport events by their `liveodds` booking state (e.g.
+  `"bookable"`, `"booked"`, `"buyable"`, `"not_available"`).
+
+  Accepts a schedule struct (such as the one returned by `schedule/2`) or a
+  plain list of sport events. The state values are not enumerated by the schema,
+  so prefer this for any value beyond the named shortcuts below.
+  """
+  def with_liveodds(%{sport_event: events}, state), do: with_liveodds(events, state)
+
+  def with_liveodds(events, state) when is_list(events) do
+    Enum.filter(events, &(&1.liveodds == state))
+  end
+
+  @doc "Sport events that can be booked for live odds."
+  def bookable(schedule), do: with_liveodds(schedule, "bookable")
+
+  @doc "Sport events already booked for live odds."
+  def booked(schedule), do: with_liveodds(schedule, "booked")
+
+  @doc "Sport events available to buy."
+  def buyable(schedule), do: with_liveodds(schedule, "buyable")
 
   ## =========================================================================
 
