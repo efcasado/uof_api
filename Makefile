@@ -1,4 +1,4 @@
-.PHONY: all deps clean compile format check test docs shell publish
+.PHONY: all deps clean compile format check test coveralls docs shell publish
 
 all: deps compile check test docs
 
@@ -20,6 +20,9 @@ check:
 
 test:
 	mix test --warnings-as-errors
+
+coveralls:
+	mix coveralls.html --warnings-as-errors
 
 docs:
 	mix docs
