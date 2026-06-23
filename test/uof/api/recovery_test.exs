@@ -5,7 +5,7 @@ defmodule UOF.API.Recovery.Test do
   setup do
     stub(UOF.API.Utils.HTTP, :post, fn schema, _endpoint, _body, _params ->
       data = File.read!("test/data/recovery_response.xml")
-      UOF.API.XML.decode(data, schema)
+      UOF.Schemas.XML.decode(data, schema)
     end)
 
     :ok

@@ -23,12 +23,8 @@ It covers the documented HTTP API surface across these modules:
 | `UOF.API.Booking` | Booking events for live odds |
 | `UOF.API.Users` | Token / bookmaker information |
 
-Responses are parsed into [Ecto](https://hexdocs.pm/ecto) embedded schemas under
-`UOF.API.Schemas.*`, generated from Betradar's official XSDs (see
-[Regenerating the schemas](#regenerating-the-schemas)). The structs mirror the
-XSD nesting faithfully, so lists are wrapped (e.g. `competitors.competitor`) and
-field types follow the XSD (dates/datetimes are cast, odds/probabilities are
-`Decimal`, and some feed values such as scores are strings).
+Responses are parsed into [Ecto](https://hexdocs.pm/ecto) embedded schemas from
+the [`uof_schemas`](https://hex.pm/packages/uof_schemas) package.
 
 
 ## Get Started
@@ -79,25 +75,25 @@ Fetch the details of a single fixture:
 ```elixir
 {:ok, %{fixture: fixture}} = UOF.API.Sports.fixture("sr:match:8696826")
 # =>
-# %UOF.API.Schemas.Sports.Fixture{
+# %UOF.Schemas.API.Sports.Fixture{
 #   id: "sr:match:8696826",
 #   status: "closed",
 #   liveodds: "not_available",
 #   scheduled: ~U[2016-10-31 18:00:00Z],
-#   tournament: %UOF.API.Schemas.Sports.Tournament{
+#   tournament: %UOF.Schemas.API.Sports.Tournament{
 #     name: "Ettan, Sodra",
-#     sport: %UOF.API.Schemas.Sports.Sport{name: "Soccer", ...},
+#     sport: %UOF.Schemas.API.Sports.Sport{name: "Soccer", ...},
 #     ...
 #   },
-#   season: %UOF.API.Schemas.Sports.SeasonExtended{
+#   season: %UOF.Schemas.API.Sports.SeasonExtended{
 #     name: "Div 1, Sodra 2016",
 #     start_date: ~D[2016-04-16],
 #     ...
 #   },
-#   competitors: %UOF.API.Schemas.Sports.SportEventCompetitors{
+#   competitors: %UOF.Schemas.API.Sports.SportEventCompetitors{
 #     competitor: [
-#       %UOF.API.Schemas.Sports.TeamCompetitor{id: "sr:competitor:1860", name: "IK Oddevold", qualifier: "home", ...},
-#       %UOF.API.Schemas.Sports.TeamCompetitor{id: "sr:competitor:22356", name: "Tvaakers IF", qualifier: "away", ...}
+#       %UOF.Schemas.API.Sports.TeamCompetitor{id: "sr:competitor:1860", name: "IK Oddevold", qualifier: "home", ...},
+#       %UOF.Schemas.API.Sports.TeamCompetitor{id: "sr:competitor:22356", name: "Tvaakers IF", qualifier: "away", ...}
 #     ]
 #   },
 #   ...
@@ -110,11 +106,11 @@ Fetch an entity profile (note the faithful nesting — `jerseys.jersey`,
 ```elixir
 {:ok, profile} = UOF.API.Sports.competitor("sr:competitor:2672")
 # =>
-# %UOF.API.Schemas.Sports.CompetitorProfileEndpoint{
-#   competitor: %UOF.API.Schemas.Sports.TeamExtended{name: "Bayern Munich", ...},
-#   venue:   %UOF.API.Schemas.Sports.Venue{name: "Allianz Arena", capacity: 75000, ...},
-#   jerseys: %UOF.API.Schemas.Sports.Jerseys{jersey: [...]},   # 4
-#   players: %UOF.API.Schemas.Sports.Players{player: [...]},   # 32
+# %UOF.Schemas.API.Sports.CompetitorProfileEndpoint{
+#   competitor: %UOF.Schemas.API.Sports.TeamExtended{name: "Bayern Munich", ...},
+#   venue:   %UOF.Schemas.API.Sports.Venue{name: "Allianz Arena", capacity: 75000, ...},
+#   jerseys: %UOF.Schemas.API.Sports.Jerseys{jersey: [...]},   # 4
+#   players: %UOF.Schemas.API.Sports.Players{player: [...]},   # 32
 #   ...
 # }
 ```
@@ -176,28 +172,6 @@ returns an acknowledgement):
 {:ok, _ack} = UOF.API.Recovery.recover("liveodds", request_id: 1, after: 1_700_000_000_000)
 {:ok, _ack} = UOF.API.Recovery.recover_event("liveodds", "sr:match:12345", request_id: 2)
 ```
-
-
-## Regenerating the schemas
-
-The Ecto schemas under `lib/uof/api/schemas/` are generated from Betradar's
-official XSDs, taken from the [Unified Odds SDK for .NET][sdk] and pinned to a
-single release tag for reproducibility. The exact tag lives in `@sdk_tag` in
-[`Mix.UOF.XSD.Sources`](lib/mix/uof/xsd/sources.ex) (the single source of truth);
-`mix uof.xsd.fetch` prints it.
-
-The XSDs are downloaded on demand into the git-ignored `priv/xsd/` cache; they
-are never vendored into the repo:
-
-```
-mix uof.xsd.fetch     # download the XSDs
-mix uof.gen.schemas   # generate the schemas
-```
-
-To move to a newer SDK release, bump `@sdk_tag` there and re-run
-`mix uof.gen.schemas`.
-
-[sdk]: https://github.com/sportradar/UnifiedOddsSdkNetCore
 
 
 ## Contributing

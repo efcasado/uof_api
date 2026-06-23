@@ -5,7 +5,7 @@ defmodule UOF.API.Users.Test do
   setup do
     stub(UOF.API.Utils.HTTP, :get, fn schema, endpoint ->
       data = File.read!("test/data/" <> Enum.at(endpoint, -1))
-      UOF.API.XML.decode(data, schema)
+      UOF.Schemas.XML.decode(data, schema)
     end)
 
     :ok

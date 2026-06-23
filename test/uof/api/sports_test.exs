@@ -5,7 +5,7 @@ defmodule UOF.API.Sports.Test do
   setup do
     stub(UOF.API.Utils.HTTP, :get, fn schema, endpoint ->
       {:ok, data} = fetch_mock_data(endpoint)
-      UOF.API.XML.decode(data, schema)
+      UOF.Schemas.XML.decode(data, schema)
     end)
 
     :ok
@@ -170,7 +170,7 @@ defmodule UOF.API.Sports.Test do
 
     stub(UOF.API.Utils.HTTP, :get, fn schema, _endpoint, params ->
       data = if Keyword.get(params, :start, 0) == 0, do: page, else: "<schedule/>"
-      UOF.API.XML.decode(data, schema)
+      UOF.Schemas.XML.decode(data, schema)
     end)
 
     events = UOF.API.Sports.Fixtures.stream() |> Enum.to_list()
@@ -183,9 +183,9 @@ defmodule UOF.API.Sports.Test do
 
   test "filters a schedule by liveodds booking state" do
     {:ok, schedule} =
-      UOF.API.XML.decode(
+      UOF.Schemas.XML.decode(
         File.read!("test/data/schedule.xml"),
-        UOF.API.Schemas.Sports.ScheduleEndpoint
+        UOF.Schemas.API.Sports.ScheduleEndpoint
       )
 
     assert Enum.map(UOF.API.Sports.Fixtures.bookable(schedule), & &1.id) == ["sr:match:1"]

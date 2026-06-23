@@ -3,7 +3,7 @@ defmodule UOF.API.Booking do
   Booking Calendar API.
 
   Booking makes a sport event available for live odds. The HTTP response is only
-  an acknowledgement (`UOF.API.Schemas.Response.Response`).
+  an acknowledgement (`UOF.Schemas.Common.Response`).
 
   There are no GET endpoints for the booking calendar — booking state is exposed
   on schedule responses via the `liveodds` attribute (`"booked"`, `"bookable"`,
@@ -11,7 +11,7 @@ defmodule UOF.API.Booking do
   `liveodds` helpers in `UOF.API.Sports.Fixtures` (e.g.
   `UOF.API.Sports.Fixtures.bookable/1`).
   """
-  alias UOF.API.Schemas.Response.Response
+  alias UOF.Schemas.Common.Response
   alias UOF.API.Utils.HTTP
 
   @doc """

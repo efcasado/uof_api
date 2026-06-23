@@ -16,7 +16,7 @@ defmodule UOF.API.CustomBet do
   def available_selections(fixture) do
     endpoint = ["custombet", fixture, "available_selections"]
 
-    HTTP.get(UOF.API.Schemas.CustomBet.AvailableSelections, endpoint)
+    HTTP.get(UOF.Schemas.API.CustomBet.AvailableSelections, endpoint)
   end
 
   @doc """
@@ -32,8 +32,8 @@ defmodule UOF.API.CustomBet do
   defp calculate_endpoint(true), do: ["custombet", "calculate-filter"]
   defp calculate_endpoint(false), do: ["custombet", "calculate"]
 
-  defp calculate_schema(true), do: UOF.API.Schemas.CustomBet.FilteredCalculationResponse
-  defp calculate_schema(false), do: UOF.API.Schemas.CustomBet.CalculationResponse
+  defp calculate_schema(true), do: UOF.Schemas.API.CustomBet.FilteredCalculationResponse
+  defp calculate_schema(false), do: UOF.Schemas.API.CustomBet.CalculationResponse
 
   defp selections_to_xml(selections, false) do
     selections

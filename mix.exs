@@ -24,8 +24,7 @@ defmodule UofApi.MixProject do
 
   defp deps do
     [
-      {:saxy, "~> 1.5"},
-      {:ecto, "~> 3.12"},
+      {:uof_schemas, "~> 0.2"},
       {:req, "~> 0.6.2"},
       {:xml_builder, "~> 2.3"},
       # dev

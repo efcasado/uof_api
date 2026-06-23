@@ -24,5 +24,5 @@ defmodule UOF.API.Utils.HTTP do
     )
   end
 
-  defp decode(%Req.Response{body: body}, schema), do: UOF.API.XML.decode(body, schema)
+  defp decode(%Req.Response{body: body}, schema), do: UOF.Schemas.XML.decode(body, schema)
 end

@@ -1,4 +1,4 @@
-.PHONY: all deps fetch generate clean compile format test docs shell publish
+.PHONY: all deps clean compile format check test docs shell publish
 
 all: deps compile check test docs
 
@@ -6,14 +6,8 @@ deps:
 	mix deps.get
 	mix deps.compile
 
-fetch: deps
-	mix uof.xsd.fetch
-
-generate: fetch
-	mix uof.gen.schemas
-
 clean:
-	rm -rf priv/xsd lib/uof/api/schemas
+	mix clean
 
 compile:
 	mix compile --warnings-as-errors

@@ -8,7 +8,7 @@ defmodule UOF.API.Descriptions do
   reasons, and void reasons used in `bet_settlement` messages.
 
   Every function returns `{:ok, struct} | {:error, Ecto.Changeset.t()}`, where
-  the struct is an `UOF.API.Schemas.Descriptions.*` embedded schema. Endpoints
+  the struct is an `UOF.Schemas.API.Descriptions.*` embedded schema. Endpoints
   that vary by language take an optional `lang` (ISO code, default `"en"`).
   """
   alias UOF.API.Utils.HTTP
@@ -20,7 +20,7 @@ defmodule UOF.API.Descriptions do
     # TO-DO: Optional mappings
     endpoint = ["descriptions", lang, "markets.xml"]
 
-    HTTP.get(UOF.API.Schemas.Descriptions.MarketDescriptions, endpoint)
+    HTTP.get(UOF.Schemas.API.Descriptions.MarketDescriptions, endpoint)
   end
 
   @doc """
@@ -30,7 +30,7 @@ defmodule UOF.API.Descriptions do
   def match_statuses(lang \\ "en") do
     endpoint = ["descriptions", lang, "match_status.xml"]
 
-    HTTP.get(UOF.API.Schemas.Descriptions.MatchStatusDescriptions, endpoint)
+    HTTP.get(UOF.Schemas.API.Descriptions.MatchStatusDescriptions, endpoint)
   end
 
   @doc """
@@ -39,7 +39,7 @@ defmodule UOF.API.Descriptions do
   def betstop_reasons do
     endpoint = ["descriptions", "betstop_reasons.xml"]
 
-    HTTP.get(UOF.API.Schemas.Descriptions.BetstopReasonsDescriptions, endpoint)
+    HTTP.get(UOF.Schemas.API.Descriptions.BetstopReasonsDescriptions, endpoint)
   end
 
   @doc """
@@ -48,7 +48,7 @@ defmodule UOF.API.Descriptions do
   def betting_statuses do
     endpoint = ["descriptions", "betting_status.xml"]
 
-    HTTP.get(UOF.API.Schemas.Descriptions.BettingStatusDescriptions, endpoint)
+    HTTP.get(UOF.Schemas.API.Descriptions.BettingStatusDescriptions, endpoint)
   end
 
   @doc """
@@ -57,7 +57,7 @@ defmodule UOF.API.Descriptions do
   def variants(lang \\ "en") do
     endpoint = ["descriptions", lang, "variants.xml"]
 
-    HTTP.get(UOF.API.Schemas.Descriptions.VariantDescriptions, endpoint)
+    HTTP.get(UOF.Schemas.API.Descriptions.VariantDescriptions, endpoint)
   end
 
   @doc """
@@ -66,7 +66,7 @@ defmodule UOF.API.Descriptions do
   def producers do
     endpoint = ["descriptions", "producers.xml"]
 
-    HTTP.get(UOF.API.Schemas.Descriptions.Producers, endpoint)
+    HTTP.get(UOF.Schemas.API.Descriptions.Producers, endpoint)
   end
 
   @doc """
@@ -75,6 +75,6 @@ defmodule UOF.API.Descriptions do
   def void_reasons do
     endpoint = ["descriptions", "void_reasons.xml"]
 
-    HTTP.get(UOF.API.Schemas.Descriptions.VoidReasonsDescriptions, endpoint)
+    HTTP.get(UOF.Schemas.API.Descriptions.VoidReasonsDescriptions, endpoint)
   end
 end
