@@ -5,7 +5,7 @@ defmodule UOF.API.Booking.Test do
   setup do
     stub(UOF.API.Utils.HTTP, :post, fn schema, _endpoint ->
       data = File.read!("test/data/booking_response.xml")
-      UOF.API.XML.decode(data, schema)
+      UOF.Schemas.XML.decode(data, schema)
     end)
 
     :ok

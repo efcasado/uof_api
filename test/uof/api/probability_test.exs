@@ -5,7 +5,7 @@ defmodule UOF.API.Probability.Test do
   setup do
     stub(UOF.API.Utils.HTTP, :get, fn schema, _endpoint ->
       data = File.read!("test/data/cashout.xml")
-      UOF.API.XML.decode(data, schema)
+      UOF.Schemas.XML.decode(data, schema)
     end)
 
     :ok
