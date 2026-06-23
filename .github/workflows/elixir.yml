@@ -12,6 +12,10 @@ on:
 
 permissions:
   contents: read
+  checks: write
+
+env:
+  MIX_ENV: test
 
 jobs:
   build:
@@ -28,4 +32,14 @@ jobs:
       - run: mix deps.get
       - run: mix compile --warnings-as-errors
       - run: mix format --check-formatted
-      - run: mix test --warnings-as-errors
+      - name: Run tests with coverage
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: mix coveralls.github --warnings-as-errors
+      - name: Publish test report
+        uses: dorny/test-reporter@v3.0.0
+        if: always()
+        with:
+          name: Test Results
+          path: test/reports/junit.xml
+          reporter: java-junit

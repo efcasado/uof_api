@@ -8,6 +8,9 @@
 /tmp/
 /.fetch
 
+# JUnit reports produced during CI test runs.
+/test/reports/
+
 cache.ets
 erl_crash.dump
 hex.config
