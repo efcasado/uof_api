@@ -1,4 +1,4 @@
-# Betradar's Unified Odds Feed (UOF) HTTP API
+# Betradar UOF HTTP API
 
 [![CI](https://github.com/efcasado/uof_api/actions/workflows/elixir.yml/badge.svg)](https://github.com/efcasado/uof_api/actions/workflows/elixir.yml)
 [![Package Version](https://img.shields.io/hexpm/v/uof_api.svg)](https://hex.pm/packages/uof_api)
