@@ -11,6 +11,28 @@
 * document usage of conventional commits ([6de2680](https://github.com/efcasado/uof_api/commit/6de2680f03382813fd13c9cf078062c4c43b5aaf))
 * remove logo ([3904612](https://github.com/efcasado/uof_api/commit/3904612b8d5850b0d337b8d221423e2319e99a4a))
 
+## [2.1.0](https://github.com/efcasado/betradar_uof_api/compare/v2.0.0...v2.1.0) (2026-06-24)
+
+
+### Features
+
+* re-use ecto schemas from uof_schemas library ([#46](https://github.com/efcasado/betradar_uof_api/issues/46)) ([6ed9d54](https://github.com/efcasado/betradar_uof_api/commit/6ed9d5437409e9ed7f6b941dc4d5c47105ba1597))
+
+
+### Dependencies
+
+* **ci:** bump actions/cache from 5 to 6 ([d239992](https://github.com/efcasado/betradar_uof_api/commit/d239992cf7a44b887be6e199f731e8d620bf8555))
+
+
+### Tests
+
+* coverage report using coveralls ([784e655](https://github.com/efcasado/betradar_uof_api/commit/784e6559ca37d2b99a5440f45926e9ba20f1ad3b))
+
+
+### Miscellaneous Chores
+
+* update readme ([4018c86](https://github.com/efcasado/betradar_uof_api/commit/4018c860910e64bc7a2d60eebed043e204cd48b0))
+
 ## [2.0.0](https://github.com/efcasado/uof_api/compare/v1.1.0...v2.0.0) (2026-06-20)
 
 
